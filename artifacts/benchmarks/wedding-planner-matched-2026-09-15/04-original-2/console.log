@@ -1,0 +1,99 @@
+  + Exception Group Traceback (most recent call last):
+  |   File "/Users/dexterchan/sandbox/agentic/langchain_academy_classwork/lca-lc-foundations/artifacts/benchmarks/wedding-planner-matched-2026-09-15/runner.py", line 165, in worker
+  |     app = await (
+  |           ^^^^^^^
+  |   File "/Users/dexterchan/sandbox/agentic/langchain_academy_classwork/lca-lc-foundations/artifacts/benchmarks/wedding-planner-matched-2026-09-15/runner.py", line 107, in original_setup
+  |     await result
+  |   File "/Users/dexterchan/sandbox/agentic/langchain_academy_classwork/lca-lc-foundations/artifacts/benchmarks/wedding-planner-matched-2026-09-15/04-original-2/workdir/2.4_wedding_planners.py", line 78, in <module>
+  |     tools = await client.get_tools()
+  |             ^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "/Users/dexterchan/sandbox/agentic/langchain_academy_classwork/lca-lc-foundations/.venv/lib/python3.12/site-packages/langchain_mcp_adapters/client.py", line 213, in get_tools
+  |     tools_list = await asyncio.gather(*load_mcp_tool_tasks)
+  |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "/Users/dexterchan/sandbox/agentic/langchain_academy_classwork/lca-lc-foundations/.venv/lib/python3.12/site-packages/langchain_mcp_adapters/tools.py", line 590, in load_mcp_tools
+  |     async with create_session(
+  |                ^^^^^^^^^^^^^^^
+  |   File "/Users/dexterchan/.local/share/uv/python/cpython-3.12.11-macos-aarch64-none/lib/python3.12/contextlib.py", line 231, in __aexit__
+  |     await self.gen.athrow(value)
+  |   File "/Users/dexterchan/sandbox/agentic/langchain_academy_classwork/lca-lc-foundations/.venv/lib/python3.12/site-packages/langchain_mcp_adapters/sessions.py", line 455, in create_session
+  |     async with _create_streamable_http_session(**params) as session:
+  |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "/Users/dexterchan/.local/share/uv/python/cpython-3.12.11-macos-aarch64-none/lib/python3.12/contextlib.py", line 231, in __aexit__
+  |     await self.gen.athrow(value)
+  |   File "/Users/dexterchan/sandbox/agentic/langchain_academy_classwork/lca-lc-foundations/.venv/lib/python3.12/site-packages/langchain_mcp_adapters/sessions.py", line 360, in _create_streamable_http_session
+  |     streamable_http_client(
+  |   File "/Users/dexterchan/.local/share/uv/python/cpython-3.12.11-macos-aarch64-none/lib/python3.12/contextlib.py", line 231, in __aexit__
+  |     await self.gen.athrow(value)
+  |   File "/Users/dexterchan/sandbox/agentic/langchain_academy_classwork/lca-lc-foundations/.venv/lib/python3.12/site-packages/mcp/client/streamable_http.py", line 647, in streamable_http_client
+  |     async with anyio.create_task_group() as tg:
+  |                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "/Users/dexterchan/sandbox/agentic/langchain_academy_classwork/lca-lc-foundations/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 815, in __aexit__
+  |     raise BaseExceptionGroup(
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "/Users/dexterchan/sandbox/agentic/langchain_academy_classwork/lca-lc-foundations/.venv/lib/python3.12/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    |     yield
+    |   File "/Users/dexterchan/sandbox/agentic/langchain_academy_classwork/lca-lc-foundations/.venv/lib/python3.12/site-packages/httpx/_transports/default.py", line 394, in handle_async_request
+    |     resp = await self._pool.handle_async_request(req)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/dexterchan/sandbox/agentic/langchain_academy_classwork/lca-lc-foundations/.venv/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 256, in handle_async_request
+    |     raise exc from None
+    |   File "/Users/dexterchan/sandbox/agentic/langchain_academy_classwork/lca-lc-foundations/.venv/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 236, in handle_async_request
+    |     response = await connection.handle_async_request(
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/dexterchan/sandbox/agentic/langchain_academy_classwork/lca-lc-foundations/.venv/lib/python3.12/site-packages/httpcore/_async/connection.py", line 101, in handle_async_request
+    |     raise exc
+    |   File "/Users/dexterchan/sandbox/agentic/langchain_academy_classwork/lca-lc-foundations/.venv/lib/python3.12/site-packages/httpcore/_async/connection.py", line 78, in handle_async_request
+    |     stream = await self._connect(request)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/dexterchan/sandbox/agentic/langchain_academy_classwork/lca-lc-foundations/.venv/lib/python3.12/site-packages/httpcore/_async/connection.py", line 156, in _connect
+    |     stream = await stream.start_tls(**kwargs)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/dexterchan/sandbox/agentic/langchain_academy_classwork/lca-lc-foundations/.venv/lib/python3.12/site-packages/httpcore/_backends/anyio.py", line 67, in start_tls
+    |     with map_exceptions(exc_map):
+    |          ^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/dexterchan/.local/share/uv/python/cpython-3.12.11-macos-aarch64-none/lib/python3.12/contextlib.py", line 158, in __exit__
+    |     self.gen.throw(value)
+    |   File "/Users/dexterchan/sandbox/agentic/langchain_academy_classwork/lca-lc-foundations/.venv/lib/python3.12/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    |     raise to_exc(exc) from exc
+    | httpcore.ConnectError: [SSL: UNEXPECTED_MESSAGE] unexpected message (_ssl.c:1010)
+    | 
+    | The above exception was the direct cause of the following exception:
+    | 
+    | Traceback (most recent call last):
+    |   File "/Users/dexterchan/sandbox/agentic/langchain_academy_classwork/lca-lc-foundations/.venv/lib/python3.12/site-packages/anyio/_core/_tasks.py", line 275, in _run_coro
+    |     retval = await self._coro
+    |              ^^^^^^^^^^^^^^^^
+    |   File "/Users/dexterchan/sandbox/agentic/langchain_academy_classwork/lca-lc-foundations/.venv/lib/python3.12/site-packages/mcp/client/streamable_http.py", line 565, in handle_request_async
+    |     await self._handle_post_request(ctx)
+    |   File "/Users/dexterchan/sandbox/agentic/langchain_academy_classwork/lca-lc-foundations/.venv/lib/python3.12/site-packages/mcp/client/streamable_http.py", line 340, in _handle_post_request
+    |     async with ctx.client.stream(
+    |                ^^^^^^^^^^^^^^^^^^
+    |   File "/Users/dexterchan/.local/share/uv/python/cpython-3.12.11-macos-aarch64-none/lib/python3.12/contextlib.py", line 210, in __aenter__
+    |     return await anext(self.gen)
+    |            ^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/dexterchan/sandbox/agentic/langchain_academy_classwork/lca-lc-foundations/.venv/lib/python3.12/site-packages/httpx/_client.py", line 1583, in stream
+    |     response = await self.send(
+    |                ^^^^^^^^^^^^^^^^
+    |   File "/Users/dexterchan/sandbox/agentic/langchain_academy_classwork/lca-lc-foundations/.venv/lib/python3.12/site-packages/httpx/_client.py", line 1629, in send
+    |     response = await self._send_handling_auth(
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/dexterchan/sandbox/agentic/langchain_academy_classwork/lca-lc-foundations/.venv/lib/python3.12/site-packages/httpx/_client.py", line 1657, in _send_handling_auth
+    |     response = await self._send_handling_redirects(
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/dexterchan/sandbox/agentic/langchain_academy_classwork/lca-lc-foundations/.venv/lib/python3.12/site-packages/httpx/_client.py", line 1694, in _send_handling_redirects
+    |     response = await self._send_single_request(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/dexterchan/sandbox/agentic/langchain_academy_classwork/lca-lc-foundations/.venv/lib/python3.12/site-packages/httpx/_client.py", line 1730, in _send_single_request
+    |     response = await transport.handle_async_request(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/dexterchan/sandbox/agentic/langchain_academy_classwork/lca-lc-foundations/.venv/lib/python3.12/site-packages/httpx/_transports/default.py", line 393, in handle_async_request
+    |     with map_httpcore_exceptions():
+    |          ^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/dexterchan/.local/share/uv/python/cpython-3.12.11-macos-aarch64-none/lib/python3.12/contextlib.py", line 158, in __exit__
+    |     self.gen.throw(value)
+    |   File "/Users/dexterchan/sandbox/agentic/langchain_academy_classwork/lca-lc-foundations/.venv/lib/python3.12/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    |     raise mapped_exc(message) from exc
+    | httpx.ConnectError: [SSL: UNEXPECTED_MESSAGE] unexpected message (_ssl.c:1010)
+    +------------------------------------

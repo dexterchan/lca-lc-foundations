@@ -1,0 +1,24 @@
+Wedding plan complete
+Venue attempts: 1 / 5
+Travel date: 2027-03-14
+
+Venue candidate: Selected venue: Hôtel Particulier Montmartre (23 Avenue Junot, Pavillon D, 75018 Paris) — a real Parisian wedding venue: a historic Hermès-family mansion with a listed garden, offering full exclusivity and in-house catering. Advertised capacity: FrenchWeddingStyle.com lists "up to 200 guests" for a seated dinner (https://www.frenchweddingstyle.com/wedding-venues/hotel-particulier-montmartre), which accommodates the requested 100 guests; other third-party write-ups cite smaller figures (e.g., Le Joli Studio lists "up to 60 guests", starting €12,000 – https://www.lejolistudio.com/wedding-blog/10-most-unique-wedding-venues-paris). Date availability: NOT confirmed. No source publicizes confirmed availability for 2027-03-14; this must be verified directly with the venue (contact: +33 1 53 41 81 40 / hotelparticuliermontmartre.com events page), so advertised capacity should not be treated as confirmed booking availability for that date. Nearby arrival airport: Paris-Orly (ORY), documented by FrenchWeddingStyle as approx. 30 minutes by taxi; Paris-CDG also serves London-origin flights as an alternative. Note: search limit reached (4/4 web searches) prevented confirming any jazz-specific private-event programming or capacity for this venue; thematic fit verified only historically (Montmartre's bohemian/artistic heritage). No venues were excluded, and no prior flight error was provided.
+
+Flights: Flight found via Kiwi.com search (London → Paris-Orly, ORY, 14/03/2027, 1 adult, Economy, EUR): Cheapest AND shortest option — Vueling VY8058, direct non-stop LHR → ORY, departing London Heathrow 14 Mar 2027 15:15, arriving Paris Orly 17:45 (same day, 1h 30m), Economy, price 65 EUR (1 personal item included; no cabin or checked bag). Booking source link: https://kiwi.com/u/pyr5kb. This matches the selected venue's nearby arrival airport (Paris-Orly, ~30 min by taxi to Hôtel Particulier Montmartre per FrenchWeddingStyle). Note: 15 itineraries returned; this direct option is both the lowest price and shortest duration (5400s). Research only — nothing booked.
+
+Playlist: Jazz playlist (12 tracks):
+1. OAM's Blues — Aaron Goldberg
+2. Amanda — Aisha Duo
+3. Despertar — Aisha Duo
+4. Desafinado — Antônio Carlos Jobim
+5. Garota De Ipanema — Antônio Carlos Jobim
+6. Samba De Uma Nota Só (One Note Samba) — Antônio Carlos Jobim
+7. Por Causa De Você — Antônio Carlos Jobim
+8. Ligia — Antônio Carlos Jobim
+9. Fotografia — Antônio Carlos Jobim
+10. Dindi (Dindi) — Antônio Carlos Jobim
+11. Se Todos Fossem Iguais A Você (Instrumental) — Antônio Carlos Jobim
+12. Falando De Amor — Antônio Carlos Jobim
+Total duration: 0:43:07.376000
+Total price: USD 11.88
+Source: local Chinook.db (Track, Album, Artist, Genre).

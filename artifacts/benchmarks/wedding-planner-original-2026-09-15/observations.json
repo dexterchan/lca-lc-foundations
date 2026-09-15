@@ -1,0 +1,82 @@
+[
+  {
+    "run": "run-1",
+    "database_writes": [
+      {
+        "command": "INSERT",
+        "query": "INSERT INTO Playlist (PlaylistId, Name) VALUES (19, 'Wedding Jazz');",
+        "reported_error": false
+      },
+      {
+        "command": "INSERT",
+        "query": "INSERT INTO PlaylistTrack (PlaylistId, TrackId) VALUES \n(19, 602), (19, 609), (19, 610), (19, 606), (19, 607), (19, 603),\n(19, 63), (19, 64), (19, 73), (19, 69), (19, 67), (19, 68), (19, 71), (19, 72),\n(19, 631), (19, 638), (19, 639), (19, 641),\n(19, 2523), (19, 2526), (19, 3349), (19, 3350);",
+        "reported_error": false
+      }
+    ],
+    "past_date_flight_errors": 3,
+    "flight_searches_with_results": 3,
+    "stage_spans": {
+      "suggest_playlist": {
+        "start_s": 7.980826,
+        "end_s": 58.321776,
+        "duration_s": 50.3409528330003
+      },
+      "search_venues": {
+        "start_s": 7.980078,
+        "end_s": 165.134695,
+        "duration_s": 157.15461654199953
+      },
+      "search_flights": {
+        "start_s": 7.979515,
+        "end_s": 232.516702,
+        "duration_s": 224.53718449999997
+      }
+    }
+  },
+  {
+    "run": "run-2",
+    "database_writes": [],
+    "past_date_flight_errors": 3,
+    "flight_searches_with_results": 3,
+    "stage_spans": {
+      "search_flights": {
+        "start_s": 24.357251,
+        "end_s": 157.787518,
+        "duration_s": 133.43026929200096
+      },
+      "suggest_playlist": {
+        "start_s": 24.36006,
+        "end_s": 163.064607,
+        "duration_s": 138.70454916699964
+      },
+      "search_venues": {
+        "start_s": 24.358801,
+        "end_s": 184.122682,
+        "duration_s": 159.76388320800106
+      }
+    }
+  },
+  {
+    "run": "run-3",
+    "database_writes": [],
+    "past_date_flight_errors": 2,
+    "flight_searches_with_results": 2,
+    "stage_spans": {
+      "suggest_playlist": {
+        "start_s": 13.98555,
+        "end_s": 142.502306,
+        "duration_s": 128.51676000000043
+      },
+      "search_venues": {
+        "start_s": 13.984306,
+        "end_s": 176.388992,
+        "duration_s": 162.40468404199964
+      },
+      "search_flights": {
+        "start_s": 13.982805,
+        "end_s": 203.321779,
+        "duration_s": 189.33897370900013
+      }
+    }
+  }
+]

@@ -1,0 +1,86 @@
+{
+  "run": "run-2",
+  "status": "returned",
+  "process_returncode": 0,
+  "wall_s": 198.895,
+  "setup_s": 2.914387,
+  "planner_s": 195.254,
+  "model_calls": 20,
+  "model_calls_by_stage": {
+    "coordinator": 3,
+    "search_venues": 7,
+    "search_flights": 3,
+    "suggest_playlist": 7
+  },
+  "reported_usage": {
+    "input_tokens": 177809,
+    "output_tokens": 11270,
+    "total_tokens": 189079
+  },
+  "tool_calls": {
+    "update_state": 1,
+    "search_flights": 1,
+    "search_venues": 1,
+    "suggest_playlist": 1,
+    "query_playlist_db": 8,
+    "web_search": 12,
+    "search-flight": 6
+  },
+  "completed_tool_durations_s": {
+    "update_state": [
+      0.001
+    ],
+    "query_playlist_db": [
+      0.003,
+      0.002,
+      0.004,
+      0.002,
+      0.003,
+      0.001,
+      0.001,
+      0.002
+    ],
+    "web_search": [
+      2.474,
+      2.997,
+      2.563,
+      3.767,
+      1.775,
+      2.123,
+      2.235,
+      2.344,
+      1.999,
+      2.099,
+      2.354,
+      3.064
+    ],
+    "search-flight": [
+      2.17,
+      2.529,
+      3.628,
+      3.961,
+      5.522,
+      12.421
+    ],
+    "search_flights": [
+      133.43
+    ],
+    "suggest_playlist": [
+      138.705
+    ],
+    "search_venues": [
+      159.764
+    ]
+  },
+  "terminal_event": {
+    "kind": "run_end",
+    "elapsed_s": 198.168631,
+    "status": "returned",
+    "state": {
+      "origin": "London",
+      "destination": "Paris",
+      "guest_count": "100",
+      "genre": "jazz"
+    }
+  }
+}

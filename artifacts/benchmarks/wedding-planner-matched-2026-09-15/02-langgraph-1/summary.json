@@ -1,0 +1,114 @@
+{
+  "run": "02-langgraph-1",
+  "status": "incomplete",
+  "process_returncode": 0,
+  "wall_s": 119.773,
+  "setup_s": 0.991674,
+  "planner_s": 117.799,
+  "model_calls": 5,
+  "model_calls_by_stage": {
+    "collect_request": 1,
+    "venue": 4
+  },
+  "reported_usage": {
+    "input_tokens": 24499,
+    "output_tokens": 5048,
+    "total_tokens": 29547
+  },
+  "tool_calls": {
+    "update_state": 1,
+    "web_search": 4
+  },
+  "completed_tool_durations_s": {
+    "update_state": [
+      0.001
+    ],
+    "web_search": [
+      2.353,
+      2.608,
+      2.017,
+      2.719
+    ]
+  },
+  "terminal_event": {
+    "kind": "run_end",
+    "elapsed_s": 118.790891,
+    "status": "incomplete",
+    "state": {
+      "request": {
+        "origin": "London",
+        "destination": "Paris",
+        "guest_count": 100,
+        "genre": "jazz",
+        "travel_date": "2027-03-14"
+      },
+      "attempts": 1,
+      "rejected_venues": [],
+      "failures": [
+        "Venue attempt 1: Real venue identified in Paris with advertised capacity fitting 100 guests, but date availability for 2027-03-14 could NOT be confirmed before the search limit was reached, so the request is only partially satisfied.\n\nVENUE (advertised capacity only): H\u00f4tel de Crillon, A Rosewood Hotel, 10 Place de la Concorde, 75008 Paris. Official Rosewood listing (rosewoodhotels.com/en/hotel-de-crillon/events/weddings) shows its historic salons: Salon des Aigles up to 60 guests (largest), Salon Marie-Antoinette up to 40, Salon des Batailles up to 40. A Paris wedding-planner guide (lesecretdaudrey.com) states the three lounges can be privatized together or separately and accommodate a total of 100 guests; a second planner source (alejandrapoupel.com) notes adjoining rooms can hold a seated dinner of ~120. So advertised combined capacity supports the 100-guest count. Jazz genre is compatible (palace venue with live music/band noted in planner source). No rejected venues were listed, and this venue is not a spelling variant of any excluded one.\n\nARRIVAL AIRPORT: CDG (Paris Charles de Gaulle), the main international airport serving Paris; ORY (Orly) is the secondary option.\n\nCONFIRMED DATE AVAILABILITY: NOT CONFIRMED. No source verified open dates for 14 March 2027; the web_search tool hit its 4-call limit before a date-availability check could be completed. Do not treat 2027-03-14 as booked/available without inquiring directly (crillon.events@rosewoodhotels.com). Because the explicitly requested confirmed-availability element is missing, success=false."
+      ],
+      "last_error": "Real venue identified in Paris with advertised capacity fitting 100 guests, but date availability for 2027-03-14 could NOT be confirmed before the search limit was reached, so the request is only partially satisfied.\n\nVENUE (advertised capacity only): H\u00f4tel de Crillon, A Rosewood Hotel, 10 Place de la Concorde, 75008 Paris. Official Rosewood listing (rosewoodhotels.com/en/hotel-de-crillon/events/weddings) shows its historic salons: Salon des Aigles up to 60 guests (largest), Salon Marie-Antoinette up to 40, Salon des Batailles up to 40. A Paris wedding-planner guide (lesecretdaudrey.com) states the three lounges can be privatized together or separately and accommodate a total of 100 guests; a second planner source (alejandrapoupel.com) notes adjoining rooms can hold a seated dinner of ~120. So advertised combined capacity supports the 100-guest count. Jazz genre is compatible (palace venue with live music/band noted in planner source). No rejected venues were listed, and this venue is not a spelling variant of any excluded one.\n\nARRIVAL AIRPORT: CDG (Paris Charles de Gaulle), the main international airport serving Paris; ORY (Orly) is the secondary option.\n\nCONFIRMED DATE AVAILABILITY: NOT CONFIRMED. No source verified open dates for 14 March 2027; the web_search tool hit its 4-call limit before a date-availability check could be completed. Do not treat 2027-03-14 as booked/available without inquiring directly (crillon.events@rosewoodhotels.com). Because the explicitly requested confirmed-availability element is missing, success=false.",
+      "venue": {
+        "success": false,
+        "details": "Real venue identified in Paris with advertised capacity fitting 100 guests, but date availability for 2027-03-14 could NOT be confirmed before the search limit was reached, so the request is only partially satisfied.\n\nVENUE (advertised capacity only): H\u00f4tel de Crillon, A Rosewood Hotel, 10 Place de la Concorde, 75008 Paris. Official Rosewood listing (rosewoodhotels.com/en/hotel-de-crillon/events/weddings) shows its historic salons: Salon des Aigles up to 60 guests (largest), Salon Marie-Antoinette up to 40, Salon des Batailles up to 40. A Paris wedding-planner guide (lesecretdaudrey.com) states the three lounges can be privatized together or separately and accommodate a total of 100 guests; a second planner source (alejandrapoupel.com) notes adjoining rooms can hold a seated dinner of ~120. So advertised combined capacity supports the 100-guest count. Jazz genre is compatible (palace venue with live music/band noted in planner source). No rejected venues were listed, and this venue is not a spelling variant of any excluded one.\n\nARRIVAL AIRPORT: CDG (Paris Charles de Gaulle), the main international airport serving Paris; ORY (Orly) is the secondary option.\n\nCONFIRMED DATE AVAILABILITY: NOT CONFIRMED. No source verified open dates for 14 March 2027; the web_search tool hit its 4-call limit before a date-availability check could be completed. Do not treat 2027-03-14 as booked/available without inquiring directly (crillon.events@rosewoodhotels.com). Because the explicitly requested confirmed-availability element is missing, success=false.",
+        "venue_name": "H\u00f4tel de Crillon, A Rosewood Hotel",
+        "arrival_airport": "CDG"
+      },
+      "flights": null,
+      "playlist": null,
+      "status": "incomplete",
+      "output": "Wedding plan incomplete\nVenue attempts: 1 / 5\nTravel date: 2027-03-14\n\nVenue candidate: Real venue identified in Paris with advertised capacity fitting 100 guests, but date availability for 2027-03-14 could NOT be confirmed before the search limit was reached, so the request is only partially satisfied.\n\nVENUE (advertised capacity only): H\u00f4tel de Crillon, A Rosewood Hotel, 10 Place de la Concorde, 75008 Paris. Official Rosewood listing (rosewoodhotels.com/en/hotel-de-crillon/events/weddings) shows its historic salons: Salon des Aigles up to 60 guests (largest), Salon Marie-Antoinette up to 40, Salon des Batailles up to 40. A Paris wedding-planner guide (lesecretdaudrey.com) states the three lounges can be privatized together or separately and accommodate a total of 100 guests; a second planner source (alejandrapoupel.com) notes adjoining rooms can hold a seated dinner of ~120. So advertised combined capacity supports the 100-guest count. Jazz genre is compatible (palace venue with live music/band noted in planner source). No rejected venues were listed, and this venue is not a spelling variant of any excluded one.\n\nARRIVAL AIRPORT: CDG (Paris Charles de Gaulle), the main international airport serving Paris; ORY (Orly) is the secondary option.\n\nCONFIRMED DATE AVAILABILITY: NOT CONFIRMED. No source verified open dates for 14 March 2027; the web_search tool hit its 4-call limit before a date-availability check could be completed. Do not treat 2027-03-14 as booked/available without inquiring directly (crillon.events@rosewoodhotels.com). Because the explicitly requested confirmed-availability element is missing, success=false.\n\nFlights: Not run.\n\nPlaylist: Not run.\n\nSearch issues:\nVenue attempt 1: Real venue identified in Paris with advertised capacity fitting 100 guests, but date availability for 2027-03-14 could NOT be confirmed before the search limit was reached, so the request is only partially satisfied.\n\nVENUE (advertised capacity only): H\u00f4tel de Crillon, A Rosewood Hotel, 10 Place de la Concorde, 75008 Paris. Official Rosewood listing (rosewoodhotels.com/en/hotel-de-crillon/events/weddings) shows its historic salons: Salon des Aigles up to 60 guests (largest), Salon Marie-Antoinette up to 40, Salon des Batailles up to 40. A Paris wedding-planner guide (lesecretdaudrey.com) states the three lounges can be privatized together or separately and accommodate a total of 100 guests; a second planner source (alejandrapoupel.com) notes adjoining rooms can hold a seated dinner of ~120. So advertised combined capacity supports the 100-guest count. Jazz genre is compatible (palace venue with live music/band noted in planner source). No rejected venues were listed, and this venue is not a spelling variant of any excluded one.\n\nARRIVAL AIRPORT: CDG (Paris Charles de Gaulle), the main international airport serving Paris; ORY (Orly) is the secondary option.\n\nCONFIRMED DATE AVAILABILITY: NOT CONFIRMED. No source verified open dates for 14 March 2027; the web_search tool hit its 4-call limit before a date-availability check could be completed. Do not treat 2027-03-14 as booked/available without inquiring directly (crillon.events@rosewoodhotels.com). Because the explicitly requested confirmed-availability element is missing, success=false."
+    }
+  },
+  "variant": "langgraph",
+  "node_spans": [
+    {
+      "kind": "node_end",
+      "elapsed_s": 5.886683,
+      "id": "01a0a4dc-0c39-7f13-97fe-ee87814cbf01",
+      "name": "collect_request",
+      "duration_s": 4.8523842909999075,
+      "success": null,
+      "details": null,
+      "state_status": "running"
+    },
+    {
+      "kind": "node_end",
+      "elapsed_s": 118.788205,
+      "id": "01a0a4dc-1f2e-7360-89b8-b95ff136f319",
+      "name": "venue",
+      "duration_s": 112.90107962500042,
+      "success": false,
+      "details": "Real venue identified in Paris with advertised capacity fitting 100 guests, but date availability for 2027-03-14 could NOT be confirmed before the search limit was reached, so the request is only partially satisfied.\n\nVENUE (advertised capacity only): H\u00f4tel de Crillon, A Rosewood Hotel, 10 Place de la Concorde, 75008 Paris. Official Rosewood listing (rosewoodhotels.com/en/hotel-de-crillon/events/weddings) shows its historic salons: Salon des Aigles up to 60 guests (largest), Salon Marie-Antoinette up to 40, Salon des Batailles up to 40. A Paris wedding-planner guide (lesecretdaudrey.com) states the three lounges can be privatized together or separately and accommodate a total of 100 guests; a second planner source (alejandrapoupel.com) notes adjoining rooms can hold a seated dinner of ~120. So advertised combined capacity supports the 100-guest count. Jazz genre is compatible (palace venue with live music/band noted in planner source). No rejected venues were listed, and this venue is not a spelling variant of any excluded one.\n\nARRIVAL AIRPORT: CDG (Paris Charles de Gaulle), the main international airport serving Paris; ORY (Orly) is the secondary option.\n\nCONFIRMED DATE AVAILABILITY: NOT CONFIRMED. No source verified open dates for 14 March 2027; the web_search tool hit its 4-call limit before a date-availability check could be completed. Do not treat 2027-03-14 as booked/available without inquiring directly (crillon.events@rosewoodhotels.com). Because the explicitly requested confirmed-availability element is missing, success=false.",
+      "state_status": "running"
+    },
+    {
+      "kind": "node_end",
+      "elapsed_s": 118.789108,
+      "id": "01a0a4dd-d832-72f1-99cd-0d2e61379d10",
+      "name": "output",
+      "duration_s": 0.00034308300018892623,
+      "success": null,
+      "details": null,
+      "state_status": "incomplete"
+    }
+  ],
+  "sql_calls": 0,
+  "copied_database_changed": false,
+  "evidence_review": {
+    "core_pass": false,
+    "venue": "pass",
+    "flight": "not_run",
+    "playlist": "not_run",
+    "reason": "The venue agent returned success=false because it could not confirm the exact date was available, despite finding an eligible venue. The graph stopped before flights and music.",
+    "evidence": [
+      "answer.txt identifies Hotel de Crillon and explicitly cites lack of confirmed availability as the reason for failure.",
+      "A saved search result supports combined capacity of 100: https://www.lesecretdaudrey.com/rendez-vous-with-audrey-your-wedding-at-hotel-de-crillon-paris",
+      "The common criteria require advertised capacity and honest availability wording; confirmed availability was not required.",
+      "The venue agent attempted two extra web searches after using its four allowed calls. Those calls were blocked. Its final structured answer used a real JSON false."
+    ],
+    "quality_notes": [
+      "This run did not time out. Increasing the time limit would not correct its success decision."
+    ]
+  }
+}

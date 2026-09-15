@@ -1,0 +1,116 @@
+[
+  {
+    "type": "human",
+    "data": {
+      "content": "I'm from London and want a wedding in Paris for 100 guests, with jazz music. Travel date: 2027-03-14.",
+      "additional_kwargs": {},
+      "response_metadata": {},
+      "type": "human",
+      "name": null,
+      "id": "9b4a6416-60e0-468a-86f3-7b381ffef37b"
+    }
+  },
+  {
+    "type": "ai",
+    "data": {
+      "content": "",
+      "additional_kwargs": {
+        "refusal": null,
+        "reasoning_content": "The user gave: origin=London, destination=Paris, guest_count=100, genre=jazz, travel_date=2027-03-14.\n\nI should call update_state with all these known fields."
+      },
+      "response_metadata": {
+        "token_usage": {
+          "completion_tokens": 159,
+          "prompt_tokens": 698,
+          "total_tokens": 857,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": 0,
+            "reasoning_tokens": 42,
+            "rejected_prediction_tokens": null,
+            "image_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 0,
+            "cached_tokens": 0,
+            "video_tokens": 0
+          },
+          "cost": 6.721e-05,
+          "is_byok": false,
+          "cost_details": {
+            "upstream_inference_cost": 6.721e-05,
+            "upstream_inference_prompt_cost": 3.99256e-05,
+            "upstream_inference_completions_cost": 2.72844e-05
+          }
+        },
+        "model_provider": "deepseek",
+        "model_name": "deepseek/deepseek-v4-flash-0731",
+        "system_fingerprint": null,
+        "id": "gen-1789472648-wkl8Z2cecZkEGTXzne0J",
+        "finish_reason": "tool_calls",
+        "logprobs": null
+      },
+      "type": "ai",
+      "name": null,
+      "id": "lc_run--01a0a4e1-aaa4-79d0-b68f-f6d532c0cea3-0",
+      "tool_calls": [
+        {
+          "name": "update_state",
+          "args": {
+            "destination": "Paris",
+            "genre": "jazz",
+            "guest_count": 100,
+            "origin": "London",
+            "travel_date": "2027-03-14"
+          },
+          "id": "call_2dd8eaa505db4d0990abc0f3",
+          "type": "tool_call"
+        }
+      ],
+      "invalid_tool_calls": [],
+      "usage_metadata": {
+        "input_tokens": 698,
+        "output_tokens": 159,
+        "total_tokens": 857,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 0
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 42
+        }
+      }
+    }
+  },
+  {
+    "type": "tool",
+    "data": {
+      "content": "Saved request: {\"origin\": \"London\", \"destination\": \"Paris\", \"guest_count\": 100, \"genre\": \"jazz\", \"travel_date\": \"2027-03-14\"}",
+      "additional_kwargs": {},
+      "response_metadata": {},
+      "type": "tool",
+      "name": "update_state",
+      "id": "a6ae5e80-b40a-4759-b776-4924c6eb97db",
+      "tool_call_id": "call_2dd8eaa505db4d0990abc0f3",
+      "artifact": null,
+      "status": "success"
+    }
+  },
+  {
+    "type": "ai",
+    "data": {
+      "content": "Wedding plan complete\nVenue attempts: 1 / 5\nTravel date: 2027-03-14\n\nVenue candidate: Selected venue: H\u00f4tel Particulier Montmartre (23 Avenue Junot, Pavillon D, 75018 Paris) \u2014 a real Parisian wedding venue: a historic Herm\u00e8s-family mansion with a listed garden, offering full exclusivity and in-house catering. Advertised capacity: FrenchWeddingStyle.com lists \"up to 200 guests\" for a seated dinner (https://www.frenchweddingstyle.com/wedding-venues/hotel-particulier-montmartre), which accommodates the requested 100 guests; other third-party write-ups cite smaller figures (e.g., Le Joli Studio lists \"up to 60 guests\", starting \u20ac12,000 \u2013 https://www.lejolistudio.com/wedding-blog/10-most-unique-wedding-venues-paris). Date availability: NOT confirmed. No source publicizes confirmed availability for 2027-03-14; this must be verified directly with the venue (contact: +33 1 53 41 81 40 / hotelparticuliermontmartre.com events page), so advertised capacity should not be treated as confirmed booking availability for that date. Nearby arrival airport: Paris-Orly (ORY), documented by FrenchWeddingStyle as approx. 30 minutes by taxi; Paris-CDG also serves London-origin flights as an alternative. Note: search limit reached (4/4 web searches) prevented confirming any jazz-specific private-event programming or capacity for this venue; thematic fit verified only historically (Montmartre's bohemian/artistic heritage). No venues were excluded, and no prior flight error was provided.\n\nFlights: Flight found via Kiwi.com search (London \u2192 Paris-Orly, ORY, 14/03/2027, 1 adult, Economy, EUR): Cheapest AND shortest option \u2014 Vueling VY8058, direct non-stop LHR \u2192 ORY, departing London Heathrow 14 Mar 2027 15:15, arriving Paris Orly 17:45 (same day, 1h 30m), Economy, price 65 EUR (1 personal item included; no cabin or checked bag). Booking source link: https://kiwi.com/u/pyr5kb. This matches the selected venue's nearby arrival airport (Paris-Orly, ~30 min by taxi to H\u00f4tel Particulier Montmartre per FrenchWeddingStyle). Note: 15 itineraries returned; this direct option is both the lowest price and shortest duration (5400s). Research only \u2014 nothing booked.\n\nPlaylist: Jazz playlist (12 tracks):\n1. OAM's Blues \u2014 Aaron Goldberg\n2. Amanda \u2014 Aisha Duo\n3. Despertar \u2014 Aisha Duo\n4. Desafinado \u2014 Ant\u00f4nio Carlos Jobim\n5. Garota De Ipanema \u2014 Ant\u00f4nio Carlos Jobim\n6. Samba De Uma Nota S\u00f3 (One Note Samba) \u2014 Ant\u00f4nio Carlos Jobim\n7. Por Causa De Voc\u00ea \u2014 Ant\u00f4nio Carlos Jobim\n8. Ligia \u2014 Ant\u00f4nio Carlos Jobim\n9. Fotografia \u2014 Ant\u00f4nio Carlos Jobim\n10. Dindi (Dindi) \u2014 Ant\u00f4nio Carlos Jobim\n11. Se Todos Fossem Iguais A Voc\u00ea (Instrumental) \u2014 Ant\u00f4nio Carlos Jobim\n12. Falando De Amor \u2014 Ant\u00f4nio Carlos Jobim\nTotal duration: 0:43:07.376000\nTotal price: USD 11.88\nSource: local Chinook.db (Track, Album, Artist, Genre).",
+      "additional_kwargs": {},
+      "response_metadata": {},
+      "type": "ai",
+      "name": null,
+      "id": "41554ea5-13f2-4524-9895-f74025aebaae",
+      "tool_calls": [],
+      "invalid_tool_calls": [],
+      "usage_metadata": null
+    }
+  }
+]

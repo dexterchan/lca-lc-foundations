@@ -1,0 +1,12 @@
+Wedding plan incomplete
+Venue attempts: 1 / 5
+Travel date: 2027-03-14
+
+Venue candidate: Search timed out after 90 seconds.
+
+Flights: Not run.
+
+Playlist: Not run.
+
+Search issues:
+Venue attempt 1: Search timed out after 90 seconds.

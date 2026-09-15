@@ -1,0 +1,26 @@
+Wedding plan complete
+Venue attempts: 1 / 5
+Travel date: 2027-03-14
+
+Venue candidate: Selected Shangri-La Hotel, Paris (16th arrondissement, within the city of Paris itself). A sourcing blog covering top hotel wedding venues in France states its Grand Salon primary wedding reception space "can accommodate well over 100 guests for a seated dinner," comfortably covering the 100-guest wedding. The same source confirms the venue is in Paris's 16th arrondissement with a private garden used for ceremonies, and the hotel is directly on the Seine with Eiffel Tower views. A second Paris-wedding guide also lists Shangri-La Paris among venues for an Eiffel Tower / luxury ballroom wedding. Destination match: yes (venue is in Paris). Nearest major arrival airport: CDG (Paris-Charles de Gaulle). Date availability for 2027-03-14 is unknown: no source confirmed availability or unavailability for that date; per instructions, this does not make the venue unsuitable. Note: I had no tool calls left to verify venue-official capacity pages or date availability, so capacity rests on the sourced blog description and availability on no evidence either way. The rejected_venues list was empty.
+Sources: https://courtneybowlden.com/7-best-hotel-wedding-venues-in-france, https://www.theparisphotographer.com/paris-wedding
+Date availability: Not confirmed. Check with the venue before booking.
+
+Flights: One-way economy flight found for 1 adult from London to Paris CDG on 14/03/2027. Cheapest option: London Southend (SEN) → Paris Charles de Gaulle (CDG), direct non-stop, easyJet flight U25711, departing 2027-03-14 15:55, arriving 18:05 (1h 10m), Economy, 60 EUR. Booking source: https://kiwi.com/u/uhjbrg (Kiwi.com). 15 results returned, all direct; the 60 EUR easyJet option is both the lowest price and among the shortest (1h10m).
+
+Playlist: Jazz playlist (12 tracks):
+1. OAM's Blues — Aaron Goldberg
+2. Amanda — Aisha Duo
+3. Despertar — Aisha Duo
+4. Desafinado — Antônio Carlos Jobim
+5. Garota De Ipanema — Antônio Carlos Jobim
+6. Samba De Uma Nota Só (One Note Samba) — Antônio Carlos Jobim
+7. Por Causa De Você — Antônio Carlos Jobim
+8. Ligia — Antônio Carlos Jobim
+9. Fotografia — Antônio Carlos Jobim
+10. Dindi (Dindi) — Antônio Carlos Jobim
+11. Se Todos Fossem Iguais A Você (Instrumental) — Antônio Carlos Jobim
+12. Falando De Amor — Antônio Carlos Jobim
+Total duration: 0:43:07.376000
+Total price: USD 11.88
+Source: local Chinook.db (Track, Album, Artist, Genre).

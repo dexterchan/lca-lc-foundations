@@ -1,0 +1,123 @@
+{
+  "run": "run-1",
+  "status": "complete",
+  "process_returncode": 0,
+  "wall_s": 140.173,
+  "setup_s": 1.361596,
+  "planner_s": 137.987,
+  "model_calls": 7,
+  "model_calls_by_stage": {
+    "collect_request": 1,
+    "venue": 4,
+    "flights": 2
+  },
+  "reported_usage": {
+    "input_tokens": 40795,
+    "output_tokens": 3052,
+    "total_tokens": 43847
+  },
+  "tool_calls": {
+    "update_state": 1,
+    "web_search": 4,
+    "search-flight": 1
+  },
+  "completed_tool_durations_s": {
+    "update_state": [
+      0.001
+    ],
+    "web_search": [
+      2.863,
+      3.043,
+      1.999,
+      2.846
+    ],
+    "search-flight": [
+      4.556
+    ]
+  },
+  "terminal_event": {
+    "kind": "run_end",
+    "elapsed_s": 139.348741,
+    "status": "complete",
+    "state": {
+      "request": {
+        "origin": "London",
+        "destination": "Paris",
+        "guest_count": 100,
+        "genre": "jazz",
+        "travel_date": "2027-03-14"
+      },
+      "attempts": 1,
+      "rejected_venues": [],
+      "failures": [],
+      "last_error": "",
+      "venue": {
+        "success": true,
+        "details": "Selected Shangri-La Hotel, Paris (16th arrondissement, within the city of Paris itself). A sourcing blog covering top hotel wedding venues in France states its Grand Salon primary wedding reception space \"can accommodate well over 100 guests for a seated dinner,\" comfortably covering the 100-guest wedding. The same source confirms the venue is in Paris's 16th arrondissement with a private garden used for ceremonies, and the hotel is directly on the Seine with Eiffel Tower views. A second Paris-wedding guide also lists Shangri-La Paris among venues for an Eiffel Tower / luxury ballroom wedding. Destination match: yes (venue is in Paris). Nearest major arrival airport: CDG (Paris-Charles de Gaulle). Date availability for 2027-03-14 is unknown: no source confirmed availability or unavailability for that date; per instructions, this does not make the venue unsuitable. Note: I had no tool calls left to verify venue-official capacity pages or date availability, so capacity rests on the sourced blog description and availability on no evidence either way. The rejected_venues list was empty.\nSources: https://courtneybowlden.com/7-best-hotel-wedding-venues-in-france, https://www.theparisphotographer.com/paris-wedding\nDate availability: Not confirmed. Check with the venue before booking.",
+        "venue_name": "Shangri-La Hotel, Paris",
+        "date_availability": "unknown",
+        "arrival_airport": "CDG"
+      },
+      "flights": {
+        "success": true,
+        "details": "One-way economy flight found for 1 adult from London to Paris CDG on 14/03/2027. Cheapest option: London Southend (SEN) \u2192 Paris Charles de Gaulle (CDG), direct non-stop, easyJet flight U25711, departing 2027-03-14 15:55, arriving 18:05 (1h 10m), Economy, 60 EUR. Booking source: https://kiwi.com/u/uhjbrg (Kiwi.com). 15 results returned, all direct; the 60 EUR easyJet option is both the lowest price and among the shortest (1h10m)."
+      },
+      "playlist": {
+        "success": true,
+        "details": "Jazz playlist (12 tracks):\n1. OAM's Blues \u2014 Aaron Goldberg\n2. Amanda \u2014 Aisha Duo\n3. Despertar \u2014 Aisha Duo\n4. Desafinado \u2014 Ant\u00f4nio Carlos Jobim\n5. Garota De Ipanema \u2014 Ant\u00f4nio Carlos Jobim\n6. Samba De Uma Nota S\u00f3 (One Note Samba) \u2014 Ant\u00f4nio Carlos Jobim\n7. Por Causa De Voc\u00ea \u2014 Ant\u00f4nio Carlos Jobim\n8. Ligia \u2014 Ant\u00f4nio Carlos Jobim\n9. Fotografia \u2014 Ant\u00f4nio Carlos Jobim\n10. Dindi (Dindi) \u2014 Ant\u00f4nio Carlos Jobim\n11. Se Todos Fossem Iguais A Voc\u00ea (Instrumental) \u2014 Ant\u00f4nio Carlos Jobim\n12. Falando De Amor \u2014 Ant\u00f4nio Carlos Jobim\nTotal duration: 0:43:07.376000\nTotal price: USD 11.88\nSource: local Chinook.db (Track, Album, Artist, Genre)."
+      },
+      "status": "complete",
+      "output": "Wedding plan complete\nVenue attempts: 1 / 5\nTravel date: 2027-03-14\n\nVenue candidate: Selected Shangri-La Hotel, Paris (16th arrondissement, within the city of Paris itself). A sourcing blog covering top hotel wedding venues in France states its Grand Salon primary wedding reception space \"can accommodate well over 100 guests for a seated dinner,\" comfortably covering the 100-guest wedding. The same source confirms the venue is in Paris's 16th arrondissement with a private garden used for ceremonies, and the hotel is directly on the Seine with Eiffel Tower views. A second Paris-wedding guide also lists Shangri-La Paris among venues for an Eiffel Tower / luxury ballroom wedding. Destination match: yes (venue is in Paris). Nearest major arrival airport: CDG (Paris-Charles de Gaulle). Date availability for 2027-03-14 is unknown: no source confirmed availability or unavailability for that date; per instructions, this does not make the venue unsuitable. Note: I had no tool calls left to verify venue-official capacity pages or date availability, so capacity rests on the sourced blog description and availability on no evidence either way. The rejected_venues list was empty.\nSources: https://courtneybowlden.com/7-best-hotel-wedding-venues-in-france, https://www.theparisphotographer.com/paris-wedding\nDate availability: Not confirmed. Check with the venue before booking.\n\nFlights: One-way economy flight found for 1 adult from London to Paris CDG on 14/03/2027. Cheapest option: London Southend (SEN) \u2192 Paris Charles de Gaulle (CDG), direct non-stop, easyJet flight U25711, departing 2027-03-14 15:55, arriving 18:05 (1h 10m), Economy, 60 EUR. Booking source: https://kiwi.com/u/uhjbrg (Kiwi.com). 15 results returned, all direct; the 60 EUR easyJet option is both the lowest price and among the shortest (1h10m).\n\nPlaylist: Jazz playlist (12 tracks):\n1. OAM's Blues \u2014 Aaron Goldberg\n2. Amanda \u2014 Aisha Duo\n3. Despertar \u2014 Aisha Duo\n4. Desafinado \u2014 Ant\u00f4nio Carlos Jobim\n5. Garota De Ipanema \u2014 Ant\u00f4nio Carlos Jobim\n6. Samba De Uma Nota S\u00f3 (One Note Samba) \u2014 Ant\u00f4nio Carlos Jobim\n7. Por Causa De Voc\u00ea \u2014 Ant\u00f4nio Carlos Jobim\n8. Ligia \u2014 Ant\u00f4nio Carlos Jobim\n9. Fotografia \u2014 Ant\u00f4nio Carlos Jobim\n10. Dindi (Dindi) \u2014 Ant\u00f4nio Carlos Jobim\n11. Se Todos Fossem Iguais A Voc\u00ea (Instrumental) \u2014 Ant\u00f4nio Carlos Jobim\n12. Falando De Amor \u2014 Ant\u00f4nio Carlos Jobim\nTotal duration: 0:43:07.376000\nTotal price: USD 11.88\nSource: local Chinook.db (Track, Album, Artist, Genre)."
+    },
+    "copied_database_unchanged": true
+  },
+  "node_spans": [
+    {
+      "kind": "node_end",
+      "elapsed_s": 16.401174,
+      "id": "01a0a4f0-f362-72e0-a922-14bbd5e98974",
+      "name": "collect_request",
+      "duration_s": 14.97717074999673,
+      "success": null,
+      "state_status": "running"
+    },
+    {
+      "kind": "node_end",
+      "elapsed_s": 107.36704,
+      "id": "01a0a4f1-2de3-7ed1-808e-08e38635c92f",
+      "name": "venue",
+      "duration_s": 90.96536416699746,
+      "success": true,
+      "state_status": "running"
+    },
+    {
+      "kind": "node_end",
+      "elapsed_s": 139.343482,
+      "id": "01a0a4f2-9139-77e1-a1be-a5475b77b2cf",
+      "name": "flights",
+      "duration_s": 31.97595866700067,
+      "success": true,
+      "state_status": null
+    },
+    {
+      "kind": "node_end",
+      "elapsed_s": 139.346,
+      "id": "01a0a4f3-0e21-7b03-b718-a1a4e2a7a024",
+      "name": "playlist",
+      "duration_s": 0.0020926249999320135,
+      "success": true,
+      "state_status": null
+    },
+    {
+      "kind": "node_end",
+      "elapsed_s": 139.346725,
+      "id": "01a0a4f3-0e24-7773-a612-3e487e523843",
+      "name": "output",
+      "duration_s": 0.0003346249977767002,
+      "success": null,
+      "state_status": "complete"
+    }
+  ],
+  "sql_calls": 1,
+  "sql_s": 0.0016131660013343208
+}

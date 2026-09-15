@@ -1,0 +1,124 @@
+{
+  "source": "/Users/dexterchan/sandbox/agentic/langchain_academy_classwork/lca-lc-foundations/notebooks/module-2/2.4_wedding_planners_langgraph.py",
+  "source_sha256": "d4056fa2a0cd5c9ee0ddc117f9eccd3df271a8c49850073991238740f73d11a1",
+  "database_sha256": "84f5d9143ac4deebdb81650ab650e226d909e660106846b119a5c47c33f94c13",
+  "prompt": "I'm from London and want a wedding in Paris for 100 guests, with jazz music. Travel date: 2027-03-14.",
+  "planner_timeout_s": 300,
+  "step_timeout_s": 180,
+  "outer_process_cap_s": 330,
+  "runs": 1,
+  "sequential": true,
+  "model": "deepseek/deepseek-v4-flash-0731",
+  "python": "3.12.11 (main, Sep 18 2025, 19:41:45) [Clang 20.1.4 ]",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "packages": {
+    "langchain": "1.3.14",
+    "langgraph": "1.2.10",
+    "langchain-deepseek": "1.1.0",
+    "mcp": "1.29.0",
+    "tavily-python": "0.7.27"
+  },
+  "method": "Unchanged source copied beside a fresh database for every trial. Run main() with its normal limits and built-in example, freezing the example date across trials. Timing callbacks record graph nodes, models and tools; query_playlist is wrapped only to measure SQL time. Every trial gets a fresh process and session. A partial return is incomplete, even if the process exits normally.",
+  "source_unchanged": true,
+  "database_unchanged": true,
+  "complete_runs": 0,
+  "median_complete_wall_s": null,
+  "median_response_wall_s": 185.772,
+  "results": [
+    {
+      "run": "run-1",
+      "status": "incomplete",
+      "process_returncode": 0,
+      "wall_s": 185.772,
+      "setup_s": 1.205379,
+      "planner_s": 183.788,
+      "model_calls": 4,
+      "model_calls_by_stage": {
+        "collect_request": 1,
+        "venue": 3
+      },
+      "reported_usage": {
+        "input_tokens": 6151,
+        "output_tokens": 673,
+        "total_tokens": 6824
+      },
+      "tool_calls": {
+        "update_state": 1,
+        "web_search": 4
+      },
+      "completed_tool_durations_s": {
+        "update_state": [
+          0.002
+        ],
+        "web_search": [
+          2.315,
+          2.52,
+          2.658,
+          3.915
+        ]
+      },
+      "terminal_event": {
+        "kind": "run_end",
+        "elapsed_s": 184.993941,
+        "status": "incomplete",
+        "state": {
+          "request": {
+            "origin": "London",
+            "destination": "Paris",
+            "guest_count": 100,
+            "genre": "jazz",
+            "travel_date": "2027-03-14"
+          },
+          "attempts": 1,
+          "rejected_venues": [],
+          "failures": [
+            "Venue attempt 1: Search timed out after 180 seconds."
+          ],
+          "last_error": "Search timed out after 180 seconds.",
+          "venue": {
+            "success": false,
+            "details": "Search timed out after 180 seconds.",
+            "venue_name": "",
+            "arrival_airport": ""
+          },
+          "flights": null,
+          "playlist": null,
+          "status": "incomplete",
+          "output": "Wedding plan incomplete\nVenue attempts: 1 / 5\nTravel date: 2027-03-14\n\nVenue candidate: Search timed out after 180 seconds.\n\nFlights: Not run.\n\nPlaylist: Not run.\n\nSearch issues:\nVenue attempt 1: Search timed out after 180 seconds."
+        },
+        "copied_database_unchanged": true
+      },
+      "node_spans": [
+        {
+          "kind": "node_end",
+          "elapsed_s": 4.977428,
+          "id": "01a0a4b6-0aa7-7593-a7a7-07ec3f1251d7",
+          "name": "collect_request",
+          "duration_s": 3.7293664579992765,
+          "success": null,
+          "state_status": "running"
+        },
+        {
+          "kind": "node_end",
+          "elapsed_s": 184.990434,
+          "id": "01a0a4b6-1939-7fc1-9f30-05f4df0fbd78",
+          "name": "venue",
+          "duration_s": 180.0124646660006,
+          "success": false,
+          "state_status": "running"
+        },
+        {
+          "kind": "node_end",
+          "elapsed_s": 184.991612,
+          "id": "01a0a4b8-d866-7a51-89b0-389911fc6d3e",
+          "name": "output",
+          "duration_s": 0.00046012500024517067,
+          "success": null,
+          "state_status": "incomplete"
+        }
+      ],
+      "sql_calls": 0,
+      "sql_s": 0
+    }
+  ]
+}

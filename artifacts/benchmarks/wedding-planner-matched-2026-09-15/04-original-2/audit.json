@@ -1,0 +1,16 @@
+{
+  "terminal": {
+    "kind": "run_end",
+    "elapsed_s": 0.723185,
+    "status": "error",
+    "phase": "setup",
+    "error": "ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)"
+  },
+  "stages": [],
+  "model_durations": [],
+  "unfinished_calls": [],
+  "flight_queries": [],
+  "flight_model_received_requested_date": [],
+  "sql_queries": [],
+  "direct_sql_results": []
+}

@@ -1,0 +1,95 @@
+{
+  "run": "run-1",
+  "status": "incomplete",
+  "process_returncode": 0,
+  "wall_s": 97.663,
+  "setup_s": 1.375651,
+  "planner_s": 95.495,
+  "model_calls": 5,
+  "model_calls_by_stage": {
+    "collect_request": 1,
+    "venue": 4
+  },
+  "reported_usage": {
+    "input_tokens": 15151,
+    "output_tokens": 1634,
+    "total_tokens": 16785
+  },
+  "tool_calls": {
+    "update_state": 1,
+    "web_search": 4
+  },
+  "completed_tool_durations_s": {
+    "update_state": [
+      0.002
+    ],
+    "web_search": [
+      1.975,
+      2.997,
+      1.684,
+      2.325
+    ]
+  },
+  "terminal_event": {
+    "kind": "run_end",
+    "elapsed_s": 96.871049,
+    "status": "incomplete",
+    "state": {
+      "request": {
+        "origin": "London",
+        "destination": "Paris",
+        "guest_count": 100,
+        "genre": "jazz",
+        "travel_date": "2027-03-14"
+      },
+      "attempts": 1,
+      "rejected_venues": [],
+      "failures": [
+        "Venue attempt 1: Search timed out after 90 seconds."
+      ],
+      "last_error": "Search timed out after 90 seconds.",
+      "venue": {
+        "success": false,
+        "details": "Search timed out after 90 seconds.",
+        "venue_name": "",
+        "arrival_airport": ""
+      },
+      "flights": null,
+      "playlist": null,
+      "status": "incomplete",
+      "output": "Wedding plan incomplete\nVenue attempts: 1 / 5\nTravel date: 2027-03-14\n\nVenue candidate: Search timed out after 90 seconds.\n\nFlights: Not run.\n\nPlaylist: Not run.\n\nSearch issues:\nVenue attempt 1: Search timed out after 90 seconds."
+    },
+    "copied_database_unchanged": true
+  },
+  "node_spans": [
+    {
+      "kind": "node_end",
+      "elapsed_s": 6.840243,
+      "id": "01a0a498-a7e8-7133-a451-756d82601b84",
+      "name": "collect_request",
+      "duration_s": 5.382312792000448,
+      "success": null,
+      "state_status": "running"
+    },
+    {
+      "kind": "node_end",
+      "elapsed_s": 96.86523,
+      "id": "01a0a498-bcef-7090-beaa-37d86817cb8f",
+      "name": "venue",
+      "duration_s": 90.02423912499944,
+      "success": false,
+      "state_status": "running"
+    },
+    {
+      "kind": "node_end",
+      "elapsed_s": 96.866761,
+      "id": "01a0a49a-1c98-79c2-b622-e1a71bcde4e0",
+      "name": "output",
+      "duration_s": 0.0005199590013944544,
+      "success": null,
+      "state_status": "incomplete"
+    }
+  ],
+  "sql_calls": 0,
+  "sql_s": 0
+}

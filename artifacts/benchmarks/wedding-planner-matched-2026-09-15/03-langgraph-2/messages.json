@@ -1,0 +1,116 @@
+[
+  {
+    "type": "human",
+    "data": {
+      "content": "I'm from London and want a wedding in Paris for 100 guests, with jazz music. Travel date: 2027-03-14.",
+      "additional_kwargs": {},
+      "response_metadata": {},
+      "type": "human",
+      "name": null,
+      "id": "50125573-fc13-4317-b1a9-1ce1fc985202"
+    }
+  },
+  {
+    "type": "ai",
+    "data": {
+      "content": "I'll save the wedding details you've provided.",
+      "additional_kwargs": {
+        "refusal": null,
+        "reasoning_content": "The user provided: origin=London, destination=Paris, guest_count=100, genre=jazz, travel_date=2027-03-14. Call update_state with all these fields."
+      },
+      "response_metadata": {
+        "token_usage": {
+          "completion_tokens": 165,
+          "prompt_tokens": 698,
+          "total_tokens": 863,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": 0,
+            "reasoning_tokens": 39,
+            "rejected_prediction_tokens": null,
+            "image_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 0,
+            "cached_tokens": 0,
+            "video_tokens": 0
+          },
+          "cost": 6.82396e-05,
+          "is_byok": false,
+          "cost_details": {
+            "upstream_inference_cost": 6.82396e-05,
+            "upstream_inference_prompt_cost": 3.99256e-05,
+            "upstream_inference_completions_cost": 2.8314e-05
+          }
+        },
+        "model_provider": "deepseek",
+        "model_name": "deepseek/deepseek-v4-flash-0731",
+        "system_fingerprint": null,
+        "id": "gen-1789472399-N3FKhtXYO8veYY7aRuPa",
+        "finish_reason": "tool_calls",
+        "logprobs": null
+      },
+      "type": "ai",
+      "name": null,
+      "id": "lc_run--01a0a4dd-e03e-7073-804c-e99b5efe276c-0",
+      "tool_calls": [
+        {
+          "name": "update_state",
+          "args": {
+            "origin": "London",
+            "destination": "Paris",
+            "guest_count": 100,
+            "genre": "jazz",
+            "travel_date": "2027-03-14"
+          },
+          "id": "call_90375d944ac84608834d076a",
+          "type": "tool_call"
+        }
+      ],
+      "invalid_tool_calls": [],
+      "usage_metadata": {
+        "input_tokens": 698,
+        "output_tokens": 165,
+        "total_tokens": 863,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 0
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 39
+        }
+      }
+    }
+  },
+  {
+    "type": "tool",
+    "data": {
+      "content": "Saved request: {\"origin\": \"London\", \"destination\": \"Paris\", \"guest_count\": 100, \"genre\": \"jazz\", \"travel_date\": \"2027-03-14\"}",
+      "additional_kwargs": {},
+      "response_metadata": {},
+      "type": "tool",
+      "name": "update_state",
+      "id": "877dacd1-0cb7-4cfe-9a6b-1c70de352ba0",
+      "tool_call_id": "call_90375d944ac84608834d076a",
+      "artifact": null,
+      "status": "success"
+    }
+  },
+  {
+    "type": "ai",
+    "data": {
+      "content": "Wedding plan complete\nVenue attempts: 1 / 5\nTravel date: 2027-03-14\n\nVenue candidate: Selected venue: Pavillons de Bercy, Paris (Paris Centre, 2 min from Bercy / Cour Saint-Emilion metro). Advertised capacity: 55 to 2,000+ guests, comfortably covering the 100-guest requirement; the 300 m\u00b2 main space features an art-deco stage explicitly suited for a live band (jazz) plus mezzanine, speakeasy-style bar and rooftop terrace; a 100-guest evening reception in the Salons V\u00e9nitiens is quoted from ~\u20ac15,000 (source: https://www.merakimariages.com/france). This is distinct from the excluded-venue list (none supplied) and from Paris-in-New-York (Clayville, NY), which was rejected as a US venue. Date availability: NOT confirmed \u2014 no public source confirms availability for 14 March 2027; only advertised capacity is verified, date availability for that specific day requires direct venue inquiry (research only, no booking made). Nearby arrival airport: CDG (Paris Charles de Gaulle ~35\u201345 min from the venue; ORY is a secondary alternative). Corroborating sources reviewed for Paris jazz-compatible venues: https://www.merakimariages.com/france; https://www.mangomuseevents.com/blog/2015/09/29/paris-wedding-venues-part-1-traditional-french-style-venues. Result is based on advertised (unconfirmed-availability) capacity; if confirmed-date availability is a hard requirement, treat this as needing verification before any commitment.\n\nFlights: One-way economy flight found for 1 adult, London \u2192 CDG (Paris Charles de Gaulle) on 14/03/2027. Cheapest & shortest: easyJet U25711, London Southend (SEN) 15:55 \u2192 Paris CDG 18:05, 1h 10m (0 stops), \u20ac60, Economy, booking link https://kiwi.com/u/qr6xms (personal item only; no cabin bag/checked bag included). Tied for shortest also Air France LGW\u2192CDG at \u20ac83 (AF1705 10:00\u219212:10; AF1707 16:45\u219218:55) at 1h 10m. Other notable: easyJet LGW 09:45\u219212:10 (1h 20m) \u20ac73, easyJet LTN 07:00\u219209:30 (1h 30m) \u20ac72. Total 15 itineraries returned, all non-stop Economy; cheapest 60 EUR, best price/duration balance is the \u20ac60 SEN departure (also shortest at 70 min). Source: Kiwi.com search results (search-flight tool, currency EUR). No errors or empty results \u2014 flight exists.\n\nPlaylist: Jazz playlist (12 tracks):\n1. OAM's Blues \u2014 Aaron Goldberg\n2. Amanda \u2014 Aisha Duo\n3. Despertar \u2014 Aisha Duo\n4. Desafinado \u2014 Ant\u00f4nio Carlos Jobim\n5. Garota De Ipanema \u2014 Ant\u00f4nio Carlos Jobim\n6. Samba De Uma Nota S\u00f3 (One Note Samba) \u2014 Ant\u00f4nio Carlos Jobim\n7. Por Causa De Voc\u00ea \u2014 Ant\u00f4nio Carlos Jobim\n8. Ligia \u2014 Ant\u00f4nio Carlos Jobim\n9. Fotografia \u2014 Ant\u00f4nio Carlos Jobim\n10. Dindi (Dindi) \u2014 Ant\u00f4nio Carlos Jobim\n11. Se Todos Fossem Iguais A Voc\u00ea (Instrumental) \u2014 Ant\u00f4nio Carlos Jobim\n12. Falando De Amor \u2014 Ant\u00f4nio Carlos Jobim\nTotal duration: 0:43:07.376000\nTotal price: USD 11.88\nSource: local Chinook.db (Track, Album, Artist, Genre).",
+      "additional_kwargs": {},
+      "response_metadata": {},
+      "type": "ai",
+      "name": null,
+      "id": "146cb115-7e3e-481f-892e-8ae4bd3cf566",
+      "tool_calls": [],
+      "invalid_tool_calls": [],
+      "usage_metadata": null
+    }
+  }
+]

@@ -94,7 +94,12 @@ agent = create_agent(
 
 agent2 = create_agent(
     model=model,
-    checkpointer=InMemorySaver()
+    checkpointer=InMemorySaver(),
+    middleware=[SummarizationMiddleware(
+                model=summarize_model,
+                trigger=("tokens", 100),
+                keep=("messages", 1),
+            )]
 )
 # %%
 response = agent.invoke(

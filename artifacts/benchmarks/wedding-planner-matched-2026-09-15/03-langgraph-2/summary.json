@@ -1,0 +1,144 @@
+{
+  "run": "03-langgraph-2",
+  "status": "complete",
+  "process_returncode": 0,
+  "wall_s": 98.824,
+  "setup_s": 1.024894,
+  "planner_s": 96.885,
+  "model_calls": 7,
+  "model_calls_by_stage": {
+    "collect_request": 1,
+    "venue": 4,
+    "flights": 2
+  },
+  "reported_usage": {
+    "input_tokens": 40488,
+    "output_tokens": 4013,
+    "total_tokens": 44501
+  },
+  "tool_calls": {
+    "update_state": 1,
+    "web_search": 4,
+    "search-flight": 1
+  },
+  "completed_tool_durations_s": {
+    "update_state": [
+      0.001
+    ],
+    "web_search": [
+      1.872,
+      3.046,
+      1.83,
+      2.354
+    ],
+    "search-flight": [
+      3.666
+    ]
+  },
+  "terminal_event": {
+    "kind": "run_end",
+    "elapsed_s": 97.910108,
+    "status": "complete",
+    "state": {
+      "request": {
+        "origin": "London",
+        "destination": "Paris",
+        "guest_count": 100,
+        "genre": "jazz",
+        "travel_date": "2027-03-14"
+      },
+      "attempts": 1,
+      "rejected_venues": [],
+      "failures": [],
+      "last_error": "",
+      "venue": {
+        "success": true,
+        "details": "Selected venue: Pavillons de Bercy, Paris (Paris Centre, 2 min from Bercy / Cour Saint-Emilion metro). Advertised capacity: 55 to 2,000+ guests, comfortably covering the 100-guest requirement; the 300 m\u00b2 main space features an art-deco stage explicitly suited for a live band (jazz) plus mezzanine, speakeasy-style bar and rooftop terrace; a 100-guest evening reception in the Salons V\u00e9nitiens is quoted from ~\u20ac15,000 (source: https://www.merakimariages.com/france). This is distinct from the excluded-venue list (none supplied) and from Paris-in-New-York (Clayville, NY), which was rejected as a US venue. Date availability: NOT confirmed \u2014 no public source confirms availability for 14 March 2027; only advertised capacity is verified, date availability for that specific day requires direct venue inquiry (research only, no booking made). Nearby arrival airport: CDG (Paris Charles de Gaulle ~35\u201345 min from the venue; ORY is a secondary alternative). Corroborating sources reviewed for Paris jazz-compatible venues: https://www.merakimariages.com/france; https://www.mangomuseevents.com/blog/2015/09/29/paris-wedding-venues-part-1-traditional-french-style-venues. Result is based on advertised (unconfirmed-availability) capacity; if confirmed-date availability is a hard requirement, treat this as needing verification before any commitment.",
+        "venue_name": "Pavillons de Bercy (Salons V\u00e9nitiens)",
+        "arrival_airport": "CDG"
+      },
+      "flights": {
+        "success": true,
+        "details": "One-way economy flight found for 1 adult, London \u2192 CDG (Paris Charles de Gaulle) on 14/03/2027. Cheapest & shortest: easyJet U25711, London Southend (SEN) 15:55 \u2192 Paris CDG 18:05, 1h 10m (0 stops), \u20ac60, Economy, booking link https://kiwi.com/u/qr6xms (personal item only; no cabin bag/checked bag included). Tied for shortest also Air France LGW\u2192CDG at \u20ac83 (AF1705 10:00\u219212:10; AF1707 16:45\u219218:55) at 1h 10m. Other notable: easyJet LGW 09:45\u219212:10 (1h 20m) \u20ac73, easyJet LTN 07:00\u219209:30 (1h 30m) \u20ac72. Total 15 itineraries returned, all non-stop Economy; cheapest 60 EUR, best price/duration balance is the \u20ac60 SEN departure (also shortest at 70 min). Source: Kiwi.com search results (search-flight tool, currency EUR). No errors or empty results \u2014 flight exists."
+      },
+      "playlist": {
+        "success": true,
+        "details": "Jazz playlist (12 tracks):\n1. OAM's Blues \u2014 Aaron Goldberg\n2. Amanda \u2014 Aisha Duo\n3. Despertar \u2014 Aisha Duo\n4. Desafinado \u2014 Ant\u00f4nio Carlos Jobim\n5. Garota De Ipanema \u2014 Ant\u00f4nio Carlos Jobim\n6. Samba De Uma Nota S\u00f3 (One Note Samba) \u2014 Ant\u00f4nio Carlos Jobim\n7. Por Causa De Voc\u00ea \u2014 Ant\u00f4nio Carlos Jobim\n8. Ligia \u2014 Ant\u00f4nio Carlos Jobim\n9. Fotografia \u2014 Ant\u00f4nio Carlos Jobim\n10. Dindi (Dindi) \u2014 Ant\u00f4nio Carlos Jobim\n11. Se Todos Fossem Iguais A Voc\u00ea (Instrumental) \u2014 Ant\u00f4nio Carlos Jobim\n12. Falando De Amor \u2014 Ant\u00f4nio Carlos Jobim\nTotal duration: 0:43:07.376000\nTotal price: USD 11.88\nSource: local Chinook.db (Track, Album, Artist, Genre)."
+      },
+      "status": "complete",
+      "output": "Wedding plan complete\nVenue attempts: 1 / 5\nTravel date: 2027-03-14\n\nVenue candidate: Selected venue: Pavillons de Bercy, Paris (Paris Centre, 2 min from Bercy / Cour Saint-Emilion metro). Advertised capacity: 55 to 2,000+ guests, comfortably covering the 100-guest requirement; the 300 m\u00b2 main space features an art-deco stage explicitly suited for a live band (jazz) plus mezzanine, speakeasy-style bar and rooftop terrace; a 100-guest evening reception in the Salons V\u00e9nitiens is quoted from ~\u20ac15,000 (source: https://www.merakimariages.com/france). This is distinct from the excluded-venue list (none supplied) and from Paris-in-New-York (Clayville, NY), which was rejected as a US venue. Date availability: NOT confirmed \u2014 no public source confirms availability for 14 March 2027; only advertised capacity is verified, date availability for that specific day requires direct venue inquiry (research only, no booking made). Nearby arrival airport: CDG (Paris Charles de Gaulle ~35\u201345 min from the venue; ORY is a secondary alternative). Corroborating sources reviewed for Paris jazz-compatible venues: https://www.merakimariages.com/france; https://www.mangomuseevents.com/blog/2015/09/29/paris-wedding-venues-part-1-traditional-french-style-venues. Result is based on advertised (unconfirmed-availability) capacity; if confirmed-date availability is a hard requirement, treat this as needing verification before any commitment.\n\nFlights: One-way economy flight found for 1 adult, London \u2192 CDG (Paris Charles de Gaulle) on 14/03/2027. Cheapest & shortest: easyJet U25711, London Southend (SEN) 15:55 \u2192 Paris CDG 18:05, 1h 10m (0 stops), \u20ac60, Economy, booking link https://kiwi.com/u/qr6xms (personal item only; no cabin bag/checked bag included). Tied for shortest also Air France LGW\u2192CDG at \u20ac83 (AF1705 10:00\u219212:10; AF1707 16:45\u219218:55) at 1h 10m. Other notable: easyJet LGW 09:45\u219212:10 (1h 20m) \u20ac73, easyJet LTN 07:00\u219209:30 (1h 30m) \u20ac72. Total 15 itineraries returned, all non-stop Economy; cheapest 60 EUR, best price/duration balance is the \u20ac60 SEN departure (also shortest at 70 min). Source: Kiwi.com search results (search-flight tool, currency EUR). No errors or empty results \u2014 flight exists.\n\nPlaylist: Jazz playlist (12 tracks):\n1. OAM's Blues \u2014 Aaron Goldberg\n2. Amanda \u2014 Aisha Duo\n3. Despertar \u2014 Aisha Duo\n4. Desafinado \u2014 Ant\u00f4nio Carlos Jobim\n5. Garota De Ipanema \u2014 Ant\u00f4nio Carlos Jobim\n6. Samba De Uma Nota S\u00f3 (One Note Samba) \u2014 Ant\u00f4nio Carlos Jobim\n7. Por Causa De Voc\u00ea \u2014 Ant\u00f4nio Carlos Jobim\n8. Ligia \u2014 Ant\u00f4nio Carlos Jobim\n9. Fotografia \u2014 Ant\u00f4nio Carlos Jobim\n10. Dindi (Dindi) \u2014 Ant\u00f4nio Carlos Jobim\n11. Se Todos Fossem Iguais A Voc\u00ea (Instrumental) \u2014 Ant\u00f4nio Carlos Jobim\n12. Falando De Amor \u2014 Ant\u00f4nio Carlos Jobim\nTotal duration: 0:43:07.376000\nTotal price: USD 11.88\nSource: local Chinook.db (Track, Album, Artist, Genre)."
+    }
+  },
+  "variant": "langgraph",
+  "node_spans": [
+    {
+      "kind": "node_end",
+      "elapsed_s": 7.729877,
+      "id": "01a0a4dd-e03c-7522-8fff-81b74a0d8797",
+      "name": "collect_request",
+      "duration_s": 6.6586125409994565,
+      "success": null,
+      "details": null,
+      "state_status": "running"
+    },
+    {
+      "kind": "node_end",
+      "elapsed_s": 73.041145,
+      "id": "01a0a4dd-fa3f-7193-8c8a-e2acb37a0af7",
+      "name": "venue",
+      "duration_s": 65.31046587500168,
+      "success": true,
+      "details": "Selected venue: Pavillons de Bercy, Paris (Paris Centre, 2 min from Bercy / Cour Saint-Emilion metro). Advertised capacity: 55 to 2,000+ guests, comfortably covering the 100-guest requirement; the 300 m\u00b2 main space features an art-deco stage explicitly suited for a live band (jazz) plus mezzanine, speakeasy-style bar and rooftop terrace; a 100-guest evening reception in the Salons V\u00e9nitiens is quoted from ~\u20ac15,000 (source: https://www.merakimariages.com/france). This is distinct from the excluded-venue list (none supplied) and from Paris-in-New-York (Clayville, NY), which was rejected as a US venue. Date availability: NOT confirmed \u2014 no public source confirms availability for 14 March 2027; only advertised capacity is verified, date availability for that specific day requires direct venue inquiry (research only, no booking made). Nearby arrival airport: CDG (Paris Charles de Gaulle ~35\u201345 min from the venue; ORY is a secondary alternative). Corroborating sources reviewed for Paris jazz-compatible venues: https://www.merakimariages.com/france; https://www.mangomuseevents.com/blog/2015/09/29/paris-wedding-venues-part-1-traditional-french-style-venues. Result is based on advertised (unconfirmed-availability) capacity; if confirmed-date availability is a hard requirement, treat this as needing verification before any commitment.",
+      "state_status": "running"
+    },
+    {
+      "kind": "node_end",
+      "elapsed_s": 97.901785,
+      "id": "01a0a4de-f95e-7182-ad8e-ce67e7d7720b",
+      "name": "flights",
+      "duration_s": 24.85963695799728,
+      "success": true,
+      "details": "One-way economy flight found for 1 adult, London \u2192 CDG (Paris Charles de Gaulle) on 14/03/2027. Cheapest & shortest: easyJet U25711, London Southend (SEN) 15:55 \u2192 Paris CDG 18:05, 1h 10m (0 stops), \u20ac60, Economy, booking link https://kiwi.com/u/qr6xms (personal item only; no cabin bag/checked bag included). Tied for shortest also Air France LGW\u2192CDG at \u20ac83 (AF1705 10:00\u219212:10; AF1707 16:45\u219218:55) at 1h 10m. Other notable: easyJet LGW 09:45\u219212:10 (1h 20m) \u20ac73, easyJet LTN 07:00\u219209:30 (1h 30m) \u20ac72. Total 15 itineraries returned, all non-stop Economy; cheapest 60 EUR, best price/duration balance is the \u20ac60 SEN departure (also shortest at 70 min). Source: Kiwi.com search results (search-flight tool, currency EUR). No errors or empty results \u2014 flight exists.",
+      "state_status": null
+    },
+    {
+      "kind": "node_end",
+      "elapsed_s": 97.906087,
+      "id": "01a0a4df-5a7a-7072-b228-b1dcd62027ea",
+      "name": "playlist",
+      "duration_s": 0.0037339169975894038,
+      "success": true,
+      "details": "Jazz playlist (12 tracks):\n1. OAM's Blues \u2014 Aaron Goldberg\n2. Amanda \u2014 Aisha Duo\n3. Despertar \u2014 Aisha Duo\n4. Desafinado \u2014 Ant\u00f4nio Carlos Jobim\n5. Garota De Ipanema \u2014 Ant\u00f4nio Carlos Jobim\n6. Samba De Uma Nota S\u00f3 (One Note Samba) \u2014 Ant\u00f4nio Carlos Jobim\n7. Por Causa De Voc\u00ea \u2014 Ant\u00f4nio Carlos Jobim\n8. Ligia \u2014 Ant\u00f4nio Carlos Jobim\n9. Fotografia \u2014 Ant\u00f4nio Carlos Jobim\n10. Dindi (Dindi) \u2014 Ant\u00f4nio Carlos Jobim\n11. Se Todos Fossem Iguais A Voc\u00ea (Instrumental) \u2014 Ant\u00f4nio Carlos Jobim\n12. Falando De Amor \u2014 Ant\u00f4nio Carlos Jobim\nTotal duration: 0:43:07.376000\nTotal price: USD 11.88\nSource: local Chinook.db (Track, Album, Artist, Genre).",
+      "state_status": null
+    },
+    {
+      "kind": "node_end",
+      "elapsed_s": 97.907665,
+      "id": "01a0a4df-5a7f-7000-9dcb-e6bab4341b7e",
+      "name": "output",
+      "duration_s": 0.0007179170024755877,
+      "success": null,
+      "details": null,
+      "state_status": "complete"
+    }
+  ],
+  "sql_calls": 1,
+  "copied_database_changed": false,
+  "evidence_review": {
+    "core_pass": true,
+    "venue": "pass_with_notes",
+    "flight": "pass_with_notes",
+    "playlist": "pass",
+    "reason": "The core request is supported: Paris venue for 100, an actual March 14 London-to-CDG flight, and 12 jazz tracks with matching totals.",
+    "evidence": [
+      "Saved Meraki Mariages search content gives Pavillons de Bercy a 55-2000+ capacity and a Bercy location: https://www.merakimariages.com/france",
+      "The selected easyJet U25711 flight matches the tool response: SEN 2027-03-14 15:55 to CDG 18:05, EUR 60, 70 minutes, https://kiwi.com/u/qr6xms",
+      "All 12 playlist rows match the baseline database. Duration is 2587376 milliseconds (43:07.376); cost is USD 11.88."
+    ],
+    "quality_notes": [
+      "Venue text also attributes a 300-square-metre art-deco room description from a multi-venue search snippet to Pavillons de Bercy; the saved snippet does not establish that attribution.",
+      "A secondary Gatwick option is written as 09:45 in the answer, but the tool says 09:50. The selected SEN flight is accurate.",
+      "This passes the declared core checks; it is not a claim that the whole answer is error-free."
+    ]
+  }
+}

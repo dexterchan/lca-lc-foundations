@@ -1,0 +1,25 @@
+{
+  "request": {
+    "origin": "London",
+    "destination": "Paris",
+    "guest_count": 100,
+    "genre": "jazz",
+    "travel_date": "2027-03-14"
+  },
+  "attempts": 1,
+  "rejected_venues": [],
+  "failures": [
+    "Venue attempt 1: Search timed out after 180 seconds."
+  ],
+  "last_error": "Search timed out after 180 seconds.",
+  "venue": {
+    "success": false,
+    "details": "Search timed out after 180 seconds.",
+    "venue_name": "",
+    "arrival_airport": ""
+  },
+  "flights": null,
+  "playlist": null,
+  "status": "incomplete",
+  "output": "Wedding plan incomplete\nVenue attempts: 1 / 5\nTravel date: 2027-03-14\n\nVenue candidate: Search timed out after 180 seconds.\n\nFlights: Not run.\n\nPlaylist: Not run.\n\nSearch issues:\nVenue attempt 1: Search timed out after 180 seconds."
+}

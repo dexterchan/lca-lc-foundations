@@ -1,0 +1,7 @@
+{
+  "reason": "Playlist agent wrote to the shared database during run 1; later shared-database runs are excluded from the clean-start benchmark.",
+  "initial_database_was_git_clean": true,
+  "restored_sha256": "84f5d9143ac4deebdb81650ab650e226d909e660106846b119a5c47c33f94c13",
+  "post_benchmark_sha256": "6056c4ec323ec5d537cba65ad51fc516e1fab15ca1fb25d427b84b3ead82cf30",
+  "restored_exactly": true
+}

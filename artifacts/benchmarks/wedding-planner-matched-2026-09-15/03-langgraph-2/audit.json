@@ -1,0 +1,237 @@
+{
+  "terminal": {
+    "kind": "run_end",
+    "elapsed_s": 97.910108,
+    "status": "complete",
+    "state": {
+      "request": {
+        "origin": "London",
+        "destination": "Paris",
+        "guest_count": 100,
+        "genre": "jazz",
+        "travel_date": "2027-03-14"
+      },
+      "attempts": 1,
+      "rejected_venues": [],
+      "failures": [],
+      "last_error": "",
+      "venue": {
+        "success": true,
+        "details": "Selected venue: Pavillons de Bercy, Paris (Paris Centre, 2 min from Bercy / Cour Saint-Emilion metro). Advertised capacity: 55 to 2,000+ guests, comfortably covering the 100-guest requirement; the 300 m² main space features an art-deco stage explicitly suited for a live band (jazz) plus mezzanine, speakeasy-style bar and rooftop terrace; a 100-guest evening reception in the Salons Vénitiens is quoted from ~€15,000 (source: https://www.merakimariages.com/france). This is distinct from the excluded-venue list (none supplied) and from Paris-in-New-York (Clayville, NY), which was rejected as a US venue. Date availability: NOT confirmed — no public source confirms availability for 14 March 2027; only advertised capacity is verified, date availability for that specific day requires direct venue inquiry (research only, no booking made). Nearby arrival airport: CDG (Paris Charles de Gaulle ~35–45 min from the venue; ORY is a secondary alternative). Corroborating sources reviewed for Paris jazz-compatible venues: https://www.merakimariages.com/france; https://www.mangomuseevents.com/blog/2015/09/29/paris-wedding-venues-part-1-traditional-french-style-venues. Result is based on advertised (unconfirmed-availability) capacity; if confirmed-date availability is a hard requirement, treat this as needing verification before any commitment.",
+        "venue_name": "Pavillons de Bercy (Salons Vénitiens)",
+        "arrival_airport": "CDG"
+      },
+      "flights": {
+        "success": true,
+        "details": "One-way economy flight found for 1 adult, London → CDG (Paris Charles de Gaulle) on 14/03/2027. Cheapest & shortest: easyJet U25711, London Southend (SEN) 15:55 → Paris CDG 18:05, 1h 10m (0 stops), €60, Economy, booking link https://kiwi.com/u/qr6xms (personal item only; no cabin bag/checked bag included). Tied for shortest also Air France LGW→CDG at €83 (AF1705 10:00→12:10; AF1707 16:45→18:55) at 1h 10m. Other notable: easyJet LGW 09:45→12:10 (1h 20m) €73, easyJet LTN 07:00→09:30 (1h 30m) €72. Total 15 itineraries returned, all non-stop Economy; cheapest 60 EUR, best price/duration balance is the €60 SEN departure (also shortest at 70 min). Source: Kiwi.com search results (search-flight tool, currency EUR). No errors or empty results — flight exists."
+      },
+      "playlist": {
+        "success": true,
+        "details": "Jazz playlist (12 tracks):\n1. OAM's Blues — Aaron Goldberg\n2. Amanda — Aisha Duo\n3. Despertar — Aisha Duo\n4. Desafinado — Antônio Carlos Jobim\n5. Garota De Ipanema — Antônio Carlos Jobim\n6. Samba De Uma Nota Só (One Note Samba) — Antônio Carlos Jobim\n7. Por Causa De Você — Antônio Carlos Jobim\n8. Ligia — Antônio Carlos Jobim\n9. Fotografia — Antônio Carlos Jobim\n10. Dindi (Dindi) — Antônio Carlos Jobim\n11. Se Todos Fossem Iguais A Você (Instrumental) — Antônio Carlos Jobim\n12. Falando De Amor — Antônio Carlos Jobim\nTotal duration: 0:43:07.376000\nTotal price: USD 11.88\nSource: local Chinook.db (Track, Album, Artist, Genre)."
+      },
+      "status": "complete",
+      "output": "Wedding plan complete\nVenue attempts: 1 / 5\nTravel date: 2027-03-14\n\nVenue candidate: Selected venue: Pavillons de Bercy, Paris (Paris Centre, 2 min from Bercy / Cour Saint-Emilion metro). Advertised capacity: 55 to 2,000+ guests, comfortably covering the 100-guest requirement; the 300 m² main space features an art-deco stage explicitly suited for a live band (jazz) plus mezzanine, speakeasy-style bar and rooftop terrace; a 100-guest evening reception in the Salons Vénitiens is quoted from ~€15,000 (source: https://www.merakimariages.com/france). This is distinct from the excluded-venue list (none supplied) and from Paris-in-New-York (Clayville, NY), which was rejected as a US venue. Date availability: NOT confirmed — no public source confirms availability for 14 March 2027; only advertised capacity is verified, date availability for that specific day requires direct venue inquiry (research only, no booking made). Nearby arrival airport: CDG (Paris Charles de Gaulle ~35–45 min from the venue; ORY is a secondary alternative). Corroborating sources reviewed for Paris jazz-compatible venues: https://www.merakimariages.com/france; https://www.mangomuseevents.com/blog/2015/09/29/paris-wedding-venues-part-1-traditional-french-style-venues. Result is based on advertised (unconfirmed-availability) capacity; if confirmed-date availability is a hard requirement, treat this as needing verification before any commitment.\n\nFlights: One-way economy flight found for 1 adult, London → CDG (Paris Charles de Gaulle) on 14/03/2027. Cheapest & shortest: easyJet U25711, London Southend (SEN) 15:55 → Paris CDG 18:05, 1h 10m (0 stops), €60, Economy, booking link https://kiwi.com/u/qr6xms (personal item only; no cabin bag/checked bag included). Tied for shortest also Air France LGW→CDG at €83 (AF1705 10:00→12:10; AF1707 16:45→18:55) at 1h 10m. Other notable: easyJet LGW 09:45→12:10 (1h 20m) €73, easyJet LTN 07:00→09:30 (1h 30m) €72. Total 15 itineraries returned, all non-stop Economy; cheapest 60 EUR, best price/duration balance is the €60 SEN departure (also shortest at 70 min). Source: Kiwi.com search results (search-flight tool, currency EUR). No errors or empty results — flight exists.\n\nPlaylist: Jazz playlist (12 tracks):\n1. OAM's Blues — Aaron Goldberg\n2. Amanda — Aisha Duo\n3. Despertar — Aisha Duo\n4. Desafinado — Antônio Carlos Jobim\n5. Garota De Ipanema — Antônio Carlos Jobim\n6. Samba De Uma Nota Só (One Note Samba) — Antônio Carlos Jobim\n7. Por Causa De Você — Antônio Carlos Jobim\n8. Ligia — Antônio Carlos Jobim\n9. Fotografia — Antônio Carlos Jobim\n10. Dindi (Dindi) — Antônio Carlos Jobim\n11. Se Todos Fossem Iguais A Você (Instrumental) — Antônio Carlos Jobim\n12. Falando De Amor — Antônio Carlos Jobim\nTotal duration: 0:43:07.376000\nTotal price: USD 11.88\nSource: local Chinook.db (Track, Album, Artist, Genre)."
+    }
+  },
+  "stages": [
+    {
+      "kind": "tool_end",
+      "elapsed_s": 7.727891,
+      "id": "01a0a4dd-fa3b-77a2-bf48-88b2a1d98b60",
+      "name": "update_state",
+      "stage": "update_state",
+      "duration_s": 0.0010741669975686818,
+      "tool_status": null,
+      "output": "Command(update={'request': {'origin': 'London', 'destination': 'Paris', 'guest_count': 100, 'genre': 'jazz', 'travel_date': '2027-03-14'}, 'messages': [ToolMessage(content='Saved request: {\"origin\": \"London\", \"destination\": \"Paris\", \"guest_count\": 100, \"genre\": \"jazz\", \"travel_date\": \"2027-03-14\"}', name='update_state', tool_call_id='call_90375d944ac84608834d076a')]})"
+    },
+    {
+      "kind": "node_end",
+      "elapsed_s": 7.729877,
+      "id": "01a0a4dd-e03c-7522-8fff-81b74a0d8797",
+      "name": "collect_request",
+      "duration_s": 6.6586125409994565,
+      "success": null,
+      "details": null,
+      "state_status": "running"
+    },
+    {
+      "kind": "node_end",
+      "elapsed_s": 73.041145,
+      "id": "01a0a4dd-fa3f-7193-8c8a-e2acb37a0af7",
+      "name": "venue",
+      "duration_s": 65.31046587500168,
+      "success": true,
+      "details": "Selected venue: Pavillons de Bercy, Paris (Paris Centre, 2 min from Bercy / Cour Saint-Emilion metro). Advertised capacity: 55 to 2,000+ guests, comfortably covering the 100-guest requirement; the 300 m² main space features an art-deco stage explicitly suited for a live band (jazz) plus mezzanine, speakeasy-style bar and rooftop terrace; a 100-guest evening reception in the Salons Vénitiens is quoted from ~€15,000 (source: https://www.merakimariages.com/france). This is distinct from the excluded-venue list (none supplied) and from Paris-in-New-York (Clayville, NY), which was rejected as a US venue. Date availability: NOT confirmed — no public source confirms availability for 14 March 2027; only advertised capacity is verified, date availability for that specific day requires direct venue inquiry (research only, no booking made). Nearby arrival airport: CDG (Paris Charles de Gaulle ~35–45 min from the venue; ORY is a secondary alternative). Corroborating sources reviewed for Paris jazz-compatible venues: https://www.merakimariages.com/france; https://www.mangomuseevents.com/blog/2015/09/29/paris-wedding-venues-part-1-traditional-french-style-venues. Result is based on advertised (unconfirmed-availability) capacity; if confirmed-date availability is a hard requirement, treat this as needing verification before any commitment.",
+      "state_status": "running"
+    },
+    {
+      "kind": "node_end",
+      "elapsed_s": 97.901785,
+      "id": "01a0a4de-f95e-7182-ad8e-ce67e7d7720b",
+      "name": "flights",
+      "duration_s": 24.85963695799728,
+      "success": true,
+      "details": "One-way economy flight found for 1 adult, London → CDG (Paris Charles de Gaulle) on 14/03/2027. Cheapest & shortest: easyJet U25711, London Southend (SEN) 15:55 → Paris CDG 18:05, 1h 10m (0 stops), €60, Economy, booking link https://kiwi.com/u/qr6xms (personal item only; no cabin bag/checked bag included). Tied for shortest also Air France LGW→CDG at €83 (AF1705 10:00→12:10; AF1707 16:45→18:55) at 1h 10m. Other notable: easyJet LGW 09:45→12:10 (1h 20m) €73, easyJet LTN 07:00→09:30 (1h 30m) €72. Total 15 itineraries returned, all non-stop Economy; cheapest 60 EUR, best price/duration balance is the €60 SEN departure (also shortest at 70 min). Source: Kiwi.com search results (search-flight tool, currency EUR). No errors or empty results — flight exists.",
+      "state_status": null
+    },
+    {
+      "kind": "node_end",
+      "elapsed_s": 97.906087,
+      "id": "01a0a4df-5a7a-7072-b228-b1dcd62027ea",
+      "name": "playlist",
+      "duration_s": 0.0037339169975894038,
+      "success": true,
+      "details": "Jazz playlist (12 tracks):\n1. OAM's Blues — Aaron Goldberg\n2. Amanda — Aisha Duo\n3. Despertar — Aisha Duo\n4. Desafinado — Antônio Carlos Jobim\n5. Garota De Ipanema — Antônio Carlos Jobim\n6. Samba De Uma Nota Só (One Note Samba) — Antônio Carlos Jobim\n7. Por Causa De Você — Antônio Carlos Jobim\n8. Ligia — Antônio Carlos Jobim\n9. Fotografia — Antônio Carlos Jobim\n10. Dindi (Dindi) — Antônio Carlos Jobim\n11. Se Todos Fossem Iguais A Você (Instrumental) — Antônio Carlos Jobim\n12. Falando De Amor — Antônio Carlos Jobim\nTotal duration: 0:43:07.376000\nTotal price: USD 11.88\nSource: local Chinook.db (Track, Album, Artist, Genre).",
+      "state_status": null
+    },
+    {
+      "kind": "node_end",
+      "elapsed_s": 97.907665,
+      "id": "01a0a4df-5a7f-7000-9dcb-e6bab4341b7e",
+      "name": "output",
+      "duration_s": 0.0007179170024755877,
+      "success": null,
+      "details": null,
+      "state_status": "complete"
+    }
+  ],
+  "model_durations": [
+    {
+      "stage": "collect_request",
+      "duration_s": 6.649307915999088
+    },
+    {
+      "stage": "venue",
+      "duration_s": 6.493394500001159
+    },
+    {
+      "stage": "venue",
+      "duration_s": 13.76481433400113
+    },
+    {
+      "stage": "venue",
+      "duration_s": 11.011672958000418
+    },
+    {
+      "stage": "venue",
+      "duration_s": 28.608745499997895
+    },
+    {
+      "stage": "flights",
+      "duration_s": 5.825198541999271
+    },
+    {
+      "stage": "flights",
+      "duration_s": 14.067236040998978
+    }
+  ],
+  "unfinished_calls": [],
+  "flight_queries": [
+    {
+      "elapsed_s": 80.158074,
+      "args": {
+        "flyFrom": "London",
+        "flyTo": "CDG",
+        "departureDate": "14/03/2027",
+        "adults": 1,
+        "cabinClass": "M",
+        "currency": "EUR",
+        "sort": "price"
+      }
+    }
+  ],
+  "flight_model_received_requested_date": [
+    true,
+    true
+  ],
+  "sql_queries": [],
+  "direct_sql_results": [
+    {
+      "kind": "sql_end",
+      "elapsed_s": 97.905566,
+      "duration_s": 0.002495333003025735,
+      "data": {
+        "columns": [
+          "Name",
+          "Name",
+          "Milliseconds",
+          "UnitPrice"
+        ],
+        "rows": [
+          [
+            "OAM's Blues",
+            "Aaron Goldberg",
+            266936,
+            0.99
+          ],
+          [
+            "Amanda",
+            "Aisha Duo",
+            246503,
+            0.99
+          ],
+          [
+            "Despertar",
+            "Aisha Duo",
+            307385,
+            0.99
+          ],
+          [
+            "Desafinado",
+            "Antônio Carlos Jobim",
+            185338,
+            0.99
+          ],
+          [
+            "Garota De Ipanema",
+            "Antônio Carlos Jobim",
+            285048,
+            0.99
+          ],
+          [
+            "Samba De Uma Nota Só (One Note Samba)",
+            "Antônio Carlos Jobim",
+            137273,
+            0.99
+          ],
+          [
+            "Por Causa De Você",
+            "Antônio Carlos Jobim",
+            169900,
+            0.99
+          ],
+          [
+            "Ligia",
+            "Antônio Carlos Jobim",
+            251977,
+            0.99
+          ],
+          [
+            "Fotografia",
+            "Antônio Carlos Jobim",
+            129227,
+            0.99
+          ],
+          [
+            "Dindi (Dindi)",
+            "Antônio Carlos Jobim",
+            253178,
+            0.99
+          ],
+          [
+            "Se Todos Fossem Iguais A Você (Instrumental)",
+            "Antônio Carlos Jobim",
+            134948,
+            0.99
+          ],
+          [
+            "Falando De Amor",
+            "Antônio Carlos Jobim",
+            219663,
+            0.99
+          ]
+        ]
+      }
+    }
+  ]
+}

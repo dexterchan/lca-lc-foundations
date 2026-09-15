@@ -1,0 +1,106 @@
+{
+  "run": "01-original-1",
+  "status": "returned",
+  "process_returncode": 0,
+  "wall_s": 151.253,
+  "setup_s": 2.910662,
+  "planner_s": 147.391,
+  "model_calls": 21,
+  "model_calls_by_stage": {
+    "coordinator": 3,
+    "search_venues": 7,
+    "search_flights": 3,
+    "suggest_playlist": 8
+  },
+  "reported_usage": {
+    "input_tokens": 131340,
+    "output_tokens": 10068,
+    "total_tokens": 141408
+  },
+  "tool_calls": {
+    "update_state": 1,
+    "search_flights": 1,
+    "search_venues": 1,
+    "suggest_playlist": 1,
+    "web_search": 12,
+    "query_playlist_db": 9,
+    "search-flight": 4
+  },
+  "completed_tool_durations_s": {
+    "update_state": [
+      0.001
+    ],
+    "query_playlist_db": [
+      0.001,
+      0.003,
+      0.002,
+      0.001,
+      0.001,
+      0.001,
+      0.001,
+      0.001,
+      0.001
+    ],
+    "web_search": [
+      2.206,
+      3.751,
+      2.346,
+      3.618,
+      1.995,
+      2.09,
+      2.045,
+      2.485,
+      2.968,
+      4.211,
+      2.873,
+      3.487
+    ],
+    "search-flight": [
+      1.965,
+      6.613,
+      4.543,
+      4.627
+    ],
+    "suggest_playlist": [
+      73.054
+    ],
+    "search_flights": [
+      80.115
+    ],
+    "search_venues": [
+      114.696
+    ]
+  },
+  "terminal_event": {
+    "kind": "run_end",
+    "elapsed_s": 150.302214,
+    "status": "returned",
+    "state": {
+      "origin": "London",
+      "destination": "Paris",
+      "guest_count": "100",
+      "genre": "jazz"
+    }
+  },
+  "variant": "original",
+  "node_spans": [],
+  "sql_calls": 0,
+  "copied_database_changed": false,
+  "evidence_review": {
+    "core_pass": false,
+    "venue": "pass",
+    "flight": "fail",
+    "playlist": "pass_with_notes",
+    "reason": "The requested date was 2027-03-14; all flight queries and returned offers were for June.",
+    "evidence": [
+      "answer.txt acknowledges the March request but recommends June flights.",
+      "events.jsonl model_input records show the flight specialist never received 2027-03-14.",
+      "Web results for L'Olivia give a Paris address and 140 seated guests: https://www.planners.fr/wedding-venues/lolivia--bize86wm?domain=plannerz.co.uk&_locale=en",
+      "The final SQL selection contains 18 jazz tracks with 6096636 milliseconds and USD 17.82, matching the final answer's approximate total."
+    ],
+    "quality_notes": [
+      "The coordinator claims it asked the travel agent about March; the actual delegated prompt omitted the date.",
+      "The playlist specialist's table omits Deep Waters from its 18-track SQL selection and calls Round Midnight 3:57; the database length is 5:57.459. Aggregate totals match the SQL selection."
+    ]
+  }
+}

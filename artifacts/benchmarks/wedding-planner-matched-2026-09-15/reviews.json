@@ -1,0 +1,100 @@
+{
+  "basis": "Manual review against the criteria saved in manifest.json before the runs. Core checks do not certify every extra sentence or live inventory beyond the saved search results.",
+  "results": {
+    "01-original-1": {
+      "core_pass": false,
+      "venue": "pass",
+      "flight": "fail",
+      "playlist": "pass_with_notes",
+      "reason": "The requested date was 2027-03-14; all flight queries and returned offers were for June.",
+      "evidence": [
+        "answer.txt acknowledges the March request but recommends June flights.",
+        "events.jsonl model_input records show the flight specialist never received 2027-03-14.",
+        "Web results for L'Olivia give a Paris address and 140 seated guests: https://www.planners.fr/wedding-venues/lolivia--bize86wm?domain=plannerz.co.uk&_locale=en",
+        "The final SQL selection contains 18 jazz tracks with 6096636 milliseconds and USD 17.82, matching the final answer's approximate total."
+      ],
+      "quality_notes": [
+        "The coordinator claims it asked the travel agent about March; the actual delegated prompt omitted the date.",
+        "The playlist specialist's table omits Deep Waters from its 18-track SQL selection and calls Round Midnight 3:57; the database length is 5:57.459. Aggregate totals match the SQL selection."
+      ]
+    },
+    "02-langgraph-1": {
+      "core_pass": false,
+      "venue": "pass",
+      "flight": "not_run",
+      "playlist": "not_run",
+      "reason": "The venue agent returned success=false because it could not confirm the exact date was available, despite finding an eligible venue. The graph stopped before flights and music.",
+      "evidence": [
+        "answer.txt identifies Hotel de Crillon and explicitly cites lack of confirmed availability as the reason for failure.",
+        "A saved search result supports combined capacity of 100: https://www.lesecretdaudrey.com/rendez-vous-with-audrey-your-wedding-at-hotel-de-crillon-paris",
+        "The common criteria require advertised capacity and honest availability wording; confirmed availability was not required.",
+        "The venue agent attempted two extra web searches after using its four allowed calls. Those calls were blocked. Its final structured answer used a real JSON false."
+      ],
+      "quality_notes": [
+        "This run did not time out. Increasing the time limit would not correct its success decision."
+      ]
+    },
+    "03-langgraph-2": {
+      "core_pass": true,
+      "venue": "pass_with_notes",
+      "flight": "pass_with_notes",
+      "playlist": "pass",
+      "reason": "The core request is supported: Paris venue for 100, an actual March 14 London-to-CDG flight, and 12 jazz tracks with matching totals.",
+      "evidence": [
+        "Saved Meraki Mariages search content gives Pavillons de Bercy a 55-2000+ capacity and a Bercy location: https://www.merakimariages.com/france",
+        "The selected easyJet U25711 flight matches the tool response: SEN 2027-03-14 15:55 to CDG 18:05, EUR 60, 70 minutes, https://kiwi.com/u/qr6xms",
+        "All 12 playlist rows match the baseline database. Duration is 2587376 milliseconds (43:07.376); cost is USD 11.88."
+      ],
+      "quality_notes": [
+        "Venue text also attributes a 300-square-metre art-deco room description from a multi-venue search snippet to Pavillons de Bercy; the saved snippet does not establish that attribution.",
+        "A secondary Gatwick option is written as 09:45 in the answer, but the tool says 09:50. The selected SEN flight is accurate.",
+        "This passes the declared core checks; it is not a claim that the whole answer is error-free."
+      ]
+    },
+    "04-original-2": {
+      "core_pass": false,
+      "venue": "not_run",
+      "flight": "not_run",
+      "playlist": "not_run",
+      "reason": "Flight-tool discovery failed during setup with httpx.ConnectError: [SSL: UNEXPECTED_MESSAGE]. No model calls were made.",
+      "evidence": [
+        "console.log traces the failure to client.get_tools() while connecting to https://mcp.kiwi.com."
+      ],
+      "quality_notes": [
+        "Kept as a failed trial; not silently retried or excluded from the sample."
+      ]
+    },
+    "05-original-3": {
+      "core_pass": false,
+      "venue": "pass",
+      "flight": "fail",
+      "playlist": "pass",
+      "reason": "The final answer recommends a June 7 flight rather than the requested March 14 date.",
+      "evidence": [
+        "answer.txt acknowledges that the specialist searched June and asks the user whether to search the already-specified March date.",
+        "events.jsonl model_input records show the flight specialist never received 2027-03-14.",
+        "A saved venue result recommends Shangri-La Paris for weddings up to 100 guests: https://magicdayevents.com/shangri-la-paris-wedding",
+        "The chosen 20 tracks all belong to Jazz in the baseline database. Their total is 6274435 milliseconds (1:44:34.435) and USD 19.80, matching the answer."
+      ],
+      "quality_notes": [
+        "The final answer calls itself complete despite acknowledging the flight date mismatch."
+      ]
+    },
+    "06-langgraph-3": {
+      "core_pass": true,
+      "venue": "pass_with_notes",
+      "flight": "pass",
+      "playlist": "pass",
+      "reason": "The core request is supported: an advertised Paris venue capacity above 100, a March 14 London-to-Orly flight, and correct jazz playlist totals.",
+      "evidence": [
+        "The saved FrenchWeddingStyle result explicitly says Hotel Particulier Montmartre can accommodate up to 200 guests for a seated dinner: https://www.frenchweddingstyle.com/wedding-venues/hotel-particulier-montmartre",
+        "The selected Vueling VY8058 flight matches the tool response: LHR 2027-03-14 15:15 to ORY 17:45, EUR 65, 90 minutes, https://kiwi.com/u/pyr5kb",
+        "All 12 playlist rows match the baseline database. Duration is 2587376 milliseconds (43:07.376); cost is USD 11.88."
+      ],
+      "quality_notes": [
+        "The venue sources conflict on capacity. The final answer discloses another source's 60-guest figure and does not claim confirmed date availability.",
+        "This passes the declared advertised-capacity check. The actual room layout and capacity still need direct confirmation before it could become a booking-ready plan."
+      ]
+    }
+  }
+}

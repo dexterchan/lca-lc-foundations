@@ -1,0 +1,209 @@
+{
+  "terminal": {
+    "kind": "run_end",
+    "elapsed_s": 150.302214,
+    "status": "returned",
+    "state": {
+      "origin": "London",
+      "destination": "Paris",
+      "guest_count": "100",
+      "genre": "jazz"
+    }
+  },
+  "stages": [
+    {
+      "kind": "tool_end",
+      "elapsed_s": 8.723938,
+      "id": "01a0a4d9-db97-78b1-8ebf-d7fe1625cda9",
+      "name": "update_state",
+      "stage": "update_state",
+      "duration_s": 0.0005754580015491229,
+      "tool_status": null,
+      "output": "Command(update={'origin': 'London', 'destination': 'Paris', 'guest_count': '100', 'genre': 'jazz', 'messages': [ToolMessage(content='Successfully updated state', tool_call_id='call_e383408eaea349769e1ef4af')]})"
+    },
+    {
+      "kind": "tool_end",
+      "elapsed_s": 85.567216,
+      "id": "01a0a4d9-ea63-7b12-818d-188d0097ca4d",
+      "name": "suggest_playlist",
+      "stage": "suggest_playlist",
+      "duration_s": 73.05400529200051,
+      "tool_status": "success",
+      "output": "I've curated a beautiful wedding-appropriate jazz playlist. Here's the final selection:\n\n## 🎷 Jazz Wedding Playlist\n\n| Track | Artist | Album | Duration |\n|-------|--------|-------|----------|\n| 'Round Midnight | Miles Davis | Essential Miles Davis [Disc 1] | 3:57 |\n| My Funny Valentine (Live) | Miles Davis | Essential Miles Davis [Disc 2] | 15:08 |\n| So What | Miles Davis | Essential Miles Davis [Disc 1] | 9:24 |\n| Someday My Prince Will Come | Miles Davis | Essential Miles Davis [Disc 1] | 9:04 |\n| Bye Bye Blackbird | Miles Davis | Essential Miles Davis [Disc 1] | 7:56 |\n| Summertime | Miles Davis | Essential Miles Davis [Disc 1] | 3:20 |\n| Generique | Miles Davis | Essential Miles Davis [Disc 1] | 2:49 |\n| Garota De Ipanema | Antônio Carlos Jobim | Warner 25 Anos | 4:45 |\n| Corcovado (Quiet Nights Of Quiet Stars) | Antônio Carlos Jobim | Warner 25 Anos | 3:26 |\n| Desafinado | Antônio Carlos Jobim | Warner 25 Anos | 3:05 |\n| Dindi (Dindi) | Antônio Carlos Jobim | Warner 25 Anos | 4:13 |\n| Morning Dance | Spyro Gyra | Morning Dance | 3:58 |\n| Heart of the Night | Spyro Gyra | Heart of the Night | 4:34 |\n| Jubilee | Spyro Gyra | Morning Dance | 4:35 |\n| Love Is The Colour | Incognito | Blue Moods | 4:11 |\n| Amanda | Aisha Duo | Quiet Songs | 4:06 |\n| OAM's Blues | Aaron Goldberg | Worlds | 4:22 |\n\nI included the 18 most romantic, elegant, and wedding-appropriate tracks — smooth ballads and bossa nova classics rather than the more aggressive funk-fusion jazz.\n\n## 📊 Totals\n\n- **Number of tracks:** 18 tracks (plus Deep Waters/Deep Waters wasn't needed — I selected these)\n- **Total duration:** 6,096,636 milliseconds = **101 minutes 37 seconds (~1 hr 42 min)**\n- **Total cost:** 18 tracks × $0.99 = **$17.82**\n\nThe playlist flows beautifully for a wedding reception — starting with intimate Miles Davis classics, moving through Jobim's romantic bossa nova, and finishing with smooth modern jazz from Spyro Gyra and Incognito — perfect for cocktail hour and dinner service. 💍🥂"
+    },
+    {
+      "kind": "tool_end",
+      "elapsed_s": 92.625436,
+      "id": "01a0a4d9-ea61-79d2-b275-05ffcace2eee",
+      "name": "search_flights",
+      "stage": "search_flights",
+      "duration_s": 80.11541337499875,
+      "tool_status": "success",
+      "output": "I found great options for your Paris destination wedding. All flights are **non-stop easyJet** services landing at **Paris Charles de Gaulle (CDG)**. June is a wonderful month for a Paris wedding — long sunny days, warm temperatures (perfect for an evening garden reception), and the city's rose gardens in full bloom. Here's my shortlist:\n\n## 💰 Cheapest options\n\n| Route | Times | Duration | Cabin | Price |\n|---|---|---|---|---|\n| LTN → CDG | 15 Jun 19:10 → 21:30 | 1h 20m | Economy | **64 EUR** |\n| LTN → CDG | 15 Jun 07:05 → 09:30 | 1h 25m | Economy | **64 EUR** |\n| LTN → CDG | 10 Jun 06:05 → 08:30 | 1h 25m | Economy | **64 EUR** |\n\n## ⚡ Shortest options\n\n| Route | Times | Duration | Cabin | Price |\n|---|---|---|---|---|\n| SEN → CDG | 10 Jun 10:10 → 12:20 | **1h 10m** | Economy | 65 EUR |\n| SEN → CDG | 13 Jun 07:25 → 09:35 | **1h 10m** | Economy | 67 EUR |\n| SEN → CDG | 11 Jun 08:10 → 10:20 | **1h 10m** | Economy | 72 EUR |\n\n## 📌 Other notable options (great timings)\n\n| Route | Times | Duration | Cabin | Price |\n|---|---|---|---|---|\n| LGW → CDG | 15 Jun 16:30 → 18:50 | 1h 20m | Economy | 70 EUR |\n| LTN → CDG | 14 Jun 19:40 → 22:00 | 1h 20m | Economy | 65 EUR |\n| LTN → CDG | 15 Jun 12:30 → 14:55 | 1h 25m | Economy | 65 EUR |\n\n**Booking links:**\n- Cheapest (64 EUR): [LTN 15 Jun 19:10](https://kiwi.com/u/dxvs79c) · [LTN 15 Jun 07:05](https://kiwi.com/u/czzpp6c)\n- Shortest (1h 10m): [SEN 10 Jun 10:10](https://kiwi.com/u/6h2vnmf) · [SEN 13 Jun 07:25](https://kiwi.com/u/x8dxh5)\n- Gatwick evening (70 EUR): [LGW 15 Jun 16:30](https://kiwi.com/u/vsu8us)\n\n## ✨ My recommendation\n\nThe **best all-round pick** is the **easyJet flight from London Luton at 19:10 on 15 June (64 EUR, 1h 20m)** — it's the cheapest AND nearly the shortest, landing at Charles de Gaulle with the whole evening free. If you want maximum time on the ground on wedding day, the **shortest flight (1h 10m) from Southend on 13 June at 07:25 (67 EUR)** gets you into Paris by mid-morning.\n\nA quick note: the 15 June Luton departures arrive the same evening, so plan to fly a day or two before the ceremony to enjoy Paris and avoid any travel stress before the big day! 🇫🇷\n\nFun fact: Paris's Eiffel Tower grows about 15 cm taller in summer — the metal expands in the heat! Perfect for a June wedding visit. Congratulations on the wedding — bon voyage!"
+    },
+    {
+      "kind": "tool_end",
+      "elapsed_s": 127.20743,
+      "id": "01a0a4d9-ea63-7b12-818d-187f42442883",
+      "name": "search_venues",
+      "stage": "search_venues",
+      "duration_s": 114.69582320799964,
+      "tool_status": "success",
+      "output": "I've completed my 12 searches. Here's a summary of the best wedding venue options in Paris for 100 guests, ranked based on the criteria of lowest price, exact capacity match, and highest reviews.\n\n## Best Overall Value (High Reviews)\n\n**1. L'Olivia (La Fabrique sur Seine)** ⭐ 5.0 (43 reviews)\n- **Price:** €1,500 – €10,000 (starting ~€2,000 for weddings)\n- **Capacity:** Up to 140 seated / 200 cocktail (handles 100 easily)\n- **Location:** Paris 12th, a docked barge on the Seine with 360° panoramic views\n- A beautiful three-level péniche — very romantic for a Paris wedding.\n\n**2. La Fabrique République** ⭐ 5.0 (37 reviews)\n- **Price:** €3,500 – €8,000\n- **Capacity:** Up to 150 (comfortable for 100)\n- A stylish, industrial-chic venue in Paris — great value and excellent reviews.\n\n## Exact 100-Guest Capacity Match\n\n**3. L'Usine Deguerry** ⭐ 5.0 (4 reviews)\n- **Price:** €6,120 – €9,060\n- **Capacity:** Exactly 100 guests\n- A trendy factory-style venue; matches your number precisely.\n\n**4. Musée de Montmartre** ⭐ 5.0 (7 reviews)\n- **Price:** €4,200 – €13,800\n- **Capacity:** 100 guests\n- Iconic Montmartre setting with gardens — charming and historic.\n\n## Budget Pick\n\n**5. Maison Vivart Paris** ⭐ 5.0 (24 reviews)\n- **Price:** From €490 (lowest hire found)\n- **Capacity:** Up to 100 guests\n- Located in the 20th arrondissement — the most affordable option for 100 guests, though you'd need to confirm exact package inclusions.\n\n## Notably Higher-End (if budget allows)\n\n**6. Hôtel Le Marois** (8th arr., near Champs-Élysées)\n- **Price:** ~€5,500 hire + ~€240/person catering (total ~€40–45k for 100)\n- **Capacity:** Washington room seats 100 banquet style\n- Historic 19th-century townhouse with one of Paris's most beautiful ballrooms.\n\n**7. Hotel Peninsula Paris** ⭐ 4.7 (3,858 reviews)\n- **Price:** From €18,750 per-person package; ballroom seats 100 for dinner\n- Extreme luxury with Eiffel Tower views.\n\n**8. Hôtel de Crillon** (Place de la Concorde)\n- **Price:** Upon request (luxury tier)\n- Capacity ~100 across its three private lounges.\n\n**Recommendation:** For the best combination of lowest price + strong reviews + ability to host exactly 100 guests, **L'Olivia** (⭐5.0/43 reviews, from ~€2,000) and **La Fabrique République** (⭐5.0/37 reviews, €3,500–8,000) stand out as top picks. If you want an exact 100-capacity space, **L'Usine Deguerry** is your match. Note that Paris palace hotels (Crillon, Peninsula) run €100k+ all-in for 100 guests — significantly pricier than the mid-range options above."
+    }
+  ],
+  "model_durations": [
+    {
+      "stage": "coordinator",
+      "duration_s": 5.765061500002048
+    },
+    {
+      "stage": "coordinator",
+      "duration_s": 3.780438249999861
+    },
+    {
+      "stage": "search_venues",
+      "duration_s": 5.645274499998777
+    },
+    {
+      "stage": "suggest_playlist",
+      "duration_s": 5.858114624999871
+    },
+    {
+      "stage": "suggest_playlist",
+      "duration_s": 4.687333083002159
+    },
+    {
+      "stage": "suggest_playlist",
+      "duration_s": 4.2952009580003505
+    },
+    {
+      "stage": "search_venues",
+      "duration_s": 6.470548167002562
+    },
+    {
+      "stage": "suggest_playlist",
+      "duration_s": 4.232040417002281
+    },
+    {
+      "stage": "search_flights",
+      "duration_s": 24.811256500001036
+    },
+    {
+      "stage": "search_venues",
+      "duration_s": 9.737575375002052
+    },
+    {
+      "stage": "suggest_playlist",
+      "duration_s": 12.922073834000912
+    },
+    {
+      "stage": "suggest_playlist",
+      "duration_s": 3.162498958001379
+    },
+    {
+      "stage": "search_flights",
+      "duration_s": 9.207834749999165
+    },
+    {
+      "stage": "suggest_playlist",
+      "duration_s": 13.784494209001423
+    },
+    {
+      "stage": "search_venues",
+      "duration_s": 18.630426707997685
+    },
+    {
+      "stage": "search_venues",
+      "duration_s": 13.498531624998577
+    },
+    {
+      "stage": "suggest_playlist",
+      "duration_s": 24.065431291001005
+    },
+    {
+      "stage": "search_venues",
+      "duration_s": 8.606112792000204
+    },
+    {
+      "stage": "search_flights",
+      "duration_s": 34.835047166998265
+    },
+    {
+      "stage": "search_venues",
+      "duration_s": 32.414959292000276
+    },
+    {
+      "stage": "coordinator",
+      "duration_s": 23.08913004099668
+    }
+  ],
+  "unfinished_calls": [],
+  "flight_queries": [
+    {
+      "elapsed_s": 37.334691,
+      "args": {
+        "flyFrom": "London",
+        "flyTo": "Paris",
+        "departureDate": "14/06/2025",
+        "departureDateFlexDays": 5,
+        "sort": "price",
+        "cabinClass": "M",
+        "adults": 1
+      }
+    },
+    {
+      "elapsed_s": 37.335352,
+      "args": {
+        "flyFrom": "London",
+        "flyTo": "Paris",
+        "departureDate": "14/06/2025",
+        "departureDateFlexDays": 5,
+        "sort": "duration",
+        "cabinClass": "M",
+        "adults": 1
+      }
+    },
+    {
+      "elapsed_s": 53.159844,
+      "args": {
+        "adults": 1,
+        "cabinClass": "M",
+        "departureDate": "14/06/2027",
+        "departureDateFlexDays": 5,
+        "flyFrom": "London",
+        "flyTo": "Paris",
+        "sort": "price"
+      }
+    },
+    {
+      "elapsed_s": 53.1603,
+      "args": {
+        "adults": 1,
+        "cabinClass": "M",
+        "departureDate": "14/06/2027",
+        "departureDateFlexDays": 5,
+        "flyFrom": "London",
+        "flyTo": "Paris",
+        "sort": "duration"
+      }
+    }
+  ],
+  "flight_model_received_requested_date": [
+    false,
+    false,
+    false
+  ],
+  "sql_queries": [
+    "{'query': \"SELECT name FROM sqlite_master WHERE type='table';\"}",
+    "{'query': \"SELECT sql FROM sqlite_master WHERE type='table' AND name IN ('Track','Genre','Album','Artist');\"}",
+    "{'query': 'SELECT * FROM Genre;'}",
+    "{'query': \"SELECT sql FROM sqlite_master WHERE type='table' AND name='Track';\"}",
+    "{'query': \"SELECT sql FROM sqlite_master WHERE type='table' AND name='Track';\"}",
+    "{'query': 'PRAGMA table_info(Track);'}",
+    "{'query': 'PRAGMA table_info(Album);'}",
+    "{'query': 'SELECT t.TrackId, t.Name AS TrackName, t.Milliseconds, t.UnitPrice, al.Title AS AlbumTitle, ar.Name AS ArtistName\\nFROM Track t\\nJOIN Album al ON t.AlbumId = al.AlbumId\\nJOIN Artist ar ON al.ArtistId = ar.ArtistId\\nWHERE t.GenreId = 2\\nORDER BY ar.Name, t.Name;'}",
+    "{'query': 'SELECT t.TrackId, t.Name AS TrackName, ar.Name AS ArtistName, al.Title AS AlbumTitle, t.Milliseconds, t.UnitPrice\\nFROM Track t\\nJOIN Album al ON t.AlbumId = al.AlbumId\\nJOIN Artist ar ON al.ArtistId = ar.ArtistId\\nWHERE t.TrackId IN (602, 610, 607, 609, 603, 606, 605, 64, 73, 63, 69, 2523, 456, 2524, 1189, 1191, 3349, 3357)\\nORDER BY ar.Name, t.Name;'}"
+  ],
+  "direct_sql_results": []
+}

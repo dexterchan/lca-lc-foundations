@@ -1,0 +1,237 @@
+{
+  "terminal": {
+    "kind": "run_end",
+    "elapsed_s": 111.978348,
+    "status": "complete",
+    "state": {
+      "request": {
+        "origin": "London",
+        "destination": "Paris",
+        "guest_count": 100,
+        "genre": "jazz",
+        "travel_date": "2027-03-14"
+      },
+      "attempts": 1,
+      "rejected_venues": [],
+      "failures": [],
+      "last_error": "",
+      "venue": {
+        "success": true,
+        "details": "Selected venue: Hôtel Particulier Montmartre (23 Avenue Junot, Pavillon D, 75018 Paris) — a real Parisian wedding venue: a historic Hermès-family mansion with a listed garden, offering full exclusivity and in-house catering. Advertised capacity: FrenchWeddingStyle.com lists \"up to 200 guests\" for a seated dinner (https://www.frenchweddingstyle.com/wedding-venues/hotel-particulier-montmartre), which accommodates the requested 100 guests; other third-party write-ups cite smaller figures (e.g., Le Joli Studio lists \"up to 60 guests\", starting €12,000 – https://www.lejolistudio.com/wedding-blog/10-most-unique-wedding-venues-paris). Date availability: NOT confirmed. No source publicizes confirmed availability for 2027-03-14; this must be verified directly with the venue (contact: +33 1 53 41 81 40 / hotelparticuliermontmartre.com events page), so advertised capacity should not be treated as confirmed booking availability for that date. Nearby arrival airport: Paris-Orly (ORY), documented by FrenchWeddingStyle as approx. 30 minutes by taxi; Paris-CDG also serves London-origin flights as an alternative. Note: search limit reached (4/4 web searches) prevented confirming any jazz-specific private-event programming or capacity for this venue; thematic fit verified only historically (Montmartre's bohemian/artistic heritage). No venues were excluded, and no prior flight error was provided.",
+        "venue_name": "Hôtel Particulier Montmartre",
+        "arrival_airport": "ORY"
+      },
+      "flights": {
+        "success": true,
+        "details": "Flight found via Kiwi.com search (London → Paris-Orly, ORY, 14/03/2027, 1 adult, Economy, EUR): Cheapest AND shortest option — Vueling VY8058, direct non-stop LHR → ORY, departing London Heathrow 14 Mar 2027 15:15, arriving Paris Orly 17:45 (same day, 1h 30m), Economy, price 65 EUR (1 personal item included; no cabin or checked bag). Booking source link: https://kiwi.com/u/pyr5kb. This matches the selected venue's nearby arrival airport (Paris-Orly, ~30 min by taxi to Hôtel Particulier Montmartre per FrenchWeddingStyle). Note: 15 itineraries returned; this direct option is both the lowest price and shortest duration (5400s). Research only — nothing booked."
+      },
+      "playlist": {
+        "success": true,
+        "details": "Jazz playlist (12 tracks):\n1. OAM's Blues — Aaron Goldberg\n2. Amanda — Aisha Duo\n3. Despertar — Aisha Duo\n4. Desafinado — Antônio Carlos Jobim\n5. Garota De Ipanema — Antônio Carlos Jobim\n6. Samba De Uma Nota Só (One Note Samba) — Antônio Carlos Jobim\n7. Por Causa De Você — Antônio Carlos Jobim\n8. Ligia — Antônio Carlos Jobim\n9. Fotografia — Antônio Carlos Jobim\n10. Dindi (Dindi) — Antônio Carlos Jobim\n11. Se Todos Fossem Iguais A Você (Instrumental) — Antônio Carlos Jobim\n12. Falando De Amor — Antônio Carlos Jobim\nTotal duration: 0:43:07.376000\nTotal price: USD 11.88\nSource: local Chinook.db (Track, Album, Artist, Genre)."
+      },
+      "status": "complete",
+      "output": "Wedding plan complete\nVenue attempts: 1 / 5\nTravel date: 2027-03-14\n\nVenue candidate: Selected venue: Hôtel Particulier Montmartre (23 Avenue Junot, Pavillon D, 75018 Paris) — a real Parisian wedding venue: a historic Hermès-family mansion with a listed garden, offering full exclusivity and in-house catering. Advertised capacity: FrenchWeddingStyle.com lists \"up to 200 guests\" for a seated dinner (https://www.frenchweddingstyle.com/wedding-venues/hotel-particulier-montmartre), which accommodates the requested 100 guests; other third-party write-ups cite smaller figures (e.g., Le Joli Studio lists \"up to 60 guests\", starting €12,000 – https://www.lejolistudio.com/wedding-blog/10-most-unique-wedding-venues-paris). Date availability: NOT confirmed. No source publicizes confirmed availability for 2027-03-14; this must be verified directly with the venue (contact: +33 1 53 41 81 40 / hotelparticuliermontmartre.com events page), so advertised capacity should not be treated as confirmed booking availability for that date. Nearby arrival airport: Paris-Orly (ORY), documented by FrenchWeddingStyle as approx. 30 minutes by taxi; Paris-CDG also serves London-origin flights as an alternative. Note: search limit reached (4/4 web searches) prevented confirming any jazz-specific private-event programming or capacity for this venue; thematic fit verified only historically (Montmartre's bohemian/artistic heritage). No venues were excluded, and no prior flight error was provided.\n\nFlights: Flight found via Kiwi.com search (London → Paris-Orly, ORY, 14/03/2027, 1 adult, Economy, EUR): Cheapest AND shortest option — Vueling VY8058, direct non-stop LHR → ORY, departing London Heathrow 14 Mar 2027 15:15, arriving Paris Orly 17:45 (same day, 1h 30m), Economy, price 65 EUR (1 personal item included; no cabin or checked bag). Booking source link: https://kiwi.com/u/pyr5kb. This matches the selected venue's nearby arrival airport (Paris-Orly, ~30 min by taxi to Hôtel Particulier Montmartre per FrenchWeddingStyle). Note: 15 itineraries returned; this direct option is both the lowest price and shortest duration (5400s). Research only — nothing booked.\n\nPlaylist: Jazz playlist (12 tracks):\n1. OAM's Blues — Aaron Goldberg\n2. Amanda — Aisha Duo\n3. Despertar — Aisha Duo\n4. Desafinado — Antônio Carlos Jobim\n5. Garota De Ipanema — Antônio Carlos Jobim\n6. Samba De Uma Nota Só (One Note Samba) — Antônio Carlos Jobim\n7. Por Causa De Você — Antônio Carlos Jobim\n8. Ligia — Antônio Carlos Jobim\n9. Fotografia — Antônio Carlos Jobim\n10. Dindi (Dindi) — Antônio Carlos Jobim\n11. Se Todos Fossem Iguais A Você (Instrumental) — Antônio Carlos Jobim\n12. Falando De Amor — Antônio Carlos Jobim\nTotal duration: 0:43:07.376000\nTotal price: USD 11.88\nSource: local Chinook.db (Track, Album, Artist, Genre)."
+    }
+  },
+  "stages": [
+    {
+      "kind": "tool_end",
+      "elapsed_s": 6.262464,
+      "id": "01a0a4e1-bf0e-7961-8353-a4a699255de5",
+      "name": "update_state",
+      "stage": "update_state",
+      "duration_s": 0.0011033749979105778,
+      "tool_status": null,
+      "output": "Command(update={'request': {'origin': 'London', 'destination': 'Paris', 'guest_count': 100, 'genre': 'jazz', 'travel_date': '2027-03-14'}, 'messages': [ToolMessage(content='Saved request: {\"origin\": \"London\", \"destination\": \"Paris\", \"guest_count\": 100, \"genre\": \"jazz\", \"travel_date\": \"2027-03-14\"}', name='update_state', tool_call_id='call_2dd8eaa505db4d0990abc0f3')]})"
+    },
+    {
+      "kind": "node_end",
+      "elapsed_s": 6.264131,
+      "id": "01a0a4e1-aaa1-70b0-9a49-7b83c2b022dd",
+      "name": "collect_request",
+      "duration_s": 5.23188966700036,
+      "success": null,
+      "details": null,
+      "state_status": "running"
+    },
+    {
+      "kind": "node_end",
+      "elapsed_s": 82.553296,
+      "id": "01a0a4e1-bf12-7841-9a8d-102991c6a18f",
+      "name": "venue",
+      "duration_s": 76.2885228749983,
+      "success": true,
+      "details": "Selected venue: Hôtel Particulier Montmartre (23 Avenue Junot, Pavillon D, 75018 Paris) — a real Parisian wedding venue: a historic Hermès-family mansion with a listed garden, offering full exclusivity and in-house catering. Advertised capacity: FrenchWeddingStyle.com lists \"up to 200 guests\" for a seated dinner (https://www.frenchweddingstyle.com/wedding-venues/hotel-particulier-montmartre), which accommodates the requested 100 guests; other third-party write-ups cite smaller figures (e.g., Le Joli Studio lists \"up to 60 guests\", starting €12,000 – https://www.lejolistudio.com/wedding-blog/10-most-unique-wedding-venues-paris). Date availability: NOT confirmed. No source publicizes confirmed availability for 2027-03-14; this must be verified directly with the venue (contact: +33 1 53 41 81 40 / hotelparticuliermontmartre.com events page), so advertised capacity should not be treated as confirmed booking availability for that date. Nearby arrival airport: Paris-Orly (ORY), documented by FrenchWeddingStyle as approx. 30 minutes by taxi; Paris-CDG also serves London-origin flights as an alternative. Note: search limit reached (4/4 web searches) prevented confirming any jazz-specific private-event programming or capacity for this venue; thematic fit verified only historically (Montmartre's bohemian/artistic heritage). No venues were excluded, and no prior flight error was provided.",
+      "state_status": "running"
+    },
+    {
+      "kind": "node_end",
+      "elapsed_s": 111.97051,
+      "id": "01a0a4e2-e913-7b53-b438-90079dd7e2eb",
+      "name": "flights",
+      "duration_s": 29.416191457999957,
+      "success": true,
+      "details": "Flight found via Kiwi.com search (London → Paris-Orly, ORY, 14/03/2027, 1 adult, Economy, EUR): Cheapest AND shortest option — Vueling VY8058, direct non-stop LHR → ORY, departing London Heathrow 14 Mar 2027 15:15, arriving Paris Orly 17:45 (same day, 1h 30m), Economy, price 65 EUR (1 personal item included; no cabin or checked bag). Booking source link: https://kiwi.com/u/pyr5kb. This matches the selected venue's nearby arrival airport (Paris-Orly, ~30 min by taxi to Hôtel Particulier Montmartre per FrenchWeddingStyle). Note: 15 itineraries returned; this direct option is both the lowest price and shortest duration (5400s). Research only — nothing booked.",
+      "state_status": null
+    },
+    {
+      "kind": "node_end",
+      "elapsed_s": 111.974901,
+      "id": "01a0a4e3-5bfc-73d1-b93c-273292eeef59",
+      "name": "playlist",
+      "duration_s": 0.003673249997518724,
+      "success": true,
+      "details": "Jazz playlist (12 tracks):\n1. OAM's Blues — Aaron Goldberg\n2. Amanda — Aisha Duo\n3. Despertar — Aisha Duo\n4. Desafinado — Antônio Carlos Jobim\n5. Garota De Ipanema — Antônio Carlos Jobim\n6. Samba De Uma Nota Só (One Note Samba) — Antônio Carlos Jobim\n7. Por Causa De Você — Antônio Carlos Jobim\n8. Ligia — Antônio Carlos Jobim\n9. Fotografia — Antônio Carlos Jobim\n10. Dindi (Dindi) — Antônio Carlos Jobim\n11. Se Todos Fossem Iguais A Você (Instrumental) — Antônio Carlos Jobim\n12. Falando De Amor — Antônio Carlos Jobim\nTotal duration: 0:43:07.376000\nTotal price: USD 11.88\nSource: local Chinook.db (Track, Album, Artist, Genre).",
+      "state_status": null
+    },
+    {
+      "kind": "node_end",
+      "elapsed_s": 111.976149,
+      "id": "01a0a4e3-5c00-7ff0-9528-1cc4626f477a",
+      "name": "output",
+      "duration_s": 0.0006108339985075872,
+      "success": null,
+      "details": null,
+      "state_status": "complete"
+    }
+  ],
+  "model_durations": [
+    {
+      "stage": "collect_request",
+      "duration_s": 5.221406041000591
+    },
+    {
+      "stage": "venue",
+      "duration_s": 7.788319415998558
+    },
+    {
+      "stage": "venue",
+      "duration_s": 14.551278416998684
+    },
+    {
+      "stage": "venue",
+      "duration_s": 16.05679641700044
+    },
+    {
+      "stage": "venue",
+      "duration_s": 32.5013305829998
+    },
+    {
+      "stage": "flights",
+      "duration_s": 8.5383609169985
+    },
+    {
+      "stage": "flights",
+      "duration_s": 12.945945583000139
+    }
+  ],
+  "unfinished_calls": [],
+  "flight_queries": [
+    {
+      "elapsed_s": 92.768015,
+      "args": {
+        "flyFrom": "London",
+        "flyTo": "ORY",
+        "departureDate": "14/03/2027",
+        "adults": 1,
+        "cabinClass": "M",
+        "currency": "EUR",
+        "sort": "price"
+      }
+    }
+  ],
+  "flight_model_received_requested_date": [
+    true,
+    true
+  ],
+  "sql_queries": [],
+  "direct_sql_results": [
+    {
+      "kind": "sql_end",
+      "elapsed_s": 111.974578,
+      "duration_s": 0.0028772090008715168,
+      "data": {
+        "columns": [
+          "Name",
+          "Name",
+          "Milliseconds",
+          "UnitPrice"
+        ],
+        "rows": [
+          [
+            "OAM's Blues",
+            "Aaron Goldberg",
+            266936,
+            0.99
+          ],
+          [
+            "Amanda",
+            "Aisha Duo",
+            246503,
+            0.99
+          ],
+          [
+            "Despertar",
+            "Aisha Duo",
+            307385,
+            0.99
+          ],
+          [
+            "Desafinado",
+            "Antônio Carlos Jobim",
+            185338,
+            0.99
+          ],
+          [
+            "Garota De Ipanema",
+            "Antônio Carlos Jobim",
+            285048,
+            0.99
+          ],
+          [
+            "Samba De Uma Nota Só (One Note Samba)",
+            "Antônio Carlos Jobim",
+            137273,
+            0.99
+          ],
+          [
+            "Por Causa De Você",
+            "Antônio Carlos Jobim",
+            169900,
+            0.99
+          ],
+          [
+            "Ligia",
+            "Antônio Carlos Jobim",
+            251977,
+            0.99
+          ],
+          [
+            "Fotografia",
+            "Antônio Carlos Jobim",
+            129227,
+            0.99
+          ],
+          [
+            "Dindi (Dindi)",
+            "Antônio Carlos Jobim",
+            253178,
+            0.99
+          ],
+          [
+            "Se Todos Fossem Iguais A Você (Instrumental)",
+            "Antônio Carlos Jobim",
+            134948,
+            0.99
+          ],
+          [
+            "Falando De Amor",
+            "Antônio Carlos Jobim",
+            219663,
+            0.99
+          ]
+        ]
+      }
+    }
+  ]
+}

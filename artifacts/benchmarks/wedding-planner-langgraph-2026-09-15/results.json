@@ -1,0 +1,343 @@
+{
+  "source": "/Users/dexterchan/sandbox/agentic/langchain_academy_classwork/lca-lc-foundations/notebooks/module-2/2.4_wedding_planners_langgraph.py",
+  "source_sha256": "190b6e401fbb398508abb8b452347270d9e5df53c1988f4857908f106f5b614b",
+  "database_sha256": "84f5d9143ac4deebdb81650ab650e226d909e660106846b119a5c47c33f94c13",
+  "prompt": "I'm from London and want a wedding in Paris for 100 guests, with jazz music. Travel date: 2027-03-14.",
+  "planner_timeout_s": 110,
+  "step_timeout_s": 90,
+  "outer_process_cap_s": 140,
+  "runs": 3,
+  "sequential": true,
+  "model": "deepseek/deepseek-v4-flash-0731",
+  "python": "3.12.11 (main, Sep 18 2025, 19:41:45) [Clang 20.1.4 ]",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "packages": {
+    "langchain": "1.3.14",
+    "langgraph": "1.2.10",
+    "langchain-deepseek": "1.1.0",
+    "mcp": "1.29.0",
+    "tavily-python": "0.7.27"
+  },
+  "method": "Unchanged source copied beside a fresh database for every trial. Run main() with its normal limits and built-in example, freezing the example date across trials. Timing callbacks record graph nodes, models and tools; query_playlist is wrapped only to measure SQL time. Every trial gets a fresh process and session. A partial return is incomplete, even if the process exits normally.",
+  "source_unchanged": true,
+  "database_unchanged": true,
+  "complete_runs": 1,
+  "median_complete_wall_s": 95.443,
+  "median_response_wall_s": 97.663,
+  "results": [
+    {
+      "run": "run-1",
+      "status": "incomplete",
+      "process_returncode": 0,
+      "wall_s": 97.663,
+      "setup_s": 1.375651,
+      "planner_s": 95.495,
+      "model_calls": 5,
+      "model_calls_by_stage": {
+        "collect_request": 1,
+        "venue": 4
+      },
+      "reported_usage": {
+        "input_tokens": 15151,
+        "output_tokens": 1634,
+        "total_tokens": 16785
+      },
+      "tool_calls": {
+        "update_state": 1,
+        "web_search": 4
+      },
+      "completed_tool_durations_s": {
+        "update_state": [
+          0.002
+        ],
+        "web_search": [
+          1.975,
+          2.997,
+          1.684,
+          2.325
+        ]
+      },
+      "terminal_event": {
+        "kind": "run_end",
+        "elapsed_s": 96.871049,
+        "status": "incomplete",
+        "state": {
+          "request": {
+            "origin": "London",
+            "destination": "Paris",
+            "guest_count": 100,
+            "genre": "jazz",
+            "travel_date": "2027-03-14"
+          },
+          "attempts": 1,
+          "rejected_venues": [],
+          "failures": [
+            "Venue attempt 1: Search timed out after 90 seconds."
+          ],
+          "last_error": "Search timed out after 90 seconds.",
+          "venue": {
+            "success": false,
+            "details": "Search timed out after 90 seconds.",
+            "venue_name": "",
+            "arrival_airport": ""
+          },
+          "flights": null,
+          "playlist": null,
+          "status": "incomplete",
+          "output": "Wedding plan incomplete\nVenue attempts: 1 / 5\nTravel date: 2027-03-14\n\nVenue candidate: Search timed out after 90 seconds.\n\nFlights: Not run.\n\nPlaylist: Not run.\n\nSearch issues:\nVenue attempt 1: Search timed out after 90 seconds."
+        },
+        "copied_database_unchanged": true
+      },
+      "node_spans": [
+        {
+          "kind": "node_end",
+          "elapsed_s": 6.840243,
+          "id": "01a0a498-a7e8-7133-a451-756d82601b84",
+          "name": "collect_request",
+          "duration_s": 5.382312792000448,
+          "success": null,
+          "state_status": "running"
+        },
+        {
+          "kind": "node_end",
+          "elapsed_s": 96.86523,
+          "id": "01a0a498-bcef-7090-beaa-37d86817cb8f",
+          "name": "venue",
+          "duration_s": 90.02423912499944,
+          "success": false,
+          "state_status": "running"
+        },
+        {
+          "kind": "node_end",
+          "elapsed_s": 96.866761,
+          "id": "01a0a49a-1c98-79c2-b622-e1a71bcde4e0",
+          "name": "output",
+          "duration_s": 0.0005199590013944544,
+          "success": null,
+          "state_status": "incomplete"
+        }
+      ],
+      "sql_calls": 0,
+      "sql_s": 0
+    },
+    {
+      "run": "run-2",
+      "status": "complete",
+      "process_returncode": 0,
+      "wall_s": 95.443,
+      "setup_s": 1.199563,
+      "planner_s": 93.53,
+      "model_calls": 7,
+      "model_calls_by_stage": {
+        "collect_request": 1,
+        "venue": 4,
+        "flights": 2
+      },
+      "reported_usage": {
+        "input_tokens": 40865,
+        "output_tokens": 3366,
+        "total_tokens": 44231
+      },
+      "tool_calls": {
+        "update_state": 1,
+        "web_search": 4,
+        "search-flight": 1
+      },
+      "completed_tool_durations_s": {
+        "update_state": [
+          0.001
+        ],
+        "web_search": [
+          2.659,
+          2.772,
+          1.764,
+          3.778
+        ],
+        "search-flight": [
+          10.151
+        ]
+      },
+      "terminal_event": {
+        "kind": "run_end",
+        "elapsed_s": 94.729509,
+        "status": "complete",
+        "state": {
+          "request": {
+            "origin": "London",
+            "destination": "Paris",
+            "guest_count": 100,
+            "genre": "jazz",
+            "travel_date": "2027-03-14"
+          },
+          "attempts": 1,
+          "rejected_venues": [],
+          "failures": [],
+          "last_error": "",
+          "venue": {
+            "success": true,
+            "details": "Selected venue: H\u00f4tel Salomon de Rothschild, 11 Rue Berryer, 75008 Paris (near the Champs-\u00c9lys\u00e9es), a private 19th-century mansion used for weddings and receptions. Advertised capacity: Bridebook lists dining capacity 350 and reception capacity 1,300 (1,300 m\u00b2 of privatizable indoor spaces; 4,000 m\u00b2 of gardens), and the Grand Salon accommodates well over 100 guests for a seated dinner (https://bridebook.com/fr-en/wedding-venues/h-tel-salomon-de-rothschild-paris-paris-frV8w0R9Xv; https://www.viparis.com/en/our-venues/hotel-salomon-de-rothschild-en/spaces). This comfortably exceeds the required 100 guests. Genre fit (jazz): a documented wedding at this venue featured a live band blending Parisian jazz, modern hits and North African rhythms (https://www.stylemepretty.com/2025/11/27/a-cinematic-parisian-wedding-at-hotel-salomon-de-rothschild-with-old-world-grandeur). Confirmed date availability for 2027-03-14: NOT confirmed by any source found; the venue is actively marketed for weddings (50+ weddings hosted per Bridebook) and availability for that specific date would require direct booking/confirmation. Advertised capacity is therefore verified, but confirmed date availability is not. Nearby arrival airports for Paris: CDG (Charles de Gaulle) and ORY (Orly); CDG selected as the primary international hub. Note: an alternative candidate, Le Georges at Centre Pompidou (advertised up to 100 guests), was rejected because it closed permanently in September 2025 for museum renovation running to 2030, so it cannot host a March 2027 wedding (https://www.parisselectbook.com/en/2025/03/05/le-georges-is-dead-a-new-page-turns-at-the-centre-pompidou).",
+            "venue_name": "H\u00f4tel Salomon de Rothschild",
+            "arrival_airport": "CDG"
+          },
+          "flights": {
+            "success": true,
+            "details": "Flight found via Kiwi.com search (London \u2192 CDG, 14/03/2027, 1 adult, economy, EUR). Best (cheapest): easyJet U25711, London Southend (SEN) \u2192 Paris Charles de Gaulle (CDG), departure 14 Mar 2027 15:55, arrival 18:05 (non-stop, 1h 10m), 60 EUR \u2014 booking link: https://kiwi.com/u/kz39nf. Next cheapest: easyJet U22435 Luton \u2192 CDG 07:00\u219209:30 (72 EUR, https://kiwi.com/u/uzuybd) and easyJet U28411 Gatwick \u2192 CDG 09:50\u219212:10 (73 EUR, https://kiwi.com/u/zbdd5m). All 15 returned itineraries are direct economy flights from London-area airports (SEN/LTN/LGW/LHR) to CDG on the requested date; shortest duration among them is 1h 10m. Verified: 15 results, no errors, resultsCount=15."
+          },
+          "playlist": {
+            "success": true,
+            "details": "Jazz playlist (12 tracks):\n1. OAM's Blues \u2014 Aaron Goldberg\n2. Amanda \u2014 Aisha Duo\n3. Despertar \u2014 Aisha Duo\n4. Desafinado \u2014 Ant\u00f4nio Carlos Jobim\n5. Garota De Ipanema \u2014 Ant\u00f4nio Carlos Jobim\n6. Samba De Uma Nota S\u00f3 (One Note Samba) \u2014 Ant\u00f4nio Carlos Jobim\n7. Por Causa De Voc\u00ea \u2014 Ant\u00f4nio Carlos Jobim\n8. Ligia \u2014 Ant\u00f4nio Carlos Jobim\n9. Fotografia \u2014 Ant\u00f4nio Carlos Jobim\n10. Dindi (Dindi) \u2014 Ant\u00f4nio Carlos Jobim\n11. Se Todos Fossem Iguais A Voc\u00ea (Instrumental) \u2014 Ant\u00f4nio Carlos Jobim\n12. Falando De Amor \u2014 Ant\u00f4nio Carlos Jobim\nTotal duration: 0:43:07.376000\nTotal price: USD 11.88\nSource: local Chinook.db (Track, Album, Artist, Genre)."
+          },
+          "status": "complete",
+          "output": "Wedding plan complete\nVenue attempts: 1 / 5\nTravel date: 2027-03-14\n\nVenue candidate: Selected venue: H\u00f4tel Salomon de Rothschild, 11 Rue Berryer, 75008 Paris (near the Champs-\u00c9lys\u00e9es), a private 19th-century mansion used for weddings and receptions. Advertised capacity: Bridebook lists dining capacity 350 and reception capacity 1,300 (1,300 m\u00b2 of privatizable indoor spaces; 4,000 m\u00b2 of gardens), and the Grand Salon accommodates well over 100 guests for a seated dinner (https://bridebook.com/fr-en/wedding-venues/h-tel-salomon-de-rothschild-paris-paris-frV8w0R9Xv; https://www.viparis.com/en/our-venues/hotel-salomon-de-rothschild-en/spaces). This comfortably exceeds the required 100 guests. Genre fit (jazz): a documented wedding at this venue featured a live band blending Parisian jazz, modern hits and North African rhythms (https://www.stylemepretty.com/2025/11/27/a-cinematic-parisian-wedding-at-hotel-salomon-de-rothschild-with-old-world-grandeur). Confirmed date availability for 2027-03-14: NOT confirmed by any source found; the venue is actively marketed for weddings (50+ weddings hosted per Bridebook) and availability for that specific date would require direct booking/confirmation. Advertised capacity is therefore verified, but confirmed date availability is not. Nearby arrival airports for Paris: CDG (Charles de Gaulle) and ORY (Orly); CDG selected as the primary international hub. Note: an alternative candidate, Le Georges at Centre Pompidou (advertised up to 100 guests), was rejected because it closed permanently in September 2025 for museum renovation running to 2030, so it cannot host a March 2027 wedding (https://www.parisselectbook.com/en/2025/03/05/le-georges-is-dead-a-new-page-turns-at-the-centre-pompidou).\n\nFlights: Flight found via Kiwi.com search (London \u2192 CDG, 14/03/2027, 1 adult, economy, EUR). Best (cheapest): easyJet U25711, London Southend (SEN) \u2192 Paris Charles de Gaulle (CDG), departure 14 Mar 2027 15:55, arrival 18:05 (non-stop, 1h 10m), 60 EUR \u2014 booking link: https://kiwi.com/u/kz39nf. Next cheapest: easyJet U22435 Luton \u2192 CDG 07:00\u219209:30 (72 EUR, https://kiwi.com/u/uzuybd) and easyJet U28411 Gatwick \u2192 CDG 09:50\u219212:10 (73 EUR, https://kiwi.com/u/zbdd5m). All 15 returned itineraries are direct economy flights from London-area airports (SEN/LTN/LGW/LHR) to CDG on the requested date; shortest duration among them is 1h 10m. Verified: 15 results, no errors, resultsCount=15.\n\nPlaylist: Jazz playlist (12 tracks):\n1. OAM's Blues \u2014 Aaron Goldberg\n2. Amanda \u2014 Aisha Duo\n3. Despertar \u2014 Aisha Duo\n4. Desafinado \u2014 Ant\u00f4nio Carlos Jobim\n5. Garota De Ipanema \u2014 Ant\u00f4nio Carlos Jobim\n6. Samba De Uma Nota S\u00f3 (One Note Samba) \u2014 Ant\u00f4nio Carlos Jobim\n7. Por Causa De Voc\u00ea \u2014 Ant\u00f4nio Carlos Jobim\n8. Ligia \u2014 Ant\u00f4nio Carlos Jobim\n9. Fotografia \u2014 Ant\u00f4nio Carlos Jobim\n10. Dindi (Dindi) \u2014 Ant\u00f4nio Carlos Jobim\n11. Se Todos Fossem Iguais A Voc\u00ea (Instrumental) \u2014 Ant\u00f4nio Carlos Jobim\n12. Falando De Amor \u2014 Ant\u00f4nio Carlos Jobim\nTotal duration: 0:43:07.376000\nTotal price: USD 11.88\nSource: local Chinook.db (Track, Album, Artist, Genre)."
+        },
+        "copied_database_unchanged": true
+      },
+      "node_spans": [
+        {
+          "kind": "node_end",
+          "elapsed_s": 5.080302,
+          "id": "01a0a49a-248a-7152-afbe-e59a3adb5a92",
+          "name": "collect_request",
+          "duration_s": 3.8373624999985623,
+          "success": null,
+          "state_status": "running"
+        },
+        {
+          "kind": "node_end",
+          "elapsed_s": 63.629563,
+          "id": "01a0a49a-3388-7163-9986-3c5590f4ad86",
+          "name": "venue",
+          "duration_s": 58.54879433300084,
+          "success": true,
+          "state_status": "running"
+        },
+        {
+          "kind": "node_end",
+          "elapsed_s": 94.719999,
+          "id": "01a0a49b-183e-71d2-b379-dd41040f28c6",
+          "name": "flights",
+          "duration_s": 31.08950754200123,
+          "success": true,
+          "state_status": null
+        },
+        {
+          "kind": "node_end",
+          "elapsed_s": 94.72496,
+          "id": "01a0a49b-91b0-7e31-b6f3-5bfe0745b967",
+          "name": "playlist",
+          "duration_s": 0.004128000000491738,
+          "success": true,
+          "state_status": null
+        },
+        {
+          "kind": "node_end",
+          "elapsed_s": 94.726237,
+          "id": "01a0a49b-91b5-7e01-8320-cdf3dc8cffb4",
+          "name": "output",
+          "duration_s": 0.000571832999412436,
+          "success": null,
+          "state_status": "complete"
+        }
+      ],
+      "sql_calls": 1,
+      "sql_s": 0.0032053750001068693
+    },
+    {
+      "run": "run-3",
+      "status": "incomplete",
+      "process_returncode": 0,
+      "wall_s": 111.981,
+      "setup_s": 1.154411,
+      "planner_s": 110.024,
+      "model_calls": 6,
+      "model_calls_by_stage": {
+        "collect_request": 1,
+        "venue": 3,
+        "flights": 2
+      },
+      "reported_usage": {
+        "input_tokens": 18356,
+        "output_tokens": 3732,
+        "total_tokens": 22088
+      },
+      "tool_calls": {
+        "update_state": 1,
+        "web_search": 4,
+        "search-flight": 1
+      },
+      "completed_tool_durations_s": {
+        "update_state": [
+          0.001
+        ],
+        "web_search": [
+          2.856,
+          2.941,
+          2.229,
+          4.334
+        ],
+        "search-flight": [
+          4.157
+        ]
+      },
+      "terminal_event": {
+        "kind": "run_end",
+        "elapsed_s": 111.178854,
+        "status": "incomplete",
+        "state": {
+          "request": {
+            "origin": "London",
+            "destination": "Paris",
+            "guest_count": 100,
+            "genre": "jazz",
+            "travel_date": "2027-03-14"
+          },
+          "attempts": 1,
+          "rejected_venues": [],
+          "failures": [],
+          "last_error": "",
+          "venue": {
+            "success": true,
+            "details": "Selected venue: Shangri-La Paris (10 Avenue d'I\u00e9na, Paris 16e). ADVERTISED CAPACITY: The venue markets up to 500 guests for combined historic salons and 100 on-site rooms (frenchweddingstyle.com/wedding-venues/shangri-la-paris). For a 100-guest wedding specifically: the Grand Salon accommodates ~100\u2013120 seated (magicdayevents.com/shangri-la-paris-wedding) and La Salle \u00e0 Manger seats 56\u2013100 (weddingvenuesdirectory.com/listing/shangri-la-paris), so the advertised capacity fits the requested guest count of 100. Jazz/dancing: the Grand Salon ballroom is the standard dinner+dancing space; a live jazz band is bookable via the hotel/planner (not confirmed in sources). CONFIRMED DATE AVAILABILITY: None \u2014 no source confirms availability for 2027-03-14; advertised capacity is NOT the same as a confirmed booking, which requires contacting events.slpr@shangri-la.com. NEARBY AIRPORT: Charles de Gaulle (CDG), cited by French Wedding Style as the nearest airport at ~24.7 km; Paris Orly (ORY) is also viable. Rejected venues list was empty and no prior flight/venue error, so no exclusions applied. Sources: https://www.frenchweddingstyle.com/wedding-venues/shangri-la-paris ; https://magicdayevents.com/shangri-la-paris-wedding ; https://weddingvenuesdirectory.com/listing/shangri-la-paris",
+            "venue_name": "Shangri-La Paris",
+            "arrival_airport": "CDG"
+          },
+          "flights": null,
+          "playlist": null,
+          "status": "incomplete",
+          "output": "Wedding plan incomplete\nTotal time limit reached (110 seconds).\nVenue: Selected venue: Shangri-La Paris (10 Avenue d'I\u00e9na, Paris 16e). ADVERTISED CAPACITY: The venue markets up to 500 guests for combined historic salons and 100 on-site rooms (frenchweddingstyle.com/wedding-venues/shangri-la-paris). For a 100-guest wedding specifically: the Grand Salon accommodates ~100\u2013120 seated (magicdayevents.com/shangri-la-paris-wedding) and La Salle \u00e0 Manger seats 56\u2013100 (weddingvenuesdirectory.com/listing/shangri-la-paris), so the advertised capacity fits the requested guest count of 100. Jazz/dancing: the Grand Salon ballroom is the standard dinner+dancing space; a live jazz band is bookable via the hotel/planner (not confirmed in sources). CONFIRMED DATE AVAILABILITY: None \u2014 no source confirms availability for 2027-03-14; advertised capacity is NOT the same as a confirmed booking, which requires contacting events.slpr@shangri-la.com. NEARBY AIRPORT: Charles de Gaulle (CDG), cited by French Wedding Style as the nearest airport at ~24.7 km; Paris Orly (ORY) is also viable. Rejected venues list was empty and no prior flight/venue error, so no exclusions applied. Sources: https://www.frenchweddingstyle.com/wedding-venues/shangri-la-paris ; https://magicdayevents.com/shangri-la-paris-wedding ; https://weddingvenuesdirectory.com/listing/shangri-la-paris\nFlights: Not completed.\nPlaylist: Not completed."
+        },
+        "copied_database_unchanged": true
+      },
+      "node_spans": [
+        {
+          "kind": "node_end",
+          "elapsed_s": 7.718771,
+          "id": "01a0a49b-992d-7ea0-9168-52cddc240c2c",
+          "name": "collect_request",
+          "duration_s": 6.523843041999498,
+          "success": null,
+          "state_status": "running"
+        },
+        {
+          "kind": "node_end",
+          "elapsed_s": 95.580812,
+          "id": "01a0a49b-b2a9-7781-a20d-36805b53025b",
+          "name": "venue",
+          "duration_s": 87.8615482080022,
+          "success": true,
+          "state_status": "running"
+        },
+        {
+          "kind": "node_error",
+          "elapsed_s": 111.170738,
+          "id": "01a0a49d-09e0-7a53-af70-09d54d8890ba",
+          "name": "flights",
+          "duration_s": 15.589052540999546,
+          "error": "CancelledError: "
+        }
+      ],
+      "sql_calls": 0,
+      "sql_s": 0
+    }
+  ]
+}

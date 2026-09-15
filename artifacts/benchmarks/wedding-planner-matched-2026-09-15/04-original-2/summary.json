@@ -1,0 +1,37 @@
+{
+  "run": "04-original-2",
+  "status": "error",
+  "process_returncode": 0,
+  "wall_s": 1.133,
+  "setup_s": null,
+  "planner_s": null,
+  "model_calls": 0,
+  "model_calls_by_stage": {},
+  "reported_usage": {},
+  "tool_calls": {},
+  "completed_tool_durations_s": {},
+  "terminal_event": {
+    "kind": "run_end",
+    "elapsed_s": 0.723185,
+    "status": "error",
+    "phase": "setup",
+    "error": "ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)"
+  },
+  "variant": "original",
+  "node_spans": [],
+  "sql_calls": 0,
+  "copied_database_changed": false,
+  "evidence_review": {
+    "core_pass": false,
+    "venue": "not_run",
+    "flight": "not_run",
+    "playlist": "not_run",
+    "reason": "Flight-tool discovery failed during setup with httpx.ConnectError: [SSL: UNEXPECTED_MESSAGE]. No model calls were made.",
+    "evidence": [
+      "console.log traces the failure to client.get_tools() while connecting to https://mcp.kiwi.com."
+    ],
+    "quality_notes": [
+      "Kept as a failed trial; not silently retried or excluded from the sample."
+    ]
+  }
+}

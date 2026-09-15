@@ -1,0 +1,23 @@
+{
+  "request": {
+    "origin": "London",
+    "destination": "Paris",
+    "guest_count": 100,
+    "genre": "jazz",
+    "travel_date": "2027-03-14"
+  },
+  "attempts": 1,
+  "rejected_venues": [],
+  "failures": [],
+  "last_error": "",
+  "venue": {
+    "success": true,
+    "details": "Selected venue: Shangri-La Paris (10 Avenue d'I\u00e9na, Paris 16e). ADVERTISED CAPACITY: The venue markets up to 500 guests for combined historic salons and 100 on-site rooms (frenchweddingstyle.com/wedding-venues/shangri-la-paris). For a 100-guest wedding specifically: the Grand Salon accommodates ~100\u2013120 seated (magicdayevents.com/shangri-la-paris-wedding) and La Salle \u00e0 Manger seats 56\u2013100 (weddingvenuesdirectory.com/listing/shangri-la-paris), so the advertised capacity fits the requested guest count of 100. Jazz/dancing: the Grand Salon ballroom is the standard dinner+dancing space; a live jazz band is bookable via the hotel/planner (not confirmed in sources). CONFIRMED DATE AVAILABILITY: None \u2014 no source confirms availability for 2027-03-14; advertised capacity is NOT the same as a confirmed booking, which requires contacting events.slpr@shangri-la.com. NEARBY AIRPORT: Charles de Gaulle (CDG), cited by French Wedding Style as the nearest airport at ~24.7 km; Paris Orly (ORY) is also viable. Rejected venues list was empty and no prior flight/venue error, so no exclusions applied. Sources: https://www.frenchweddingstyle.com/wedding-venues/shangri-la-paris ; https://magicdayevents.com/shangri-la-paris-wedding ; https://weddingvenuesdirectory.com/listing/shangri-la-paris",
+    "venue_name": "Shangri-La Paris",
+    "arrival_airport": "CDG"
+  },
+  "flights": null,
+  "playlist": null,
+  "status": "incomplete",
+  "output": "Wedding plan incomplete\nTotal time limit reached (110 seconds).\nVenue: Selected venue: Shangri-La Paris (10 Avenue d'I\u00e9na, Paris 16e). ADVERTISED CAPACITY: The venue markets up to 500 guests for combined historic salons and 100 on-site rooms (frenchweddingstyle.com/wedding-venues/shangri-la-paris). For a 100-guest wedding specifically: the Grand Salon accommodates ~100\u2013120 seated (magicdayevents.com/shangri-la-paris-wedding) and La Salle \u00e0 Manger seats 56\u2013100 (weddingvenuesdirectory.com/listing/shangri-la-paris), so the advertised capacity fits the requested guest count of 100. Jazz/dancing: the Grand Salon ballroom is the standard dinner+dancing space; a live jazz band is bookable via the hotel/planner (not confirmed in sources). CONFIRMED DATE AVAILABILITY: None \u2014 no source confirms availability for 2027-03-14; advertised capacity is NOT the same as a confirmed booking, which requires contacting events.slpr@shangri-la.com. NEARBY AIRPORT: Charles de Gaulle (CDG), cited by French Wedding Style as the nearest airport at ~24.7 km; Paris Orly (ORY) is also viable. Rejected venues list was empty and no prior flight/venue error, so no exclusions applied. Sources: https://www.frenchweddingstyle.com/wedding-venues/shangri-la-paris ; https://magicdayevents.com/shangri-la-paris-wedding ; https://weddingvenuesdirectory.com/listing/shangri-la-paris\nFlights: Not completed.\nPlaylist: Not completed."
+}

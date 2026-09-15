@@ -1,0 +1,103 @@
+{
+  "run": "05-original-3",
+  "status": "returned",
+  "process_returncode": 0,
+  "wall_s": 148.496,
+  "setup_s": 2.642798,
+  "planner_s": 144.937,
+  "model_calls": 18,
+  "model_calls_by_stage": {
+    "coordinator": 3,
+    "search_venues": 7,
+    "suggest_playlist": 5,
+    "search_flights": 3
+  },
+  "reported_usage": {
+    "input_tokens": 133990,
+    "output_tokens": 10847,
+    "total_tokens": 144837
+  },
+  "tool_calls": {
+    "update_state": 1,
+    "search_flights": 1,
+    "search_venues": 1,
+    "suggest_playlist": 1,
+    "web_search": 12,
+    "query_playlist_db": 7,
+    "search-flight": 4
+  },
+  "completed_tool_durations_s": {
+    "update_state": [
+      0.001
+    ],
+    "web_search": [
+      2.368,
+      3.905,
+      1.723,
+      3.576,
+      2.098,
+      2.378,
+      2.182,
+      2.65,
+      1.915,
+      2.161,
+      2.175,
+      2.807
+    ],
+    "query_playlist_db": [
+      0.002,
+      0.001,
+      0.003,
+      0.001,
+      0.002,
+      0.002,
+      0.002
+    ],
+    "search-flight": [
+      2.073,
+      2.409,
+      4.656,
+      4.911
+    ],
+    "suggest_playlist": [
+      63.875
+    ],
+    "search_flights": [
+      84.178
+    ],
+    "search_venues": [
+      105.52
+    ]
+  },
+  "terminal_event": {
+    "kind": "run_end",
+    "elapsed_s": 147.579449,
+    "status": "returned",
+    "state": {
+      "origin": "London",
+      "destination": "Paris",
+      "guest_count": "100",
+      "genre": "jazz"
+    }
+  },
+  "variant": "original",
+  "node_spans": [],
+  "sql_calls": 0,
+  "copied_database_changed": false,
+  "evidence_review": {
+    "core_pass": false,
+    "venue": "pass",
+    "flight": "fail",
+    "playlist": "pass",
+    "reason": "The final answer recommends a June 7 flight rather than the requested March 14 date.",
+    "evidence": [
+      "answer.txt acknowledges that the specialist searched June and asks the user whether to search the already-specified March date.",
+      "events.jsonl model_input records show the flight specialist never received 2027-03-14.",
+      "A saved venue result recommends Shangri-La Paris for weddings up to 100 guests: https://magicdayevents.com/shangri-la-paris-wedding",
+      "The chosen 20 tracks all belong to Jazz in the baseline database. Their total is 6274435 milliseconds (1:44:34.435) and USD 19.80, matching the answer."
+    ],
+    "quality_notes": [
+      "The final answer calls itself complete despite acknowledging the flight date mismatch."
+    ]
+  }
+}

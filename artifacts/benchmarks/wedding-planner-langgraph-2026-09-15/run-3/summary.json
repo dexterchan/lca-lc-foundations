@@ -1,0 +1,97 @@
+{
+  "run": "run-3",
+  "status": "incomplete",
+  "process_returncode": 0,
+  "wall_s": 111.981,
+  "setup_s": 1.154411,
+  "planner_s": 110.024,
+  "model_calls": 6,
+  "model_calls_by_stage": {
+    "collect_request": 1,
+    "venue": 3,
+    "flights": 2
+  },
+  "reported_usage": {
+    "input_tokens": 18356,
+    "output_tokens": 3732,
+    "total_tokens": 22088
+  },
+  "tool_calls": {
+    "update_state": 1,
+    "web_search": 4,
+    "search-flight": 1
+  },
+  "completed_tool_durations_s": {
+    "update_state": [
+      0.001
+    ],
+    "web_search": [
+      2.856,
+      2.941,
+      2.229,
+      4.334
+    ],
+    "search-flight": [
+      4.157
+    ]
+  },
+  "terminal_event": {
+    "kind": "run_end",
+    "elapsed_s": 111.178854,
+    "status": "incomplete",
+    "state": {
+      "request": {
+        "origin": "London",
+        "destination": "Paris",
+        "guest_count": 100,
+        "genre": "jazz",
+        "travel_date": "2027-03-14"
+      },
+      "attempts": 1,
+      "rejected_venues": [],
+      "failures": [],
+      "last_error": "",
+      "venue": {
+        "success": true,
+        "details": "Selected venue: Shangri-La Paris (10 Avenue d'I\u00e9na, Paris 16e). ADVERTISED CAPACITY: The venue markets up to 500 guests for combined historic salons and 100 on-site rooms (frenchweddingstyle.com/wedding-venues/shangri-la-paris). For a 100-guest wedding specifically: the Grand Salon accommodates ~100\u2013120 seated (magicdayevents.com/shangri-la-paris-wedding) and La Salle \u00e0 Manger seats 56\u2013100 (weddingvenuesdirectory.com/listing/shangri-la-paris), so the advertised capacity fits the requested guest count of 100. Jazz/dancing: the Grand Salon ballroom is the standard dinner+dancing space; a live jazz band is bookable via the hotel/planner (not confirmed in sources). CONFIRMED DATE AVAILABILITY: None \u2014 no source confirms availability for 2027-03-14; advertised capacity is NOT the same as a confirmed booking, which requires contacting events.slpr@shangri-la.com. NEARBY AIRPORT: Charles de Gaulle (CDG), cited by French Wedding Style as the nearest airport at ~24.7 km; Paris Orly (ORY) is also viable. Rejected venues list was empty and no prior flight/venue error, so no exclusions applied. Sources: https://www.frenchweddingstyle.com/wedding-venues/shangri-la-paris ; https://magicdayevents.com/shangri-la-paris-wedding ; https://weddingvenuesdirectory.com/listing/shangri-la-paris",
+        "venue_name": "Shangri-La Paris",
+        "arrival_airport": "CDG"
+      },
+      "flights": null,
+      "playlist": null,
+      "status": "incomplete",
+      "output": "Wedding plan incomplete\nTotal time limit reached (110 seconds).\nVenue: Selected venue: Shangri-La Paris (10 Avenue d'I\u00e9na, Paris 16e). ADVERTISED CAPACITY: The venue markets up to 500 guests for combined historic salons and 100 on-site rooms (frenchweddingstyle.com/wedding-venues/shangri-la-paris). For a 100-guest wedding specifically: the Grand Salon accommodates ~100\u2013120 seated (magicdayevents.com/shangri-la-paris-wedding) and La Salle \u00e0 Manger seats 56\u2013100 (weddingvenuesdirectory.com/listing/shangri-la-paris), so the advertised capacity fits the requested guest count of 100. Jazz/dancing: the Grand Salon ballroom is the standard dinner+dancing space; a live jazz band is bookable via the hotel/planner (not confirmed in sources). CONFIRMED DATE AVAILABILITY: None \u2014 no source confirms availability for 2027-03-14; advertised capacity is NOT the same as a confirmed booking, which requires contacting events.slpr@shangri-la.com. NEARBY AIRPORT: Charles de Gaulle (CDG), cited by French Wedding Style as the nearest airport at ~24.7 km; Paris Orly (ORY) is also viable. Rejected venues list was empty and no prior flight/venue error, so no exclusions applied. Sources: https://www.frenchweddingstyle.com/wedding-venues/shangri-la-paris ; https://magicdayevents.com/shangri-la-paris-wedding ; https://weddingvenuesdirectory.com/listing/shangri-la-paris\nFlights: Not completed.\nPlaylist: Not completed."
+    },
+    "copied_database_unchanged": true
+  },
+  "node_spans": [
+    {
+      "kind": "node_end",
+      "elapsed_s": 7.718771,
+      "id": "01a0a49b-992d-7ea0-9168-52cddc240c2c",
+      "name": "collect_request",
+      "duration_s": 6.523843041999498,
+      "success": null,
+      "state_status": "running"
+    },
+    {
+      "kind": "node_end",
+      "elapsed_s": 95.580812,
+      "id": "01a0a49b-b2a9-7781-a20d-36805b53025b",
+      "name": "venue",
+      "duration_s": 87.8615482080022,
+      "success": true,
+      "state_status": "running"
+    },
+    {
+      "kind": "node_error",
+      "elapsed_s": 111.170738,
+      "id": "01a0a49d-09e0-7a53-af70-09d54d8890ba",
+      "name": "flights",
+      "duration_s": 15.589052540999546,
+      "error": "CancelledError: "
+    }
+  ],
+  "sql_calls": 0,
+  "sql_s": 0
+}

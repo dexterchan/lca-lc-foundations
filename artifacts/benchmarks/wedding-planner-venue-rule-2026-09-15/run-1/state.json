@@ -1,0 +1,30 @@
+{
+  "request": {
+    "origin": "London",
+    "destination": "Paris",
+    "guest_count": 100,
+    "genre": "jazz",
+    "travel_date": "2027-03-14"
+  },
+  "attempts": 1,
+  "rejected_venues": [],
+  "failures": [],
+  "last_error": "",
+  "venue": {
+    "success": true,
+    "details": "Selected Shangri-La Hotel, Paris (16th arrondissement, within the city of Paris itself). A sourcing blog covering top hotel wedding venues in France states its Grand Salon primary wedding reception space \"can accommodate well over 100 guests for a seated dinner,\" comfortably covering the 100-guest wedding. The same source confirms the venue is in Paris's 16th arrondissement with a private garden used for ceremonies, and the hotel is directly on the Seine with Eiffel Tower views. A second Paris-wedding guide also lists Shangri-La Paris among venues for an Eiffel Tower / luxury ballroom wedding. Destination match: yes (venue is in Paris). Nearest major arrival airport: CDG (Paris-Charles de Gaulle). Date availability for 2027-03-14 is unknown: no source confirmed availability or unavailability for that date; per instructions, this does not make the venue unsuitable. Note: I had no tool calls left to verify venue-official capacity pages or date availability, so capacity rests on the sourced blog description and availability on no evidence either way. The rejected_venues list was empty.\nSources: https://courtneybowlden.com/7-best-hotel-wedding-venues-in-france, https://www.theparisphotographer.com/paris-wedding\nDate availability: Not confirmed. Check with the venue before booking.",
+    "venue_name": "Shangri-La Hotel, Paris",
+    "date_availability": "unknown",
+    "arrival_airport": "CDG"
+  },
+  "flights": {
+    "success": true,
+    "details": "One-way economy flight found for 1 adult from London to Paris CDG on 14/03/2027. Cheapest option: London Southend (SEN) \u2192 Paris Charles de Gaulle (CDG), direct non-stop, easyJet flight U25711, departing 2027-03-14 15:55, arriving 18:05 (1h 10m), Economy, 60 EUR. Booking source: https://kiwi.com/u/uhjbrg (Kiwi.com). 15 results returned, all direct; the 60 EUR easyJet option is both the lowest price and among the shortest (1h10m)."
+  },
+  "playlist": {
+    "success": true,
+    "details": "Jazz playlist (12 tracks):\n1. OAM's Blues \u2014 Aaron Goldberg\n2. Amanda \u2014 Aisha Duo\n3. Despertar \u2014 Aisha Duo\n4. Desafinado \u2014 Ant\u00f4nio Carlos Jobim\n5. Garota De Ipanema \u2014 Ant\u00f4nio Carlos Jobim\n6. Samba De Uma Nota S\u00f3 (One Note Samba) \u2014 Ant\u00f4nio Carlos Jobim\n7. Por Causa De Voc\u00ea \u2014 Ant\u00f4nio Carlos Jobim\n8. Ligia \u2014 Ant\u00f4nio Carlos Jobim\n9. Fotografia \u2014 Ant\u00f4nio Carlos Jobim\n10. Dindi (Dindi) \u2014 Ant\u00f4nio Carlos Jobim\n11. Se Todos Fossem Iguais A Voc\u00ea (Instrumental) \u2014 Ant\u00f4nio Carlos Jobim\n12. Falando De Amor \u2014 Ant\u00f4nio Carlos Jobim\nTotal duration: 0:43:07.376000\nTotal price: USD 11.88\nSource: local Chinook.db (Track, Album, Artist, Genre)."
+  },
+  "status": "complete",
+  "output": "Wedding plan complete\nVenue attempts: 1 / 5\nTravel date: 2027-03-14\n\nVenue candidate: Selected Shangri-La Hotel, Paris (16th arrondissement, within the city of Paris itself). A sourcing blog covering top hotel wedding venues in France states its Grand Salon primary wedding reception space \"can accommodate well over 100 guests for a seated dinner,\" comfortably covering the 100-guest wedding. The same source confirms the venue is in Paris's 16th arrondissement with a private garden used for ceremonies, and the hotel is directly on the Seine with Eiffel Tower views. A second Paris-wedding guide also lists Shangri-La Paris among venues for an Eiffel Tower / luxury ballroom wedding. Destination match: yes (venue is in Paris). Nearest major arrival airport: CDG (Paris-Charles de Gaulle). Date availability for 2027-03-14 is unknown: no source confirmed availability or unavailability for that date; per instructions, this does not make the venue unsuitable. Note: I had no tool calls left to verify venue-official capacity pages or date availability, so capacity rests on the sourced blog description and availability on no evidence either way. The rejected_venues list was empty.\nSources: https://courtneybowlden.com/7-best-hotel-wedding-venues-in-france, https://www.theparisphotographer.com/paris-wedding\nDate availability: Not confirmed. Check with the venue before booking.\n\nFlights: One-way economy flight found for 1 adult from London to Paris CDG on 14/03/2027. Cheapest option: London Southend (SEN) \u2192 Paris Charles de Gaulle (CDG), direct non-stop, easyJet flight U25711, departing 2027-03-14 15:55, arriving 18:05 (1h 10m), Economy, 60 EUR. Booking source: https://kiwi.com/u/uhjbrg (Kiwi.com). 15 results returned, all direct; the 60 EUR easyJet option is both the lowest price and among the shortest (1h10m).\n\nPlaylist: Jazz playlist (12 tracks):\n1. OAM's Blues \u2014 Aaron Goldberg\n2. Amanda \u2014 Aisha Duo\n3. Despertar \u2014 Aisha Duo\n4. Desafinado \u2014 Ant\u00f4nio Carlos Jobim\n5. Garota De Ipanema \u2014 Ant\u00f4nio Carlos Jobim\n6. Samba De Uma Nota S\u00f3 (One Note Samba) \u2014 Ant\u00f4nio Carlos Jobim\n7. Por Causa De Voc\u00ea \u2014 Ant\u00f4nio Carlos Jobim\n8. Ligia \u2014 Ant\u00f4nio Carlos Jobim\n9. Fotografia \u2014 Ant\u00f4nio Carlos Jobim\n10. Dindi (Dindi) \u2014 Ant\u00f4nio Carlos Jobim\n11. Se Todos Fossem Iguais A Voc\u00ea (Instrumental) \u2014 Ant\u00f4nio Carlos Jobim\n12. Falando De Amor \u2014 Ant\u00f4nio Carlos Jobim\nTotal duration: 0:43:07.376000\nTotal price: USD 11.88\nSource: local Chinook.db (Track, Album, Artist, Genre)."
+}

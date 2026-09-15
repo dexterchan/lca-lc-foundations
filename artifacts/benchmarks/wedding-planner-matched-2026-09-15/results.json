@@ -1,0 +1,705 @@
+{
+  "created_utc": "2026-09-15T11:35:27.083363+00:00",
+  "request": "I'm from London and want a wedding in Paris for 100 guests, with jazz music. Travel date: 2027-03-14.",
+  "planner_timeout_s": 300,
+  "step_timeout_s": 300,
+  "model_transport_timeout_s": 300,
+  "model_max_retries": 0,
+  "tavily_timeout_s": 30,
+  "outer_process_cap_s": 330,
+  "sources": {
+    "original": {
+      "path": "/Users/dexterchan/sandbox/agentic/langchain_academy_classwork/lca-lc-foundations/notebooks/module-2/2.4_wedding_planners.py",
+      "sha256": "9810d295353f1db5c95b7cda719e1e264129d7c9a46e0361880a2eedd7a0f872"
+    },
+    "langgraph": {
+      "path": "/Users/dexterchan/sandbox/agentic/langchain_academy_classwork/lca-lc-foundations/notebooks/module-2/2.4_wedding_planners_langgraph.py",
+      "sha256": "d4056fa2a0cd5c9ee0ddc117f9eccd3df271a8c49850073991238740f73d11a1"
+    }
+  },
+  "database_sha256": "84f5d9143ac4deebdb81650ab650e226d909e660106846b119a5c47c33f94c13",
+  "order": [
+    "original",
+    "langgraph",
+    "langgraph",
+    "original",
+    "original",
+    "langgraph"
+  ],
+  "controlled": [
+    "Identical user message including a fixed future travel date.",
+    "300 seconds for planning; no earlier individual step deadline.",
+    "Same model, 300-second transport timeout, zero model retries.",
+    "Both Tavily clients have a 30-second timeout.",
+    "Fresh source and database copies, process, and session each run.",
+    "Same evidence review; returned text and success flags alone do not pass."
+  ],
+  "remaining_differences": [
+    "Original specialists may overlap; graph uses venue then flights then SQL.",
+    "Original discards the requested date when delegating flights; left unchanged.",
+    "Original prompts and suggested 12 web searches vs graph hard 4 calls per tool.",
+    "Graph has six model calls per specialist; original keeps its own graph limits.",
+    "Original MCP error retries retained; graph retains its own flight retry edge.",
+    "Original outputs text; graph validates a structured result.",
+    "Original discovers flight tools during setup; graph discovers them during planning.",
+    "Original playlist agent may write to its private database copy."
+  ],
+  "interpretation": "Comparison under matched time budgets, not a controlled test of the LangGraph framework. Agent prompts, call budgets and workflow still differ.",
+  "common_pass_criteria": {
+    "venue": "Named Paris venue, evidence of room for 100 guests, and a source; no invented confirmed availability.",
+    "flight": "An actual tool result supporting a priced one-way London-to-Paris flight on 2027-03-14, with a source.",
+    "playlist": "Named jazz tracks supported by Chinook, with duration and cost totals matching the chosen tracks.",
+    "overall": "All three evidenced parts present in the final answer. Review manually against saved tool outputs."
+  },
+  "results": [
+    {
+      "run": "01-original-1",
+      "status": "returned",
+      "process_returncode": 0,
+      "wall_s": 151.253,
+      "setup_s": 2.910662,
+      "planner_s": 147.391,
+      "model_calls": 21,
+      "model_calls_by_stage": {
+        "coordinator": 3,
+        "search_venues": 7,
+        "search_flights": 3,
+        "suggest_playlist": 8
+      },
+      "reported_usage": {
+        "input_tokens": 131340,
+        "output_tokens": 10068,
+        "total_tokens": 141408
+      },
+      "tool_calls": {
+        "update_state": 1,
+        "search_flights": 1,
+        "search_venues": 1,
+        "suggest_playlist": 1,
+        "web_search": 12,
+        "query_playlist_db": 9,
+        "search-flight": 4
+      },
+      "completed_tool_durations_s": {
+        "update_state": [
+          0.001
+        ],
+        "query_playlist_db": [
+          0.001,
+          0.003,
+          0.002,
+          0.001,
+          0.001,
+          0.001,
+          0.001,
+          0.001,
+          0.001
+        ],
+        "web_search": [
+          2.206,
+          3.751,
+          2.346,
+          3.618,
+          1.995,
+          2.09,
+          2.045,
+          2.485,
+          2.968,
+          4.211,
+          2.873,
+          3.487
+        ],
+        "search-flight": [
+          1.965,
+          6.613,
+          4.543,
+          4.627
+        ],
+        "suggest_playlist": [
+          73.054
+        ],
+        "search_flights": [
+          80.115
+        ],
+        "search_venues": [
+          114.696
+        ]
+      },
+      "terminal_event": {
+        "kind": "run_end",
+        "elapsed_s": 150.302214,
+        "status": "returned",
+        "state": {
+          "origin": "London",
+          "destination": "Paris",
+          "guest_count": "100",
+          "genre": "jazz"
+        }
+      },
+      "variant": "original",
+      "node_spans": [],
+      "sql_calls": 0,
+      "copied_database_changed": false,
+      "evidence_review": {
+        "core_pass": false,
+        "venue": "pass",
+        "flight": "fail",
+        "playlist": "pass_with_notes",
+        "reason": "The requested date was 2027-03-14; all flight queries and returned offers were for June.",
+        "evidence": [
+          "answer.txt acknowledges the March request but recommends June flights.",
+          "events.jsonl model_input records show the flight specialist never received 2027-03-14.",
+          "Web results for L'Olivia give a Paris address and 140 seated guests: https://www.planners.fr/wedding-venues/lolivia--bize86wm?domain=plannerz.co.uk&_locale=en",
+          "The final SQL selection contains 18 jazz tracks with 6096636 milliseconds and USD 17.82, matching the final answer's approximate total."
+        ],
+        "quality_notes": [
+          "The coordinator claims it asked the travel agent about March; the actual delegated prompt omitted the date.",
+          "The playlist specialist's table omits Deep Waters from its 18-track SQL selection and calls Round Midnight 3:57; the database length is 5:57.459. Aggregate totals match the SQL selection."
+        ]
+      }
+    },
+    {
+      "run": "02-langgraph-1",
+      "status": "incomplete",
+      "process_returncode": 0,
+      "wall_s": 119.773,
+      "setup_s": 0.991674,
+      "planner_s": 117.799,
+      "model_calls": 5,
+      "model_calls_by_stage": {
+        "collect_request": 1,
+        "venue": 4
+      },
+      "reported_usage": {
+        "input_tokens": 24499,
+        "output_tokens": 5048,
+        "total_tokens": 29547
+      },
+      "tool_calls": {
+        "update_state": 1,
+        "web_search": 4
+      },
+      "completed_tool_durations_s": {
+        "update_state": [
+          0.001
+        ],
+        "web_search": [
+          2.353,
+          2.608,
+          2.017,
+          2.719
+        ]
+      },
+      "terminal_event": {
+        "kind": "run_end",
+        "elapsed_s": 118.790891,
+        "status": "incomplete",
+        "state": {
+          "request": {
+            "origin": "London",
+            "destination": "Paris",
+            "guest_count": 100,
+            "genre": "jazz",
+            "travel_date": "2027-03-14"
+          },
+          "attempts": 1,
+          "rejected_venues": [],
+          "failures": [
+            "Venue attempt 1: Real venue identified in Paris with advertised capacity fitting 100 guests, but date availability for 2027-03-14 could NOT be confirmed before the search limit was reached, so the request is only partially satisfied.\n\nVENUE (advertised capacity only): H\u00f4tel de Crillon, A Rosewood Hotel, 10 Place de la Concorde, 75008 Paris. Official Rosewood listing (rosewoodhotels.com/en/hotel-de-crillon/events/weddings) shows its historic salons: Salon des Aigles up to 60 guests (largest), Salon Marie-Antoinette up to 40, Salon des Batailles up to 40. A Paris wedding-planner guide (lesecretdaudrey.com) states the three lounges can be privatized together or separately and accommodate a total of 100 guests; a second planner source (alejandrapoupel.com) notes adjoining rooms can hold a seated dinner of ~120. So advertised combined capacity supports the 100-guest count. Jazz genre is compatible (palace venue with live music/band noted in planner source). No rejected venues were listed, and this venue is not a spelling variant of any excluded one.\n\nARRIVAL AIRPORT: CDG (Paris Charles de Gaulle), the main international airport serving Paris; ORY (Orly) is the secondary option.\n\nCONFIRMED DATE AVAILABILITY: NOT CONFIRMED. No source verified open dates for 14 March 2027; the web_search tool hit its 4-call limit before a date-availability check could be completed. Do not treat 2027-03-14 as booked/available without inquiring directly (crillon.events@rosewoodhotels.com). Because the explicitly requested confirmed-availability element is missing, success=false."
+          ],
+          "last_error": "Real venue identified in Paris with advertised capacity fitting 100 guests, but date availability for 2027-03-14 could NOT be confirmed before the search limit was reached, so the request is only partially satisfied.\n\nVENUE (advertised capacity only): H\u00f4tel de Crillon, A Rosewood Hotel, 10 Place de la Concorde, 75008 Paris. Official Rosewood listing (rosewoodhotels.com/en/hotel-de-crillon/events/weddings) shows its historic salons: Salon des Aigles up to 60 guests (largest), Salon Marie-Antoinette up to 40, Salon des Batailles up to 40. A Paris wedding-planner guide (lesecretdaudrey.com) states the three lounges can be privatized together or separately and accommodate a total of 100 guests; a second planner source (alejandrapoupel.com) notes adjoining rooms can hold a seated dinner of ~120. So advertised combined capacity supports the 100-guest count. Jazz genre is compatible (palace venue with live music/band noted in planner source). No rejected venues were listed, and this venue is not a spelling variant of any excluded one.\n\nARRIVAL AIRPORT: CDG (Paris Charles de Gaulle), the main international airport serving Paris; ORY (Orly) is the secondary option.\n\nCONFIRMED DATE AVAILABILITY: NOT CONFIRMED. No source verified open dates for 14 March 2027; the web_search tool hit its 4-call limit before a date-availability check could be completed. Do not treat 2027-03-14 as booked/available without inquiring directly (crillon.events@rosewoodhotels.com). Because the explicitly requested confirmed-availability element is missing, success=false.",
+          "venue": {
+            "success": false,
+            "details": "Real venue identified in Paris with advertised capacity fitting 100 guests, but date availability for 2027-03-14 could NOT be confirmed before the search limit was reached, so the request is only partially satisfied.\n\nVENUE (advertised capacity only): H\u00f4tel de Crillon, A Rosewood Hotel, 10 Place de la Concorde, 75008 Paris. Official Rosewood listing (rosewoodhotels.com/en/hotel-de-crillon/events/weddings) shows its historic salons: Salon des Aigles up to 60 guests (largest), Salon Marie-Antoinette up to 40, Salon des Batailles up to 40. A Paris wedding-planner guide (lesecretdaudrey.com) states the three lounges can be privatized together or separately and accommodate a total of 100 guests; a second planner source (alejandrapoupel.com) notes adjoining rooms can hold a seated dinner of ~120. So advertised combined capacity supports the 100-guest count. Jazz genre is compatible (palace venue with live music/band noted in planner source). No rejected venues were listed, and this venue is not a spelling variant of any excluded one.\n\nARRIVAL AIRPORT: CDG (Paris Charles de Gaulle), the main international airport serving Paris; ORY (Orly) is the secondary option.\n\nCONFIRMED DATE AVAILABILITY: NOT CONFIRMED. No source verified open dates for 14 March 2027; the web_search tool hit its 4-call limit before a date-availability check could be completed. Do not treat 2027-03-14 as booked/available without inquiring directly (crillon.events@rosewoodhotels.com). Because the explicitly requested confirmed-availability element is missing, success=false.",
+            "venue_name": "H\u00f4tel de Crillon, A Rosewood Hotel",
+            "arrival_airport": "CDG"
+          },
+          "flights": null,
+          "playlist": null,
+          "status": "incomplete",
+          "output": "Wedding plan incomplete\nVenue attempts: 1 / 5\nTravel date: 2027-03-14\n\nVenue candidate: Real venue identified in Paris with advertised capacity fitting 100 guests, but date availability for 2027-03-14 could NOT be confirmed before the search limit was reached, so the request is only partially satisfied.\n\nVENUE (advertised capacity only): H\u00f4tel de Crillon, A Rosewood Hotel, 10 Place de la Concorde, 75008 Paris. Official Rosewood listing (rosewoodhotels.com/en/hotel-de-crillon/events/weddings) shows its historic salons: Salon des Aigles up to 60 guests (largest), Salon Marie-Antoinette up to 40, Salon des Batailles up to 40. A Paris wedding-planner guide (lesecretdaudrey.com) states the three lounges can be privatized together or separately and accommodate a total of 100 guests; a second planner source (alejandrapoupel.com) notes adjoining rooms can hold a seated dinner of ~120. So advertised combined capacity supports the 100-guest count. Jazz genre is compatible (palace venue with live music/band noted in planner source). No rejected venues were listed, and this venue is not a spelling variant of any excluded one.\n\nARRIVAL AIRPORT: CDG (Paris Charles de Gaulle), the main international airport serving Paris; ORY (Orly) is the secondary option.\n\nCONFIRMED DATE AVAILABILITY: NOT CONFIRMED. No source verified open dates for 14 March 2027; the web_search tool hit its 4-call limit before a date-availability check could be completed. Do not treat 2027-03-14 as booked/available without inquiring directly (crillon.events@rosewoodhotels.com). Because the explicitly requested confirmed-availability element is missing, success=false.\n\nFlights: Not run.\n\nPlaylist: Not run.\n\nSearch issues:\nVenue attempt 1: Real venue identified in Paris with advertised capacity fitting 100 guests, but date availability for 2027-03-14 could NOT be confirmed before the search limit was reached, so the request is only partially satisfied.\n\nVENUE (advertised capacity only): H\u00f4tel de Crillon, A Rosewood Hotel, 10 Place de la Concorde, 75008 Paris. Official Rosewood listing (rosewoodhotels.com/en/hotel-de-crillon/events/weddings) shows its historic salons: Salon des Aigles up to 60 guests (largest), Salon Marie-Antoinette up to 40, Salon des Batailles up to 40. A Paris wedding-planner guide (lesecretdaudrey.com) states the three lounges can be privatized together or separately and accommodate a total of 100 guests; a second planner source (alejandrapoupel.com) notes adjoining rooms can hold a seated dinner of ~120. So advertised combined capacity supports the 100-guest count. Jazz genre is compatible (palace venue with live music/band noted in planner source). No rejected venues were listed, and this venue is not a spelling variant of any excluded one.\n\nARRIVAL AIRPORT: CDG (Paris Charles de Gaulle), the main international airport serving Paris; ORY (Orly) is the secondary option.\n\nCONFIRMED DATE AVAILABILITY: NOT CONFIRMED. No source verified open dates for 14 March 2027; the web_search tool hit its 4-call limit before a date-availability check could be completed. Do not treat 2027-03-14 as booked/available without inquiring directly (crillon.events@rosewoodhotels.com). Because the explicitly requested confirmed-availability element is missing, success=false."
+        }
+      },
+      "variant": "langgraph",
+      "node_spans": [
+        {
+          "kind": "node_end",
+          "elapsed_s": 5.886683,
+          "id": "01a0a4dc-0c39-7f13-97fe-ee87814cbf01",
+          "name": "collect_request",
+          "duration_s": 4.8523842909999075,
+          "success": null,
+          "details": null,
+          "state_status": "running"
+        },
+        {
+          "kind": "node_end",
+          "elapsed_s": 118.788205,
+          "id": "01a0a4dc-1f2e-7360-89b8-b95ff136f319",
+          "name": "venue",
+          "duration_s": 112.90107962500042,
+          "success": false,
+          "details": "Real venue identified in Paris with advertised capacity fitting 100 guests, but date availability for 2027-03-14 could NOT be confirmed before the search limit was reached, so the request is only partially satisfied.\n\nVENUE (advertised capacity only): H\u00f4tel de Crillon, A Rosewood Hotel, 10 Place de la Concorde, 75008 Paris. Official Rosewood listing (rosewoodhotels.com/en/hotel-de-crillon/events/weddings) shows its historic salons: Salon des Aigles up to 60 guests (largest), Salon Marie-Antoinette up to 40, Salon des Batailles up to 40. A Paris wedding-planner guide (lesecretdaudrey.com) states the three lounges can be privatized together or separately and accommodate a total of 100 guests; a second planner source (alejandrapoupel.com) notes adjoining rooms can hold a seated dinner of ~120. So advertised combined capacity supports the 100-guest count. Jazz genre is compatible (palace venue with live music/band noted in planner source). No rejected venues were listed, and this venue is not a spelling variant of any excluded one.\n\nARRIVAL AIRPORT: CDG (Paris Charles de Gaulle), the main international airport serving Paris; ORY (Orly) is the secondary option.\n\nCONFIRMED DATE AVAILABILITY: NOT CONFIRMED. No source verified open dates for 14 March 2027; the web_search tool hit its 4-call limit before a date-availability check could be completed. Do not treat 2027-03-14 as booked/available without inquiring directly (crillon.events@rosewoodhotels.com). Because the explicitly requested confirmed-availability element is missing, success=false.",
+          "state_status": "running"
+        },
+        {
+          "kind": "node_end",
+          "elapsed_s": 118.789108,
+          "id": "01a0a4dd-d832-72f1-99cd-0d2e61379d10",
+          "name": "output",
+          "duration_s": 0.00034308300018892623,
+          "success": null,
+          "details": null,
+          "state_status": "incomplete"
+        }
+      ],
+      "sql_calls": 0,
+      "copied_database_changed": false,
+      "evidence_review": {
+        "core_pass": false,
+        "venue": "pass",
+        "flight": "not_run",
+        "playlist": "not_run",
+        "reason": "The venue agent returned success=false because it could not confirm the exact date was available, despite finding an eligible venue. The graph stopped before flights and music.",
+        "evidence": [
+          "answer.txt identifies Hotel de Crillon and explicitly cites lack of confirmed availability as the reason for failure.",
+          "A saved search result supports combined capacity of 100: https://www.lesecretdaudrey.com/rendez-vous-with-audrey-your-wedding-at-hotel-de-crillon-paris",
+          "The common criteria require advertised capacity and honest availability wording; confirmed availability was not required.",
+          "The venue agent attempted two extra web searches after using its four allowed calls. Those calls were blocked. Its final structured answer used a real JSON false."
+        ],
+        "quality_notes": [
+          "This run did not time out. Increasing the time limit would not correct its success decision."
+        ]
+      }
+    },
+    {
+      "run": "03-langgraph-2",
+      "status": "complete",
+      "process_returncode": 0,
+      "wall_s": 98.824,
+      "setup_s": 1.024894,
+      "planner_s": 96.885,
+      "model_calls": 7,
+      "model_calls_by_stage": {
+        "collect_request": 1,
+        "venue": 4,
+        "flights": 2
+      },
+      "reported_usage": {
+        "input_tokens": 40488,
+        "output_tokens": 4013,
+        "total_tokens": 44501
+      },
+      "tool_calls": {
+        "update_state": 1,
+        "web_search": 4,
+        "search-flight": 1
+      },
+      "completed_tool_durations_s": {
+        "update_state": [
+          0.001
+        ],
+        "web_search": [
+          1.872,
+          3.046,
+          1.83,
+          2.354
+        ],
+        "search-flight": [
+          3.666
+        ]
+      },
+      "terminal_event": {
+        "kind": "run_end",
+        "elapsed_s": 97.910108,
+        "status": "complete",
+        "state": {
+          "request": {
+            "origin": "London",
+            "destination": "Paris",
+            "guest_count": 100,
+            "genre": "jazz",
+            "travel_date": "2027-03-14"
+          },
+          "attempts": 1,
+          "rejected_venues": [],
+          "failures": [],
+          "last_error": "",
+          "venue": {
+            "success": true,
+            "details": "Selected venue: Pavillons de Bercy, Paris (Paris Centre, 2 min from Bercy / Cour Saint-Emilion metro). Advertised capacity: 55 to 2,000+ guests, comfortably covering the 100-guest requirement; the 300 m\u00b2 main space features an art-deco stage explicitly suited for a live band (jazz) plus mezzanine, speakeasy-style bar and rooftop terrace; a 100-guest evening reception in the Salons V\u00e9nitiens is quoted from ~\u20ac15,000 (source: https://www.merakimariages.com/france). This is distinct from the excluded-venue list (none supplied) and from Paris-in-New-York (Clayville, NY), which was rejected as a US venue. Date availability: NOT confirmed \u2014 no public source confirms availability for 14 March 2027; only advertised capacity is verified, date availability for that specific day requires direct venue inquiry (research only, no booking made). Nearby arrival airport: CDG (Paris Charles de Gaulle ~35\u201345 min from the venue; ORY is a secondary alternative). Corroborating sources reviewed for Paris jazz-compatible venues: https://www.merakimariages.com/france; https://www.mangomuseevents.com/blog/2015/09/29/paris-wedding-venues-part-1-traditional-french-style-venues. Result is based on advertised (unconfirmed-availability) capacity; if confirmed-date availability is a hard requirement, treat this as needing verification before any commitment.",
+            "venue_name": "Pavillons de Bercy (Salons V\u00e9nitiens)",
+            "arrival_airport": "CDG"
+          },
+          "flights": {
+            "success": true,
+            "details": "One-way economy flight found for 1 adult, London \u2192 CDG (Paris Charles de Gaulle) on 14/03/2027. Cheapest & shortest: easyJet U25711, London Southend (SEN) 15:55 \u2192 Paris CDG 18:05, 1h 10m (0 stops), \u20ac60, Economy, booking link https://kiwi.com/u/qr6xms (personal item only; no cabin bag/checked bag included). Tied for shortest also Air France LGW\u2192CDG at \u20ac83 (AF1705 10:00\u219212:10; AF1707 16:45\u219218:55) at 1h 10m. Other notable: easyJet LGW 09:45\u219212:10 (1h 20m) \u20ac73, easyJet LTN 07:00\u219209:30 (1h 30m) \u20ac72. Total 15 itineraries returned, all non-stop Economy; cheapest 60 EUR, best price/duration balance is the \u20ac60 SEN departure (also shortest at 70 min). Source: Kiwi.com search results (search-flight tool, currency EUR). No errors or empty results \u2014 flight exists."
+          },
+          "playlist": {
+            "success": true,
+            "details": "Jazz playlist (12 tracks):\n1. OAM's Blues \u2014 Aaron Goldberg\n2. Amanda \u2014 Aisha Duo\n3. Despertar \u2014 Aisha Duo\n4. Desafinado \u2014 Ant\u00f4nio Carlos Jobim\n5. Garota De Ipanema \u2014 Ant\u00f4nio Carlos Jobim\n6. Samba De Uma Nota S\u00f3 (One Note Samba) \u2014 Ant\u00f4nio Carlos Jobim\n7. Por Causa De Voc\u00ea \u2014 Ant\u00f4nio Carlos Jobim\n8. Ligia \u2014 Ant\u00f4nio Carlos Jobim\n9. Fotografia \u2014 Ant\u00f4nio Carlos Jobim\n10. Dindi (Dindi) \u2014 Ant\u00f4nio Carlos Jobim\n11. Se Todos Fossem Iguais A Voc\u00ea (Instrumental) \u2014 Ant\u00f4nio Carlos Jobim\n12. Falando De Amor \u2014 Ant\u00f4nio Carlos Jobim\nTotal duration: 0:43:07.376000\nTotal price: USD 11.88\nSource: local Chinook.db (Track, Album, Artist, Genre)."
+          },
+          "status": "complete",
+          "output": "Wedding plan complete\nVenue attempts: 1 / 5\nTravel date: 2027-03-14\n\nVenue candidate: Selected venue: Pavillons de Bercy, Paris (Paris Centre, 2 min from Bercy / Cour Saint-Emilion metro). Advertised capacity: 55 to 2,000+ guests, comfortably covering the 100-guest requirement; the 300 m\u00b2 main space features an art-deco stage explicitly suited for a live band (jazz) plus mezzanine, speakeasy-style bar and rooftop terrace; a 100-guest evening reception in the Salons V\u00e9nitiens is quoted from ~\u20ac15,000 (source: https://www.merakimariages.com/france). This is distinct from the excluded-venue list (none supplied) and from Paris-in-New-York (Clayville, NY), which was rejected as a US venue. Date availability: NOT confirmed \u2014 no public source confirms availability for 14 March 2027; only advertised capacity is verified, date availability for that specific day requires direct venue inquiry (research only, no booking made). Nearby arrival airport: CDG (Paris Charles de Gaulle ~35\u201345 min from the venue; ORY is a secondary alternative). Corroborating sources reviewed for Paris jazz-compatible venues: https://www.merakimariages.com/france; https://www.mangomuseevents.com/blog/2015/09/29/paris-wedding-venues-part-1-traditional-french-style-venues. Result is based on advertised (unconfirmed-availability) capacity; if confirmed-date availability is a hard requirement, treat this as needing verification before any commitment.\n\nFlights: One-way economy flight found for 1 adult, London \u2192 CDG (Paris Charles de Gaulle) on 14/03/2027. Cheapest & shortest: easyJet U25711, London Southend (SEN) 15:55 \u2192 Paris CDG 18:05, 1h 10m (0 stops), \u20ac60, Economy, booking link https://kiwi.com/u/qr6xms (personal item only; no cabin bag/checked bag included). Tied for shortest also Air France LGW\u2192CDG at \u20ac83 (AF1705 10:00\u219212:10; AF1707 16:45\u219218:55) at 1h 10m. Other notable: easyJet LGW 09:45\u219212:10 (1h 20m) \u20ac73, easyJet LTN 07:00\u219209:30 (1h 30m) \u20ac72. Total 15 itineraries returned, all non-stop Economy; cheapest 60 EUR, best price/duration balance is the \u20ac60 SEN departure (also shortest at 70 min). Source: Kiwi.com search results (search-flight tool, currency EUR). No errors or empty results \u2014 flight exists.\n\nPlaylist: Jazz playlist (12 tracks):\n1. OAM's Blues \u2014 Aaron Goldberg\n2. Amanda \u2014 Aisha Duo\n3. Despertar \u2014 Aisha Duo\n4. Desafinado \u2014 Ant\u00f4nio Carlos Jobim\n5. Garota De Ipanema \u2014 Ant\u00f4nio Carlos Jobim\n6. Samba De Uma Nota S\u00f3 (One Note Samba) \u2014 Ant\u00f4nio Carlos Jobim\n7. Por Causa De Voc\u00ea \u2014 Ant\u00f4nio Carlos Jobim\n8. Ligia \u2014 Ant\u00f4nio Carlos Jobim\n9. Fotografia \u2014 Ant\u00f4nio Carlos Jobim\n10. Dindi (Dindi) \u2014 Ant\u00f4nio Carlos Jobim\n11. Se Todos Fossem Iguais A Voc\u00ea (Instrumental) \u2014 Ant\u00f4nio Carlos Jobim\n12. Falando De Amor \u2014 Ant\u00f4nio Carlos Jobim\nTotal duration: 0:43:07.376000\nTotal price: USD 11.88\nSource: local Chinook.db (Track, Album, Artist, Genre)."
+        }
+      },
+      "variant": "langgraph",
+      "node_spans": [
+        {
+          "kind": "node_end",
+          "elapsed_s": 7.729877,
+          "id": "01a0a4dd-e03c-7522-8fff-81b74a0d8797",
+          "name": "collect_request",
+          "duration_s": 6.6586125409994565,
+          "success": null,
+          "details": null,
+          "state_status": "running"
+        },
+        {
+          "kind": "node_end",
+          "elapsed_s": 73.041145,
+          "id": "01a0a4dd-fa3f-7193-8c8a-e2acb37a0af7",
+          "name": "venue",
+          "duration_s": 65.31046587500168,
+          "success": true,
+          "details": "Selected venue: Pavillons de Bercy, Paris (Paris Centre, 2 min from Bercy / Cour Saint-Emilion metro). Advertised capacity: 55 to 2,000+ guests, comfortably covering the 100-guest requirement; the 300 m\u00b2 main space features an art-deco stage explicitly suited for a live band (jazz) plus mezzanine, speakeasy-style bar and rooftop terrace; a 100-guest evening reception in the Salons V\u00e9nitiens is quoted from ~\u20ac15,000 (source: https://www.merakimariages.com/france). This is distinct from the excluded-venue list (none supplied) and from Paris-in-New-York (Clayville, NY), which was rejected as a US venue. Date availability: NOT confirmed \u2014 no public source confirms availability for 14 March 2027; only advertised capacity is verified, date availability for that specific day requires direct venue inquiry (research only, no booking made). Nearby arrival airport: CDG (Paris Charles de Gaulle ~35\u201345 min from the venue; ORY is a secondary alternative). Corroborating sources reviewed for Paris jazz-compatible venues: https://www.merakimariages.com/france; https://www.mangomuseevents.com/blog/2015/09/29/paris-wedding-venues-part-1-traditional-french-style-venues. Result is based on advertised (unconfirmed-availability) capacity; if confirmed-date availability is a hard requirement, treat this as needing verification before any commitment.",
+          "state_status": "running"
+        },
+        {
+          "kind": "node_end",
+          "elapsed_s": 97.901785,
+          "id": "01a0a4de-f95e-7182-ad8e-ce67e7d7720b",
+          "name": "flights",
+          "duration_s": 24.85963695799728,
+          "success": true,
+          "details": "One-way economy flight found for 1 adult, London \u2192 CDG (Paris Charles de Gaulle) on 14/03/2027. Cheapest & shortest: easyJet U25711, London Southend (SEN) 15:55 \u2192 Paris CDG 18:05, 1h 10m (0 stops), \u20ac60, Economy, booking link https://kiwi.com/u/qr6xms (personal item only; no cabin bag/checked bag included). Tied for shortest also Air France LGW\u2192CDG at \u20ac83 (AF1705 10:00\u219212:10; AF1707 16:45\u219218:55) at 1h 10m. Other notable: easyJet LGW 09:45\u219212:10 (1h 20m) \u20ac73, easyJet LTN 07:00\u219209:30 (1h 30m) \u20ac72. Total 15 itineraries returned, all non-stop Economy; cheapest 60 EUR, best price/duration balance is the \u20ac60 SEN departure (also shortest at 70 min). Source: Kiwi.com search results (search-flight tool, currency EUR). No errors or empty results \u2014 flight exists.",
+          "state_status": null
+        },
+        {
+          "kind": "node_end",
+          "elapsed_s": 97.906087,
+          "id": "01a0a4df-5a7a-7072-b228-b1dcd62027ea",
+          "name": "playlist",
+          "duration_s": 0.0037339169975894038,
+          "success": true,
+          "details": "Jazz playlist (12 tracks):\n1. OAM's Blues \u2014 Aaron Goldberg\n2. Amanda \u2014 Aisha Duo\n3. Despertar \u2014 Aisha Duo\n4. Desafinado \u2014 Ant\u00f4nio Carlos Jobim\n5. Garota De Ipanema \u2014 Ant\u00f4nio Carlos Jobim\n6. Samba De Uma Nota S\u00f3 (One Note Samba) \u2014 Ant\u00f4nio Carlos Jobim\n7. Por Causa De Voc\u00ea \u2014 Ant\u00f4nio Carlos Jobim\n8. Ligia \u2014 Ant\u00f4nio Carlos Jobim\n9. Fotografia \u2014 Ant\u00f4nio Carlos Jobim\n10. Dindi (Dindi) \u2014 Ant\u00f4nio Carlos Jobim\n11. Se Todos Fossem Iguais A Voc\u00ea (Instrumental) \u2014 Ant\u00f4nio Carlos Jobim\n12. Falando De Amor \u2014 Ant\u00f4nio Carlos Jobim\nTotal duration: 0:43:07.376000\nTotal price: USD 11.88\nSource: local Chinook.db (Track, Album, Artist, Genre).",
+          "state_status": null
+        },
+        {
+          "kind": "node_end",
+          "elapsed_s": 97.907665,
+          "id": "01a0a4df-5a7f-7000-9dcb-e6bab4341b7e",
+          "name": "output",
+          "duration_s": 0.0007179170024755877,
+          "success": null,
+          "details": null,
+          "state_status": "complete"
+        }
+      ],
+      "sql_calls": 1,
+      "copied_database_changed": false,
+      "evidence_review": {
+        "core_pass": true,
+        "venue": "pass_with_notes",
+        "flight": "pass_with_notes",
+        "playlist": "pass",
+        "reason": "The core request is supported: Paris venue for 100, an actual March 14 London-to-CDG flight, and 12 jazz tracks with matching totals.",
+        "evidence": [
+          "Saved Meraki Mariages search content gives Pavillons de Bercy a 55-2000+ capacity and a Bercy location: https://www.merakimariages.com/france",
+          "The selected easyJet U25711 flight matches the tool response: SEN 2027-03-14 15:55 to CDG 18:05, EUR 60, 70 minutes, https://kiwi.com/u/qr6xms",
+          "All 12 playlist rows match the baseline database. Duration is 2587376 milliseconds (43:07.376); cost is USD 11.88."
+        ],
+        "quality_notes": [
+          "Venue text also attributes a 300-square-metre art-deco room description from a multi-venue search snippet to Pavillons de Bercy; the saved snippet does not establish that attribution.",
+          "A secondary Gatwick option is written as 09:45 in the answer, but the tool says 09:50. The selected SEN flight is accurate.",
+          "This passes the declared core checks; it is not a claim that the whole answer is error-free."
+        ]
+      }
+    },
+    {
+      "run": "04-original-2",
+      "status": "error",
+      "process_returncode": 0,
+      "wall_s": 1.133,
+      "setup_s": null,
+      "planner_s": null,
+      "model_calls": 0,
+      "model_calls_by_stage": {},
+      "reported_usage": {},
+      "tool_calls": {},
+      "completed_tool_durations_s": {},
+      "terminal_event": {
+        "kind": "run_end",
+        "elapsed_s": 0.723185,
+        "status": "error",
+        "phase": "setup",
+        "error": "ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)"
+      },
+      "variant": "original",
+      "node_spans": [],
+      "sql_calls": 0,
+      "copied_database_changed": false,
+      "evidence_review": {
+        "core_pass": false,
+        "venue": "not_run",
+        "flight": "not_run",
+        "playlist": "not_run",
+        "reason": "Flight-tool discovery failed during setup with httpx.ConnectError: [SSL: UNEXPECTED_MESSAGE]. No model calls were made.",
+        "evidence": [
+          "console.log traces the failure to client.get_tools() while connecting to https://mcp.kiwi.com."
+        ],
+        "quality_notes": [
+          "Kept as a failed trial; not silently retried or excluded from the sample."
+        ]
+      }
+    },
+    {
+      "run": "05-original-3",
+      "status": "returned",
+      "process_returncode": 0,
+      "wall_s": 148.496,
+      "setup_s": 2.642798,
+      "planner_s": 144.937,
+      "model_calls": 18,
+      "model_calls_by_stage": {
+        "coordinator": 3,
+        "search_venues": 7,
+        "suggest_playlist": 5,
+        "search_flights": 3
+      },
+      "reported_usage": {
+        "input_tokens": 133990,
+        "output_tokens": 10847,
+        "total_tokens": 144837
+      },
+      "tool_calls": {
+        "update_state": 1,
+        "search_flights": 1,
+        "search_venues": 1,
+        "suggest_playlist": 1,
+        "web_search": 12,
+        "query_playlist_db": 7,
+        "search-flight": 4
+      },
+      "completed_tool_durations_s": {
+        "update_state": [
+          0.001
+        ],
+        "web_search": [
+          2.368,
+          3.905,
+          1.723,
+          3.576,
+          2.098,
+          2.378,
+          2.182,
+          2.65,
+          1.915,
+          2.161,
+          2.175,
+          2.807
+        ],
+        "query_playlist_db": [
+          0.002,
+          0.001,
+          0.003,
+          0.001,
+          0.002,
+          0.002,
+          0.002
+        ],
+        "search-flight": [
+          2.073,
+          2.409,
+          4.656,
+          4.911
+        ],
+        "suggest_playlist": [
+          63.875
+        ],
+        "search_flights": [
+          84.178
+        ],
+        "search_venues": [
+          105.52
+        ]
+      },
+      "terminal_event": {
+        "kind": "run_end",
+        "elapsed_s": 147.579449,
+        "status": "returned",
+        "state": {
+          "origin": "London",
+          "destination": "Paris",
+          "guest_count": "100",
+          "genre": "jazz"
+        }
+      },
+      "variant": "original",
+      "node_spans": [],
+      "sql_calls": 0,
+      "copied_database_changed": false,
+      "evidence_review": {
+        "core_pass": false,
+        "venue": "pass",
+        "flight": "fail",
+        "playlist": "pass",
+        "reason": "The final answer recommends a June 7 flight rather than the requested March 14 date.",
+        "evidence": [
+          "answer.txt acknowledges that the specialist searched June and asks the user whether to search the already-specified March date.",
+          "events.jsonl model_input records show the flight specialist never received 2027-03-14.",
+          "A saved venue result recommends Shangri-La Paris for weddings up to 100 guests: https://magicdayevents.com/shangri-la-paris-wedding",
+          "The chosen 20 tracks all belong to Jazz in the baseline database. Their total is 6274435 milliseconds (1:44:34.435) and USD 19.80, matching the answer."
+        ],
+        "quality_notes": [
+          "The final answer calls itself complete despite acknowledging the flight date mismatch."
+        ]
+      }
+    },
+    {
+      "run": "06-langgraph-3",
+      "status": "complete",
+      "process_returncode": 0,
+      "wall_s": 113.152,
+      "setup_s": 0.988737,
+      "planner_s": 110.989,
+      "model_calls": 7,
+      "model_calls_by_stage": {
+        "collect_request": 1,
+        "venue": 4,
+        "flights": 2
+      },
+      "reported_usage": {
+        "input_tokens": 44570,
+        "output_tokens": 3935,
+        "total_tokens": 48505
+      },
+      "tool_calls": {
+        "update_state": 1,
+        "web_search": 4,
+        "search-flight": 1
+      },
+      "completed_tool_durations_s": {
+        "update_state": [
+          0.001
+        ],
+        "web_search": [
+          2.142,
+          2.76,
+          2.164,
+          2.601
+        ],
+        "search-flight": [
+          6.244
+        ]
+      },
+      "terminal_event": {
+        "kind": "run_end",
+        "elapsed_s": 111.978348,
+        "status": "complete",
+        "state": {
+          "request": {
+            "origin": "London",
+            "destination": "Paris",
+            "guest_count": 100,
+            "genre": "jazz",
+            "travel_date": "2027-03-14"
+          },
+          "attempts": 1,
+          "rejected_venues": [],
+          "failures": [],
+          "last_error": "",
+          "venue": {
+            "success": true,
+            "details": "Selected venue: H\u00f4tel Particulier Montmartre (23 Avenue Junot, Pavillon D, 75018 Paris) \u2014 a real Parisian wedding venue: a historic Herm\u00e8s-family mansion with a listed garden, offering full exclusivity and in-house catering. Advertised capacity: FrenchWeddingStyle.com lists \"up to 200 guests\" for a seated dinner (https://www.frenchweddingstyle.com/wedding-venues/hotel-particulier-montmartre), which accommodates the requested 100 guests; other third-party write-ups cite smaller figures (e.g., Le Joli Studio lists \"up to 60 guests\", starting \u20ac12,000 \u2013 https://www.lejolistudio.com/wedding-blog/10-most-unique-wedding-venues-paris). Date availability: NOT confirmed. No source publicizes confirmed availability for 2027-03-14; this must be verified directly with the venue (contact: +33 1 53 41 81 40 / hotelparticuliermontmartre.com events page), so advertised capacity should not be treated as confirmed booking availability for that date. Nearby arrival airport: Paris-Orly (ORY), documented by FrenchWeddingStyle as approx. 30 minutes by taxi; Paris-CDG also serves London-origin flights as an alternative. Note: search limit reached (4/4 web searches) prevented confirming any jazz-specific private-event programming or capacity for this venue; thematic fit verified only historically (Montmartre's bohemian/artistic heritage). No venues were excluded, and no prior flight error was provided.",
+            "venue_name": "H\u00f4tel Particulier Montmartre",
+            "arrival_airport": "ORY"
+          },
+          "flights": {
+            "success": true,
+            "details": "Flight found via Kiwi.com search (London \u2192 Paris-Orly, ORY, 14/03/2027, 1 adult, Economy, EUR): Cheapest AND shortest option \u2014 Vueling VY8058, direct non-stop LHR \u2192 ORY, departing London Heathrow 14 Mar 2027 15:15, arriving Paris Orly 17:45 (same day, 1h 30m), Economy, price 65 EUR (1 personal item included; no cabin or checked bag). Booking source link: https://kiwi.com/u/pyr5kb. This matches the selected venue's nearby arrival airport (Paris-Orly, ~30 min by taxi to H\u00f4tel Particulier Montmartre per FrenchWeddingStyle). Note: 15 itineraries returned; this direct option is both the lowest price and shortest duration (5400s). Research only \u2014 nothing booked."
+          },
+          "playlist": {
+            "success": true,
+            "details": "Jazz playlist (12 tracks):\n1. OAM's Blues \u2014 Aaron Goldberg\n2. Amanda \u2014 Aisha Duo\n3. Despertar \u2014 Aisha Duo\n4. Desafinado \u2014 Ant\u00f4nio Carlos Jobim\n5. Garota De Ipanema \u2014 Ant\u00f4nio Carlos Jobim\n6. Samba De Uma Nota S\u00f3 (One Note Samba) \u2014 Ant\u00f4nio Carlos Jobim\n7. Por Causa De Voc\u00ea \u2014 Ant\u00f4nio Carlos Jobim\n8. Ligia \u2014 Ant\u00f4nio Carlos Jobim\n9. Fotografia \u2014 Ant\u00f4nio Carlos Jobim\n10. Dindi (Dindi) \u2014 Ant\u00f4nio Carlos Jobim\n11. Se Todos Fossem Iguais A Voc\u00ea (Instrumental) \u2014 Ant\u00f4nio Carlos Jobim\n12. Falando De Amor \u2014 Ant\u00f4nio Carlos Jobim\nTotal duration: 0:43:07.376000\nTotal price: USD 11.88\nSource: local Chinook.db (Track, Album, Artist, Genre)."
+          },
+          "status": "complete",
+          "output": "Wedding plan complete\nVenue attempts: 1 / 5\nTravel date: 2027-03-14\n\nVenue candidate: Selected venue: H\u00f4tel Particulier Montmartre (23 Avenue Junot, Pavillon D, 75018 Paris) \u2014 a real Parisian wedding venue: a historic Herm\u00e8s-family mansion with a listed garden, offering full exclusivity and in-house catering. Advertised capacity: FrenchWeddingStyle.com lists \"up to 200 guests\" for a seated dinner (https://www.frenchweddingstyle.com/wedding-venues/hotel-particulier-montmartre), which accommodates the requested 100 guests; other third-party write-ups cite smaller figures (e.g., Le Joli Studio lists \"up to 60 guests\", starting \u20ac12,000 \u2013 https://www.lejolistudio.com/wedding-blog/10-most-unique-wedding-venues-paris). Date availability: NOT confirmed. No source publicizes confirmed availability for 2027-03-14; this must be verified directly with the venue (contact: +33 1 53 41 81 40 / hotelparticuliermontmartre.com events page), so advertised capacity should not be treated as confirmed booking availability for that date. Nearby arrival airport: Paris-Orly (ORY), documented by FrenchWeddingStyle as approx. 30 minutes by taxi; Paris-CDG also serves London-origin flights as an alternative. Note: search limit reached (4/4 web searches) prevented confirming any jazz-specific private-event programming or capacity for this venue; thematic fit verified only historically (Montmartre's bohemian/artistic heritage). No venues were excluded, and no prior flight error was provided.\n\nFlights: Flight found via Kiwi.com search (London \u2192 Paris-Orly, ORY, 14/03/2027, 1 adult, Economy, EUR): Cheapest AND shortest option \u2014 Vueling VY8058, direct non-stop LHR \u2192 ORY, departing London Heathrow 14 Mar 2027 15:15, arriving Paris Orly 17:45 (same day, 1h 30m), Economy, price 65 EUR (1 personal item included; no cabin or checked bag). Booking source link: https://kiwi.com/u/pyr5kb. This matches the selected venue's nearby arrival airport (Paris-Orly, ~30 min by taxi to H\u00f4tel Particulier Montmartre per FrenchWeddingStyle). Note: 15 itineraries returned; this direct option is both the lowest price and shortest duration (5400s). Research only \u2014 nothing booked.\n\nPlaylist: Jazz playlist (12 tracks):\n1. OAM's Blues \u2014 Aaron Goldberg\n2. Amanda \u2014 Aisha Duo\n3. Despertar \u2014 Aisha Duo\n4. Desafinado \u2014 Ant\u00f4nio Carlos Jobim\n5. Garota De Ipanema \u2014 Ant\u00f4nio Carlos Jobim\n6. Samba De Uma Nota S\u00f3 (One Note Samba) \u2014 Ant\u00f4nio Carlos Jobim\n7. Por Causa De Voc\u00ea \u2014 Ant\u00f4nio Carlos Jobim\n8. Ligia \u2014 Ant\u00f4nio Carlos Jobim\n9. Fotografia \u2014 Ant\u00f4nio Carlos Jobim\n10. Dindi (Dindi) \u2014 Ant\u00f4nio Carlos Jobim\n11. Se Todos Fossem Iguais A Voc\u00ea (Instrumental) \u2014 Ant\u00f4nio Carlos Jobim\n12. Falando De Amor \u2014 Ant\u00f4nio Carlos Jobim\nTotal duration: 0:43:07.376000\nTotal price: USD 11.88\nSource: local Chinook.db (Track, Album, Artist, Genre)."
+        }
+      },
+      "variant": "langgraph",
+      "node_spans": [
+        {
+          "kind": "node_end",
+          "elapsed_s": 6.264131,
+          "id": "01a0a4e1-aaa1-70b0-9a49-7b83c2b022dd",
+          "name": "collect_request",
+          "duration_s": 5.23188966700036,
+          "success": null,
+          "details": null,
+          "state_status": "running"
+        },
+        {
+          "kind": "node_end",
+          "elapsed_s": 82.553296,
+          "id": "01a0a4e1-bf12-7841-9a8d-102991c6a18f",
+          "name": "venue",
+          "duration_s": 76.2885228749983,
+          "success": true,
+          "details": "Selected venue: H\u00f4tel Particulier Montmartre (23 Avenue Junot, Pavillon D, 75018 Paris) \u2014 a real Parisian wedding venue: a historic Herm\u00e8s-family mansion with a listed garden, offering full exclusivity and in-house catering. Advertised capacity: FrenchWeddingStyle.com lists \"up to 200 guests\" for a seated dinner (https://www.frenchweddingstyle.com/wedding-venues/hotel-particulier-montmartre), which accommodates the requested 100 guests; other third-party write-ups cite smaller figures (e.g., Le Joli Studio lists \"up to 60 guests\", starting \u20ac12,000 \u2013 https://www.lejolistudio.com/wedding-blog/10-most-unique-wedding-venues-paris). Date availability: NOT confirmed. No source publicizes confirmed availability for 2027-03-14; this must be verified directly with the venue (contact: +33 1 53 41 81 40 / hotelparticuliermontmartre.com events page), so advertised capacity should not be treated as confirmed booking availability for that date. Nearby arrival airport: Paris-Orly (ORY), documented by FrenchWeddingStyle as approx. 30 minutes by taxi; Paris-CDG also serves London-origin flights as an alternative. Note: search limit reached (4/4 web searches) prevented confirming any jazz-specific private-event programming or capacity for this venue; thematic fit verified only historically (Montmartre's bohemian/artistic heritage). No venues were excluded, and no prior flight error was provided.",
+          "state_status": "running"
+        },
+        {
+          "kind": "node_end",
+          "elapsed_s": 111.97051,
+          "id": "01a0a4e2-e913-7b53-b438-90079dd7e2eb",
+          "name": "flights",
+          "duration_s": 29.416191457999957,
+          "success": true,
+          "details": "Flight found via Kiwi.com search (London \u2192 Paris-Orly, ORY, 14/03/2027, 1 adult, Economy, EUR): Cheapest AND shortest option \u2014 Vueling VY8058, direct non-stop LHR \u2192 ORY, departing London Heathrow 14 Mar 2027 15:15, arriving Paris Orly 17:45 (same day, 1h 30m), Economy, price 65 EUR (1 personal item included; no cabin or checked bag). Booking source link: https://kiwi.com/u/pyr5kb. This matches the selected venue's nearby arrival airport (Paris-Orly, ~30 min by taxi to H\u00f4tel Particulier Montmartre per FrenchWeddingStyle). Note: 15 itineraries returned; this direct option is both the lowest price and shortest duration (5400s). Research only \u2014 nothing booked.",
+          "state_status": null
+        },
+        {
+          "kind": "node_end",
+          "elapsed_s": 111.974901,
+          "id": "01a0a4e3-5bfc-73d1-b93c-273292eeef59",
+          "name": "playlist",
+          "duration_s": 0.003673249997518724,
+          "success": true,
+          "details": "Jazz playlist (12 tracks):\n1. OAM's Blues \u2014 Aaron Goldberg\n2. Amanda \u2014 Aisha Duo\n3. Despertar \u2014 Aisha Duo\n4. Desafinado \u2014 Ant\u00f4nio Carlos Jobim\n5. Garota De Ipanema \u2014 Ant\u00f4nio Carlos Jobim\n6. Samba De Uma Nota S\u00f3 (One Note Samba) \u2014 Ant\u00f4nio Carlos Jobim\n7. Por Causa De Voc\u00ea \u2014 Ant\u00f4nio Carlos Jobim\n8. Ligia \u2014 Ant\u00f4nio Carlos Jobim\n9. Fotografia \u2014 Ant\u00f4nio Carlos Jobim\n10. Dindi (Dindi) \u2014 Ant\u00f4nio Carlos Jobim\n11. Se Todos Fossem Iguais A Voc\u00ea (Instrumental) \u2014 Ant\u00f4nio Carlos Jobim\n12. Falando De Amor \u2014 Ant\u00f4nio Carlos Jobim\nTotal duration: 0:43:07.376000\nTotal price: USD 11.88\nSource: local Chinook.db (Track, Album, Artist, Genre).",
+          "state_status": null
+        },
+        {
+          "kind": "node_end",
+          "elapsed_s": 111.976149,
+          "id": "01a0a4e3-5c00-7ff0-9528-1cc4626f477a",
+          "name": "output",
+          "duration_s": 0.0006108339985075872,
+          "success": null,
+          "details": null,
+          "state_status": "complete"
+        }
+      ],
+      "sql_calls": 1,
+      "copied_database_changed": false,
+      "evidence_review": {
+        "core_pass": true,
+        "venue": "pass_with_notes",
+        "flight": "pass",
+        "playlist": "pass",
+        "reason": "The core request is supported: an advertised Paris venue capacity above 100, a March 14 London-to-Orly flight, and correct jazz playlist totals.",
+        "evidence": [
+          "The saved FrenchWeddingStyle result explicitly says Hotel Particulier Montmartre can accommodate up to 200 guests for a seated dinner: https://www.frenchweddingstyle.com/wedding-venues/hotel-particulier-montmartre",
+          "The selected Vueling VY8058 flight matches the tool response: LHR 2027-03-14 15:15 to ORY 17:45, EUR 65, 90 minutes, https://kiwi.com/u/pyr5kb",
+          "All 12 playlist rows match the baseline database. Duration is 2587376 milliseconds (43:07.376); cost is USD 11.88."
+        ],
+        "quality_notes": [
+          "The venue sources conflict on capacity. The final answer discloses another source's 60-guest figure and does not claim confirmed date availability.",
+          "This passes the declared advertised-capacity check. The actual room layout and capacity still need direct confirmation before it could become a booking-ready plan."
+        ]
+      }
+    }
+  ],
+  "production_sources_unchanged": true,
+  "production_database_unchanged": true
+}

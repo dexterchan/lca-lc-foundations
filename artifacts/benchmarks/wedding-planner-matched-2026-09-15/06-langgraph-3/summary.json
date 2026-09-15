@@ -1,0 +1,143 @@
+{
+  "run": "06-langgraph-3",
+  "status": "complete",
+  "process_returncode": 0,
+  "wall_s": 113.152,
+  "setup_s": 0.988737,
+  "planner_s": 110.989,
+  "model_calls": 7,
+  "model_calls_by_stage": {
+    "collect_request": 1,
+    "venue": 4,
+    "flights": 2
+  },
+  "reported_usage": {
+    "input_tokens": 44570,
+    "output_tokens": 3935,
+    "total_tokens": 48505
+  },
+  "tool_calls": {
+    "update_state": 1,
+    "web_search": 4,
+    "search-flight": 1
+  },
+  "completed_tool_durations_s": {
+    "update_state": [
+      0.001
+    ],
+    "web_search": [
+      2.142,
+      2.76,
+      2.164,
+      2.601
+    ],
+    "search-flight": [
+      6.244
+    ]
+  },
+  "terminal_event": {
+    "kind": "run_end",
+    "elapsed_s": 111.978348,
+    "status": "complete",
+    "state": {
+      "request": {
+        "origin": "London",
+        "destination": "Paris",
+        "guest_count": 100,
+        "genre": "jazz",
+        "travel_date": "2027-03-14"
+      },
+      "attempts": 1,
+      "rejected_venues": [],
+      "failures": [],
+      "last_error": "",
+      "venue": {
+        "success": true,
+        "details": "Selected venue: H\u00f4tel Particulier Montmartre (23 Avenue Junot, Pavillon D, 75018 Paris) \u2014 a real Parisian wedding venue: a historic Herm\u00e8s-family mansion with a listed garden, offering full exclusivity and in-house catering. Advertised capacity: FrenchWeddingStyle.com lists \"up to 200 guests\" for a seated dinner (https://www.frenchweddingstyle.com/wedding-venues/hotel-particulier-montmartre), which accommodates the requested 100 guests; other third-party write-ups cite smaller figures (e.g., Le Joli Studio lists \"up to 60 guests\", starting \u20ac12,000 \u2013 https://www.lejolistudio.com/wedding-blog/10-most-unique-wedding-venues-paris). Date availability: NOT confirmed. No source publicizes confirmed availability for 2027-03-14; this must be verified directly with the venue (contact: +33 1 53 41 81 40 / hotelparticuliermontmartre.com events page), so advertised capacity should not be treated as confirmed booking availability for that date. Nearby arrival airport: Paris-Orly (ORY), documented by FrenchWeddingStyle as approx. 30 minutes by taxi; Paris-CDG also serves London-origin flights as an alternative. Note: search limit reached (4/4 web searches) prevented confirming any jazz-specific private-event programming or capacity for this venue; thematic fit verified only historically (Montmartre's bohemian/artistic heritage). No venues were excluded, and no prior flight error was provided.",
+        "venue_name": "H\u00f4tel Particulier Montmartre",
+        "arrival_airport": "ORY"
+      },
+      "flights": {
+        "success": true,
+        "details": "Flight found via Kiwi.com search (London \u2192 Paris-Orly, ORY, 14/03/2027, 1 adult, Economy, EUR): Cheapest AND shortest option \u2014 Vueling VY8058, direct non-stop LHR \u2192 ORY, departing London Heathrow 14 Mar 2027 15:15, arriving Paris Orly 17:45 (same day, 1h 30m), Economy, price 65 EUR (1 personal item included; no cabin or checked bag). Booking source link: https://kiwi.com/u/pyr5kb. This matches the selected venue's nearby arrival airport (Paris-Orly, ~30 min by taxi to H\u00f4tel Particulier Montmartre per FrenchWeddingStyle). Note: 15 itineraries returned; this direct option is both the lowest price and shortest duration (5400s). Research only \u2014 nothing booked."
+      },
+      "playlist": {
+        "success": true,
+        "details": "Jazz playlist (12 tracks):\n1. OAM's Blues \u2014 Aaron Goldberg\n2. Amanda \u2014 Aisha Duo\n3. Despertar \u2014 Aisha Duo\n4. Desafinado \u2014 Ant\u00f4nio Carlos Jobim\n5. Garota De Ipanema \u2014 Ant\u00f4nio Carlos Jobim\n6. Samba De Uma Nota S\u00f3 (One Note Samba) \u2014 Ant\u00f4nio Carlos Jobim\n7. Por Causa De Voc\u00ea \u2014 Ant\u00f4nio Carlos Jobim\n8. Ligia \u2014 Ant\u00f4nio Carlos Jobim\n9. Fotografia \u2014 Ant\u00f4nio Carlos Jobim\n10. Dindi (Dindi) \u2014 Ant\u00f4nio Carlos Jobim\n11. Se Todos Fossem Iguais A Voc\u00ea (Instrumental) \u2014 Ant\u00f4nio Carlos Jobim\n12. Falando De Amor \u2014 Ant\u00f4nio Carlos Jobim\nTotal duration: 0:43:07.376000\nTotal price: USD 11.88\nSource: local Chinook.db (Track, Album, Artist, Genre)."
+      },
+      "status": "complete",
+      "output": "Wedding plan complete\nVenue attempts: 1 / 5\nTravel date: 2027-03-14\n\nVenue candidate: Selected venue: H\u00f4tel Particulier Montmartre (23 Avenue Junot, Pavillon D, 75018 Paris) \u2014 a real Parisian wedding venue: a historic Herm\u00e8s-family mansion with a listed garden, offering full exclusivity and in-house catering. Advertised capacity: FrenchWeddingStyle.com lists \"up to 200 guests\" for a seated dinner (https://www.frenchweddingstyle.com/wedding-venues/hotel-particulier-montmartre), which accommodates the requested 100 guests; other third-party write-ups cite smaller figures (e.g., Le Joli Studio lists \"up to 60 guests\", starting \u20ac12,000 \u2013 https://www.lejolistudio.com/wedding-blog/10-most-unique-wedding-venues-paris). Date availability: NOT confirmed. No source publicizes confirmed availability for 2027-03-14; this must be verified directly with the venue (contact: +33 1 53 41 81 40 / hotelparticuliermontmartre.com events page), so advertised capacity should not be treated as confirmed booking availability for that date. Nearby arrival airport: Paris-Orly (ORY), documented by FrenchWeddingStyle as approx. 30 minutes by taxi; Paris-CDG also serves London-origin flights as an alternative. Note: search limit reached (4/4 web searches) prevented confirming any jazz-specific private-event programming or capacity for this venue; thematic fit verified only historically (Montmartre's bohemian/artistic heritage). No venues were excluded, and no prior flight error was provided.\n\nFlights: Flight found via Kiwi.com search (London \u2192 Paris-Orly, ORY, 14/03/2027, 1 adult, Economy, EUR): Cheapest AND shortest option \u2014 Vueling VY8058, direct non-stop LHR \u2192 ORY, departing London Heathrow 14 Mar 2027 15:15, arriving Paris Orly 17:45 (same day, 1h 30m), Economy, price 65 EUR (1 personal item included; no cabin or checked bag). Booking source link: https://kiwi.com/u/pyr5kb. This matches the selected venue's nearby arrival airport (Paris-Orly, ~30 min by taxi to H\u00f4tel Particulier Montmartre per FrenchWeddingStyle). Note: 15 itineraries returned; this direct option is both the lowest price and shortest duration (5400s). Research only \u2014 nothing booked.\n\nPlaylist: Jazz playlist (12 tracks):\n1. OAM's Blues \u2014 Aaron Goldberg\n2. Amanda \u2014 Aisha Duo\n3. Despertar \u2014 Aisha Duo\n4. Desafinado \u2014 Ant\u00f4nio Carlos Jobim\n5. Garota De Ipanema \u2014 Ant\u00f4nio Carlos Jobim\n6. Samba De Uma Nota S\u00f3 (One Note Samba) \u2014 Ant\u00f4nio Carlos Jobim\n7. Por Causa De Voc\u00ea \u2014 Ant\u00f4nio Carlos Jobim\n8. Ligia \u2014 Ant\u00f4nio Carlos Jobim\n9. Fotografia \u2014 Ant\u00f4nio Carlos Jobim\n10. Dindi (Dindi) \u2014 Ant\u00f4nio Carlos Jobim\n11. Se Todos Fossem Iguais A Voc\u00ea (Instrumental) \u2014 Ant\u00f4nio Carlos Jobim\n12. Falando De Amor \u2014 Ant\u00f4nio Carlos Jobim\nTotal duration: 0:43:07.376000\nTotal price: USD 11.88\nSource: local Chinook.db (Track, Album, Artist, Genre)."
+    }
+  },
+  "variant": "langgraph",
+  "node_spans": [
+    {
+      "kind": "node_end",
+      "elapsed_s": 6.264131,
+      "id": "01a0a4e1-aaa1-70b0-9a49-7b83c2b022dd",
+      "name": "collect_request",
+      "duration_s": 5.23188966700036,
+      "success": null,
+      "details": null,
+      "state_status": "running"
+    },
+    {
+      "kind": "node_end",
+      "elapsed_s": 82.553296,
+      "id": "01a0a4e1-bf12-7841-9a8d-102991c6a18f",
+      "name": "venue",
+      "duration_s": 76.2885228749983,
+      "success": true,
+      "details": "Selected venue: H\u00f4tel Particulier Montmartre (23 Avenue Junot, Pavillon D, 75018 Paris) \u2014 a real Parisian wedding venue: a historic Herm\u00e8s-family mansion with a listed garden, offering full exclusivity and in-house catering. Advertised capacity: FrenchWeddingStyle.com lists \"up to 200 guests\" for a seated dinner (https://www.frenchweddingstyle.com/wedding-venues/hotel-particulier-montmartre), which accommodates the requested 100 guests; other third-party write-ups cite smaller figures (e.g., Le Joli Studio lists \"up to 60 guests\", starting \u20ac12,000 \u2013 https://www.lejolistudio.com/wedding-blog/10-most-unique-wedding-venues-paris). Date availability: NOT confirmed. No source publicizes confirmed availability for 2027-03-14; this must be verified directly with the venue (contact: +33 1 53 41 81 40 / hotelparticuliermontmartre.com events page), so advertised capacity should not be treated as confirmed booking availability for that date. Nearby arrival airport: Paris-Orly (ORY), documented by FrenchWeddingStyle as approx. 30 minutes by taxi; Paris-CDG also serves London-origin flights as an alternative. Note: search limit reached (4/4 web searches) prevented confirming any jazz-specific private-event programming or capacity for this venue; thematic fit verified only historically (Montmartre's bohemian/artistic heritage). No venues were excluded, and no prior flight error was provided.",
+      "state_status": "running"
+    },
+    {
+      "kind": "node_end",
+      "elapsed_s": 111.97051,
+      "id": "01a0a4e2-e913-7b53-b438-90079dd7e2eb",
+      "name": "flights",
+      "duration_s": 29.416191457999957,
+      "success": true,
+      "details": "Flight found via Kiwi.com search (London \u2192 Paris-Orly, ORY, 14/03/2027, 1 adult, Economy, EUR): Cheapest AND shortest option \u2014 Vueling VY8058, direct non-stop LHR \u2192 ORY, departing London Heathrow 14 Mar 2027 15:15, arriving Paris Orly 17:45 (same day, 1h 30m), Economy, price 65 EUR (1 personal item included; no cabin or checked bag). Booking source link: https://kiwi.com/u/pyr5kb. This matches the selected venue's nearby arrival airport (Paris-Orly, ~30 min by taxi to H\u00f4tel Particulier Montmartre per FrenchWeddingStyle). Note: 15 itineraries returned; this direct option is both the lowest price and shortest duration (5400s). Research only \u2014 nothing booked.",
+      "state_status": null
+    },
+    {
+      "kind": "node_end",
+      "elapsed_s": 111.974901,
+      "id": "01a0a4e3-5bfc-73d1-b93c-273292eeef59",
+      "name": "playlist",
+      "duration_s": 0.003673249997518724,
+      "success": true,
+      "details": "Jazz playlist (12 tracks):\n1. OAM's Blues \u2014 Aaron Goldberg\n2. Amanda \u2014 Aisha Duo\n3. Despertar \u2014 Aisha Duo\n4. Desafinado \u2014 Ant\u00f4nio Carlos Jobim\n5. Garota De Ipanema \u2014 Ant\u00f4nio Carlos Jobim\n6. Samba De Uma Nota S\u00f3 (One Note Samba) \u2014 Ant\u00f4nio Carlos Jobim\n7. Por Causa De Voc\u00ea \u2014 Ant\u00f4nio Carlos Jobim\n8. Ligia \u2014 Ant\u00f4nio Carlos Jobim\n9. Fotografia \u2014 Ant\u00f4nio Carlos Jobim\n10. Dindi (Dindi) \u2014 Ant\u00f4nio Carlos Jobim\n11. Se Todos Fossem Iguais A Voc\u00ea (Instrumental) \u2014 Ant\u00f4nio Carlos Jobim\n12. Falando De Amor \u2014 Ant\u00f4nio Carlos Jobim\nTotal duration: 0:43:07.376000\nTotal price: USD 11.88\nSource: local Chinook.db (Track, Album, Artist, Genre).",
+      "state_status": null
+    },
+    {
+      "kind": "node_end",
+      "elapsed_s": 111.976149,
+      "id": "01a0a4e3-5c00-7ff0-9528-1cc4626f477a",
+      "name": "output",
+      "duration_s": 0.0006108339985075872,
+      "success": null,
+      "details": null,
+      "state_status": "complete"
+    }
+  ],
+  "sql_calls": 1,
+  "copied_database_changed": false,
+  "evidence_review": {
+    "core_pass": true,
+    "venue": "pass_with_notes",
+    "flight": "pass",
+    "playlist": "pass",
+    "reason": "The core request is supported: an advertised Paris venue capacity above 100, a March 14 London-to-Orly flight, and correct jazz playlist totals.",
+    "evidence": [
+      "The saved FrenchWeddingStyle result explicitly says Hotel Particulier Montmartre can accommodate up to 200 guests for a seated dinner: https://www.frenchweddingstyle.com/wedding-venues/hotel-particulier-montmartre",
+      "The selected Vueling VY8058 flight matches the tool response: LHR 2027-03-14 15:15 to ORY 17:45, EUR 65, 90 minutes, https://kiwi.com/u/pyr5kb",
+      "All 12 playlist rows match the baseline database. Duration is 2587376 milliseconds (43:07.376); cost is USD 11.88."
+    ],
+    "quality_notes": [
+      "The venue sources conflict on capacity. The final answer discloses another source's 60-guest figure and does not claim confirmed date availability.",
+      "This passes the declared advertised-capacity check. The actual room layout and capacity still need direct confirmation before it could become a booking-ready plan."
+    ]
+  }
+}

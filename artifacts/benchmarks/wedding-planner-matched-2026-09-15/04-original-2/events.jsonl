@@ -1,0 +1,3 @@
+{"kind": "run_start", "elapsed_s": 0.000479, "variant": "original", "utc": "2026-09-15T11:41:37.183802+00:00", "source_sha256": "9810d295353f1db5c95b7cda719e1e264129d7c9a46e0361880a2eedd7a0f872", "database_sha256": "84f5d9143ac4deebdb81650ab650e226d909e660106846b119a5c47c33f94c13"}
+{"kind": "run_end", "elapsed_s": 0.723185, "status": "error", "phase": "setup", "error": "ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)"}
+{"kind": "database_end", "elapsed_s": 0.723902, "database_sha256": "84f5d9143ac4deebdb81650ab650e226d909e660106846b119a5c47c33f94c13"}

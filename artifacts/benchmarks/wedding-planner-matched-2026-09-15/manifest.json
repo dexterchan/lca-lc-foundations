@@ -1,0 +1,54 @@
+{
+  "created_utc": "2026-09-15T11:35:27.083363+00:00",
+  "request": "I'm from London and want a wedding in Paris for 100 guests, with jazz music. Travel date: 2027-03-14.",
+  "planner_timeout_s": 300,
+  "step_timeout_s": 300,
+  "model_transport_timeout_s": 300,
+  "model_max_retries": 0,
+  "tavily_timeout_s": 30,
+  "outer_process_cap_s": 330,
+  "sources": {
+    "original": {
+      "path": "/Users/dexterchan/sandbox/agentic/langchain_academy_classwork/lca-lc-foundations/notebooks/module-2/2.4_wedding_planners.py",
+      "sha256": "9810d295353f1db5c95b7cda719e1e264129d7c9a46e0361880a2eedd7a0f872"
+    },
+    "langgraph": {
+      "path": "/Users/dexterchan/sandbox/agentic/langchain_academy_classwork/lca-lc-foundations/notebooks/module-2/2.4_wedding_planners_langgraph.py",
+      "sha256": "d4056fa2a0cd5c9ee0ddc117f9eccd3df271a8c49850073991238740f73d11a1"
+    }
+  },
+  "database_sha256": "84f5d9143ac4deebdb81650ab650e226d909e660106846b119a5c47c33f94c13",
+  "order": [
+    "original",
+    "langgraph",
+    "langgraph",
+    "original",
+    "original",
+    "langgraph"
+  ],
+  "controlled": [
+    "Identical user message including a fixed future travel date.",
+    "300 seconds for planning; no earlier individual step deadline.",
+    "Same model, 300-second transport timeout, zero model retries.",
+    "Both Tavily clients have a 30-second timeout.",
+    "Fresh source and database copies, process, and session each run.",
+    "Same evidence review; returned text and success flags alone do not pass."
+  ],
+  "remaining_differences": [
+    "Original specialists may overlap; graph uses venue then flights then SQL.",
+    "Original discards the requested date when delegating flights; left unchanged.",
+    "Original prompts and suggested 12 web searches vs graph hard 4 calls per tool.",
+    "Graph has six model calls per specialist; original keeps its own graph limits.",
+    "Original MCP error retries retained; graph retains its own flight retry edge.",
+    "Original outputs text; graph validates a structured result.",
+    "Original discovers flight tools during setup; graph discovers them during planning.",
+    "Original playlist agent may write to its private database copy."
+  ],
+  "interpretation": "Comparison under matched time budgets, not a controlled test of the LangGraph framework. Agent prompts, call budgets and workflow still differ.",
+  "common_pass_criteria": {
+    "venue": "Named Paris venue, evidence of room for 100 guests, and a source; no invented confirmed availability.",
+    "flight": "An actual tool result supporting a priced one-way London-to-Paris flight on 2027-03-14, with a source.",
+    "playlist": "Named jazz tracks supported by Chinook, with duration and cost totals matching the chosen tracks.",
+    "overall": "All three evidenced parts present in the final answer. Review manually against saved tool outputs."
+  }
+}

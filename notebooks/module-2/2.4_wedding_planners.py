@@ -272,26 +272,35 @@ coordinator = create_agent(
 # 
 
 # %%
-
 from langchain.messages import HumanMessage
 
-response = await coordinator.ainvoke(
-    {
-        "messages": [HumanMessage(content="I'm from London and I'd like a wedding in Paris for 100 guests, jazz-genre")],
-    },
-    config={"tags": ["WP"], "recursion_limit": 40},  #tag traces to make them easy to find in Langsmith. Increase number of steps the agent can take to 40.
-)
+async def main():
+    response = await coordinator.ainvoke(
+        {
+            "messages": [HumanMessage(content="I'm from London and I'd like a wedding in Paris for 100 guests, jazz-genre")],
+        },
+        config={"tags": ["WP"], "recursion_limit": 40},  #tag traces to make them easy to find in Langsmith. Increase number of steps the agent can take to 40.
+    )
+
+    from pprint import pprint
+
+    pprint(response)
+
+    print(response["messages"][-1].content)
+
 
 # %%
-
-from pprint import pprint
-
-pprint(response)
-
-# %%
-
-print(response["messages"][-1].content)
 
 # %% [markdown]
 
 # link to trace: https://smith.langchain.com/public/7b5fe668-d3e3-4af4-b513-a8cacc0c9e84/r
+
+if __name__ == "__main__":
+    try:
+        asyncio.get_running_loop()
+    except RuntimeError:
+        result = asyncio.run(main())
+    else:
+        print("Python Interactive: run `result = await main()` in a new cell.")
+else:
+    await main()

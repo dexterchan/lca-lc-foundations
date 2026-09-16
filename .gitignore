@@ -208,3 +208,5 @@ __marimo__/
 
 # LangSmith Studio
 **/.langgraph_api/
+
+.langgraph_api/

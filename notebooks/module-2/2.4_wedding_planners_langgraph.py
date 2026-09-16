@@ -1,5 +1,6 @@
 # %% [markdown]
 
+
 # # Wedding planner with a fixed LangGraph flow
 #
 # START -> collect_request (update_state) -> venue -> flights -> playlist -> output
@@ -84,6 +85,7 @@ import os
 from pathlib import Path
 import sqlite3
 import time
+import traceback
 from typing import Annotated, Literal, TypedDict
 from uuid import uuid4
 from weakref import WeakValueDictionary
@@ -342,6 +344,8 @@ def build_wedding_graph(
                 timeout=step_timeout,
             )
         except Exception as exc:
+            print("[collect_request] failed:")
+            traceback.print_exc()
             return {
                 **fresh_plan(), "status": "incomplete",
                 "output": f"Could not read the request: {type(exc).__name__}: {exc}",
@@ -387,6 +391,8 @@ def build_wedding_graph(
                 success=False, details=f"Search timed out after {step_timeout:g} seconds."
             )
         except Exception as exc:
+            print(f"[run_step:{worker.__name__ if hasattr(worker, '__name__') else worker}] failed:")
+            traceback.print_exc()
             return schema(success=False, details=f"{type(exc).__name__}: {exc}")
 
     async def search_venue(state: WeddingState):
@@ -559,6 +565,10 @@ class WeddingPlanner:
     async def ainvoke(self, message: str, *, session_id: str,
                       timeout_seconds: float = 300) -> WeddingState:
         config = self._config(session_id)
+        trace_id = str(uuid4())
+        config["run_id"] = trace_id
+        config["run_name"] = "wedding_planner_turn"
+        print(f"LangSmith trace_id: {trace_id}")
         if not isinstance(message, str) or not message.strip():
             raise ValueError("message must be a non-empty string.")
         if timeout_seconds <= 0:
@@ -827,7 +837,7 @@ def create_live_planner(*, checkpointer=None) -> WeddingPlanner:
     """Create once, then reuse for each session and each follow-up message."""
     from dotenv import load_dotenv
 
-    load_dotenv()
+    load_dotenv(override=True)
     return WeddingPlanner(
         *create_live_workers(), request_agent=create_request_agent(),
         checkpointer=checkpointer,

@@ -49,14 +49,22 @@ agent = create_agent(
     model=model,
     tools=[web_search],
     system_prompt=system_prompt,
-    checkpointer=InMemorySaver()
+    #checkpointer=InMemorySaver()
 )
 
 # %%
 
 from langchain.messages import HumanMessage
+import uuid
 
-config = {"configurable": {"thread_id": "1"}}
+session_id = str(uuid.uuid4())
+trace_id = str(uuid.uuid4())
+config = {
+    "configurable": {"thread_id": session_id},
+    "run_name": "personal_chef_run",
+    "run_id": trace_id,
+}
+print(f"LangSmith trace_id: {trace_id}")
 
 response = agent.invoke(
     {"messages": [HumanMessage(content="I have some leftover chicken and rice. What can I make?")]},

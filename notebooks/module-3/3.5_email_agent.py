@@ -17,6 +17,7 @@ import hmac
 import os
 from dataclasses import dataclass
 from typing import Awaitable, Callable
+from uuid import uuid4
 
 from langchain.agents import create_agent
 from langchain.agents.middleware import (
@@ -28,9 +29,10 @@ from langchain.agents.middleware import (
 )
 from langchain.chat_models import init_chat_model
 from langchain.messages import AIMessage, HumanMessage
-from langchain.tools import tool
+from langchain.tools import tool, ToolRuntime
 from langgraph.checkpoint.memory import InMemorySaver
 from langgraph.types import Command
+from langchain.agents import AgentState
 
 
 # %% [markdown]
@@ -45,6 +47,8 @@ class EmailSession:
 
     email_address: str
 
+class CustomState(AgentState):
+    email_session: EmailSession
 
 def authenticate_locally(email: str, password: str) -> EmailSession:
     """Check the demo login locally. Do not expose this function as an AI tool."""
@@ -81,14 +85,16 @@ def build_agent(*, session: EmailSession | None = None, checkpointer=None):
     if session is not None and not isinstance(session, EmailSession):
         raise TypeError("A locally verified EmailSession is required.")
 
-    def require_session():
+    def require_session(email_session: EmailSession | None = None):
         if session is None:
             raise PermissionError("Sign in locally before using email.")
+        if email_session != session:
+            raise PermissionError("Email session in state does not match the signed-in session.")
 
     @tool
-    def check_inbox() -> str:
+    def check_inbox(runtime: ToolRuntime) -> str:
         """Check the sample inbox for recent emails."""
-        require_session()
+        require_session(runtime.state.get("email_session"))
         return (
             "Hi Julie, I'm going to be in town next week and was wondering "
             "if we could grab a coffee? "
@@ -96,10 +102,11 @@ def build_agent(*, session: EmailSession | None = None, checkpointer=None):
         )
 
     @tool
-    def send_email(to: str, subject: str, body: str) -> str:
+    def send_email(to: str, subject: str, body: str, runtime: ToolRuntime) -> str:
         """Send a response email (simulated for this lesson)."""
-        require_session()
+        require_session(runtime.state.get("email_session"))
         return f"Email sent to {to} with subject {subject} and body {body}"
+
 
     @wrap_model_call
     async def dynamic_tool_call(
@@ -132,6 +139,7 @@ def build_agent(*, session: EmailSession | None = None, checkpointer=None):
                 interrupt_on={"check_inbox": False, "send_email": True},
             ),
         ],
+        state_schema=CustomState
     )
 
 
@@ -148,8 +156,8 @@ async def run_demo():
     """Sign in locally, then draft and approve a simulated email."""
     if not os.environ.get("EMAIL_AGENT_DEMO_PASSWORD"):
         raise RuntimeError("Set EMAIL_AGENT_DEMO_PASSWORD in your local .env file.")
-    email = input("Email [julie@example.com]: ").strip() or "julie@example.com"
-    password = getpass.getpass("Local demo password: ")
+    email = os.getenv("EMAIL_AGENT_DEMO_EMAIL") #input("Email [julie@example.com]: ").strip() or "julie@example.com"
+    password = os.getenv("EMAIL_AGENT_DEMO_PASSWORD") #getpass.getpass("Local demo password: ")
     try:
         session = authenticate_locally(email, password)
     finally:
@@ -157,11 +165,21 @@ async def run_demo():
 
     demo_agent = build_agent(session=session, checkpointer=InMemorySaver())
     config = {"configurable": {"thread_id": "1"}}
+
+    def new_run_id(run_name: str) -> dict:
+        """Give this turn its own run_id so it shows up as its own trace in LangSmith."""
+        run_id = str(uuid4())
+        print(f"LangSmith run_id ({run_name}): {run_id}")
+        return {**config, "run_id": run_id, "run_name": run_name}
+
     response = await demo_agent.ainvoke(
-        {"messages": [HumanMessage(
-            content="Check my inbox. Do not send a reply yet."
-        )]},
-        config=config,
+        {
+            "messages": [HumanMessage(
+                content="Check my inbox. Do not send a reply yet."
+            )],
+            "email_session": session,
+        },
+        config=new_run_id("check_inbox_turn"),
     )
     print(response["messages"][-1].content)
 
@@ -169,7 +187,7 @@ async def run_demo():
         {"messages": [HumanMessage(
             content="Draft and send one reply to Jane accepting her coffee invitation. Any draft is fine."
         )]},
-        config=config,
+        config=new_run_id("draft_reply_turn"),
     )
     interrupts = response.get("__interrupt__")
     if not interrupts:
@@ -190,7 +208,7 @@ async def run_demo():
         Command(resume={
             "decisions": [{"type": "approve"} for _ in action_requests]
         }),
-        config=config,
+        config=new_run_id("approve_send_turn"),
     )
     print("\nAfter approval:")
     print(response["messages"][-1].content)

@@ -25,6 +25,9 @@ Download the course repository
 # Clone the repo
 git clone --depth 1 https://github.com/langchain-ai/lca-lc-foundations.git
 cd lca-lc-foundations
+
+# Pull the agent-chat-ui submodule (used in Module 3)
+git submodule update --init --recursive
 ```
 
 Make a copy of example.env
@@ -178,7 +181,7 @@ This repository contains three Modules that serve as introductions to many of La
 - Human In The Loop (HITL)
 - Dynamic Agents
 - Project: Email Assistant
-- Bonus: Agent Chat UI
+- Bonus: Agent Chat UI (a git submodule at `notebooks/module-3/agent-chat-ui` — run `git submodule update --init --recursive` if that folder looks empty)
 
 ## 📖 Related Resources
 
